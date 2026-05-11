@@ -1,0 +1,14 @@
+{
+  "name": "Plainsight",
+  "dataColors": [
+    "#000075",
+    "#d5693a",
+    "#3939A0",
+    "#7373AA",
+    "#ADADD4",
+    "#A04A20"
+  ],
+  "background": "#ffffff",
+  "foreground": "#000075",
+  "tableAccent": "#d5693a"
+}

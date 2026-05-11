@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Overview · Plainsight Brand Kit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;600;700&family=Epilogue:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="icon" href="assets/logos/plainsight-logo-blue.svg">
+</head>
+<body>
+<div class="shell">
+
+  <aside>
+    <div class="brand">
+      <a href="index.html"><img src="assets/logos/plainsight-logo-blue.svg" alt="Plainsight"></a>
+      <small>Brand Kit · v1.0</small>
+    </div>
+    <nav>
+        <a href="index.html" class="active"><span class="nav-num">00</span>Overview</a>
+        <a href="guidelines.html"><span class="nav-num">01</span>Guidelines</a>
+        <a href="templates.html"><span class="nav-num">02</span>Brand templates</a>
+        <a href="logos.html"><span class="nav-num">03</span>Logos</a>
+        <a href="colors.html"><span class="nav-num">04</span>Colors</a>
+        <a href="fonts.html"><span class="nav-num">05</span>Fonts</a>
+        <a href="voice.html"><span class="nav-num">06</span>Brand voice</a>
+        <a href="photos.html"><span class="nav-num">07</span>Photos</a>
+        <a href="graphics.html"><span class="nav-num">08</span>Graphics</a>
+        <a href="icons.html"><span class="nav-num">09</span>Icons</a>
+        <a href="charts.html"><span class="nav-num">10</span>Charts</a>
+    </nav>
+  </aside>
+
+  <main>
+
+    <div class="hero">
+      <div class="meta">Plainsight brand kit · v1.0</div>
+      <h1>From complexity to clarity.</h1>
+      <p>The single source of truth for how Plainsight looks, sounds and shows up. Use it whenever you build something with our name on it.</p>
+      <span class="pill">ANALYTICS &amp; AI</span>
+    </div>
+
+    <h2 style="margin-bottom: 24px;">Browse the kit</h2>
+    <div class="index-grid">
+      <a class="index-card" href="guidelines.html">
+        <div class="num">01 · GUIDELINES</div>
+        <h3>How to use this kit</h3>
+        <p>The six rules that apply to every Plainsight deliverable, from a one-pager to a Power BI dashboard.</p>
+      </a>
+      <a class="index-card" href="templates.html">
+        <div class="num">02 · BRAND TEMPLATES</div>
+        <h3>Templates</h3>
+        <p>Starting points for the docs we make most often — Word, PowerPoint, Power BI, email signature.</p>
+      </a>
+      <a class="index-card" href="logos.html">
+        <div class="num">03 · LOGOS</div>
+        <h3>Logo</h3>
+        <p>Blue, white, on cream, on mist. SVG and PNG. With clear-space and minimum-size rules.</p>
+      </a>
+      <a class="index-card" href="colors.html">
+        <div class="num">04 · COLORS</div>
+        <h3>Colors</h3>
+        <p>Two brand colors, two neutrals, three derived blue tints. With HEX, RGB, HSL and CMYK values.</p>
+      </a>
+      <a class="index-card" href="fonts.html">
+        <div class="num">05 · FONTS</div>
+        <h3>Typography</h3>
+        <p>Titillium Web for headings, Epilogue for body. Every size on the system, rendered live.</p>
+      </a>
+      <a class="index-card" href="voice.html">
+        <div class="num">06 · BRAND VOICE</div>
+        <h3>How we sound</h3>
+        <p>Three voice principles and four "we say / we don't say" pairs, grounded in our website copy.</p>
+      </a>
+      <a class="index-card" href="photos.html">
+        <div class="num">07 · PHOTOS</div>
+        <h3>Photography</h3>
+        <p>What good Plainsight photography looks like, and the treatments we never apply.</p>
+      </a>
+      <a class="index-card" href="graphics.html">
+        <div class="num">08 · GRAPHICS</div>
+        <h3>Graphic elements</h3>
+        <p>The triangle and the rocket — our two signature motifs, with placement rules.</p>
+      </a>
+      <a class="index-card" href="icons.html">
+        <div class="num">09 · ICONS</div>
+        <h3>Iconography</h3>
+        <p>The icon family we use everywhere and the style rules that keep them consistent.</p>
+      </a>
+      <a class="index-card" href="charts.html">
+        <div class="num">10 · CHARTS</div>
+        <h3>Charts &amp; data viz</h3>
+        <p>Chart palette, when to use which combination, plus a ready-to-import Power BI theme.</p>
+      </a>
+    </div>
+
+    <footer>
+      Plainsight Brand Kit · v1.0 ·
+      <a href="https://www.plainsight.pro" target="_blank" rel="noopener">plainsight.pro</a>
+    </footer>
+  </main>
+</div>
+
+<div class="toast" id="toast">Copied to clipboard</div>
+
+<script>
+  // Click-to-copy hex codes
+  document.querySelectorAll('.swatch .hex').forEach(el => {
+    el.addEventListener('click', async () => {
+      const text = el.textContent.trim();
+      try {
+        await navigator.clipboard.writeText(text);
+      } catch (e) {
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        ta.remove();
+      }
+      const toast = document.getElementById('toast');
+      toast.textContent = 'Copied ' + text;
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 1400);
+    });
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Charts · Plainsight Brand Kit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;600;700&family=Epilogue:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="icon" href="assets/logos/plainsight-logo-blue.svg">
+</head>
+<body>
+<div class="shell">
+
+  <aside>
+    <div class="brand">
+      <a href="index.html"><img src="assets/logos/plainsight-logo-blue.svg" alt="Plainsight"></a>
+      <small>Brand Kit · v1.0</small>
+    </div>
+    <nav>
+        <a href="index.html"><span class="nav-num">00</span>Overview</a>
+        <a href="guidelines.html"><span class="nav-num">01</span>Guidelines</a>
+        <a href="templates.html"><span class="nav-num">02</span>Brand templates</a>
+        <a href="logos.html"><span class="nav-num">03</span>Logos</a>
+        <a href="colors.html"><span class="nav-num">04</span>Colors</a>
+        <a href="fonts.html"><span class="nav-num">05</span>Fonts</a>
+        <a href="voice.html"><span class="nav-num">06</span>Brand voice</a>
+        <a href="photos.html"><span class="nav-num">07</span>Photos</a>
+        <a href="graphics.html"><span class="nav-num">08</span>Graphics</a>
+        <a href="icons.html"><span class="nav-num">09</span>Icons</a>
+        <a href="charts.html" class="active"><span class="nav-num">10</span>Charts</a>
+    </nav>
+  </aside>
+
+  <main>
+
+    <span class="eyebrow">10 — Charts</span>
+    <h1>Charts &amp; data visualization</h1>
+    <p class="lead">Most Plainsight charts use one colour. The moment a chart uses six different colours, it has stopped being a chart and started being a flag.</p>
+
+    <section>
+      <div class="section-head">
+        <h2>Chart palette (ordered)</h2>
+        <p>Use the colors in this order. Don't skip ahead.</p>
+      </div>
+
+      <div class="chart-strip">
+        <div style="background: #000075;"></div>
+        <div style="background: #d5693a;"></div>
+        <div style="background: #3939A0;"></div>
+        <div style="background: #7373AA;"></div>
+        <div style="background: #ADADD4;"></div>
+        <div style="background: #A04A20;"></div>
+      </div>
+      <div class="chart-strip-labels">
+        <div class="seq-label">#000075</div>
+        <div class="seq-label">#d5693a</div>
+        <div class="seq-label">#3939A0</div>
+        <div class="seq-label">#7373AA</div>
+        <div class="seq-label">#ADADD4</div>
+        <div class="seq-label">#A04A20</div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <h2>When to use which</h2>
+      </div>
+
+      <table class="brand-table">
+        <thead><tr><th>Chart shows…</th><th>Use colors</th><th>Example</th></tr></thead>
+        <tbody>
+          <tr><td>One series over time / categories</td><td><code>#000075</code> only</td><td>Monthly revenue, headcount over years</td></tr>
+          <tr><td>Actual vs. target, us vs. them</td><td><code>#000075</code> + <code>#d5693a</code></td><td>Forecast vs. actual, before vs. after</td></tr>
+          <tr><td>3–5 series, no semantic difference</td><td>Blue tints in order</td><td>Revenue by region</td></tr>
+          <tr><td>One highlighted item in a list of many</td><td>All gray (Blue 18%) + the one in Orange</td><td>"This is the bar you should care about"</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <h2>Chart rules</h2>
+      </div>
+
+      <ul class="rules">
+        <li><b>Title in Titillium Web, body in Epilogue.</b> Same hierarchy as everywhere else.</li>
+        <li><b>Axes in Blue 55%.</b> Gridlines in Blue 18%. The data is the point — axes should recede.</li>
+        <li><b>No 3-D, no pie charts of more than 4 slices, no rainbows.</b></li>
+        <li><b>Sort bar charts by value</b> unless they're time-ordered. Alphabetical bar charts hide the story.</li>
+        <li><b>Direct-label where you can.</b> A label on the line is better than a legend two inches away.</li>
+        <li><b>Round numbers on axes.</b> Forty-two thousand euros is "€42K", not "€42 137.50".</li>
+      </ul>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <h2>Power BI theme</h2>
+        <p>Download the JSON file and import it via View → Themes → Browse for themes.</p>
+      </div>
+
+      <pre><span class="c">// plainsight-powerbi-theme.json</span>
+{
+  <span class="k">"name"</span>: <span class="s">"Plainsight"</span>,
+  <span class="k">"dataColors"</span>: [
+    <span class="s">"#000075"</span>, <span class="s">"#d5693a"</span>, <span class="s">"#3939A0"</span>,
+    <span class="s">"#7373AA"</span>, <span class="s">"#ADADD4"</span>, <span class="s">"#A04A20"</span>
+  ],
+  <span class="k">"background"</span>: <span class="s">"#ffffff"</span>,
+  <span class="k">"foreground"</span>: <span class="s">"#000075"</span>,
+  <span class="k">"tableAccent"</span>: <span class="s">"#d5693a"</span>
+}</pre>
+
+      <div class="download-row">
+        <a class="dl-chip" href="assets/templates/plainsight-powerbi-theme.json" download>JSON · Power BI theme</a>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <h2>matplotlib / Python</h2>
+        <p>Drop this at the top of any notebook to get on-brand charts by default.</p>
+      </div>
+
+      <pre><span class="k">import</span> matplotlib <span class="k">as</span> mpl
+
+PS_BLUE   = <span class="s">"#000075"</span>
+PS_ORANGE = <span class="s">"#d5693a"</span>
+PS_CYCLE  = [<span class="s">"#000075"</span>, <span class="s">"#d5693a"</span>, <span class="s">"#3939A0"</span>,
+             <span class="s">"#7373AA"</span>, <span class="s">"#ADADD4"</span>, <span class="s">"#A04A20"</span>]
+
+mpl.rcParams.update({
+    <span class="s">"font.family"</span>:        <span class="s">"Epilogue"</span>,
+    <span class="s">"axes.edgecolor"</span>:     PS_BLUE,
+    <span class="s">"axes.labelcolor"</span>:    PS_BLUE,
+    <span class="s">"text.color"</span>:         PS_BLUE,
+    <span class="s">"axes.titlecolor"</span>:    PS_BLUE,
+    <span class="s">"axes.prop_cycle"</span>:    mpl.cycler(color=PS_CYCLE),
+    <span class="s">"figure.facecolor"</span>:   <span class="s">"white"</span>,
+    <span class="s">"axes.facecolor"</span>:     <span class="s">"white"</span>,
+    <span class="s">"axes.spines.top"</span>:    <span class="k">False</span>,
+    <span class="s">"axes.spines.right"</span>:  <span class="k">False</span>,
+})</pre>
+    </section>
+
+    <footer>
+      Plainsight Brand Kit · v1.0 ·
+      <a href="https://www.plainsight.pro" target="_blank" rel="noopener">plainsight.pro</a>
+    </footer>
+  </main>
+</div>
+
+<div class="toast" id="toast">Copied to clipboard</div>
+
+<script>
+  // Click-to-copy hex codes
+  document.querySelectorAll('.swatch .hex').forEach(el => {
+    el.addEventListener('click', async () => {
+      const text = el.textContent.trim();
+      try {
+        await navigator.clipboard.writeText(text);
+      } catch (e) {
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        ta.remove();
+      }
+      const toast = document.getElementById('toast');
+      toast.textContent = 'Copied ' + text;
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 1400);
+    });
+  });
+</script>
+
+</body>
+</html>
