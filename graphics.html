@@ -91,6 +91,45 @@
 
     <section>
       <div class="section-head">
+        <h2>Triangle placement by context</h2>
+        <p>The triangle is a wireframe/outline shape (not filled), drawn with navy, orange, or white stroke lines. Native size is 313 &times; 358 px. Placement varies by medium.</p>
+      </div>
+
+      <table class="brand-table">
+        <thead><tr><th>Context</th><th>Where</th><th>Color</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td><b>LinkedIn slides (Template A)</b></td><td>Top-right + bottom-left</td><td>Navy outline</td><td>Paired, overlapping, 60% visible</td></tr>
+          <tr><td><b>LinkedIn slides (Template B)</b></td><td>Bottom-left only</td><td>Navy outline</td><td>Cleaner top area</td></tr>
+          <tr><td><b>Website cream sections</b></td><td>Top-right corner</td><td>Navy at 10-15% opacity</td><td>Use TriangleDecoration component</td></tr>
+          <tr><td><b>Website navy sections</b></td><td>Top-right + bottom-left</td><td>White at 5-10% opacity</td><td>CTA/footer only</td></tr>
+          <tr><td><b>Website hero sections</b></td><td>Top-right only</td><td>Orange (client) or navy (technical)</td><td>1 triangle max</td></tr>
+          <tr><td><b>Presentations</b></td><td>Corner decoration</td><td>Navy or white depending on slide bg</td><td>Subtle, never obscure content</td></tr>
+        </tbody>
+      </table>
+
+      <h3 style="margin: 24px 0 12px; font-size: 18px;">LinkedIn slide geometry</h3>
+      <p style="font-size: 14px; color: var(--ps-blue-55); max-width: 720px;">Triangles appear in pairs at each corner, asymmetrically nested (two same-sized triangles offset from each other). Each triangle is scaled 1.1&times; from native (344 &times; 394 px effective). 60% of each triangle is visible; 40% bleeds off the canvas edge.</p>
+
+      <div class="dodont" style="margin-top: 20px;">
+        <div class="col do">
+          <h4>Top-right pair (Template A only)</h4>
+          <ul>
+            <li>Back triangle: x = canvas_width &minus; triangle_width + 30</li>
+            <li>Front triangle: shifted left 90 px and down 60 px</li>
+          </ul>
+        </div>
+        <div class="col do">
+          <h4>Bottom-left pair (both templates)</h4>
+          <ul>
+            <li>Left triangle (lower): x = &minus;30, bleeds below canvas</li>
+            <li>Right triangle (higher): offset 120 px right from left triangle</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
         <h2>Graphic rules</h2>
       </div>
 
@@ -100,6 +139,7 @@
         <li><b>Don't recolour.</b> Triangles come in three colours (blue / orange / white) and that's it. Rockets stay in their two-tone palette.</li>
         <li><b>Never inside a chart.</b> These are layout decorations, not data marks. A bar chart with a rocket icon for "growth" looks like clip art.</li>
         <li><b>Size restraint.</b> A triangle bigger than 1/3 of the page becomes the page. Keep them small — they're accents, not heroes.</li>
+        <li><b>Triangles are decorative.</b> They must never obscure text or interactive content. On web: always <code>pointer-events: none</code> and <code>aria-hidden="true"</code>.</li>
       </ul>
     </section>
 

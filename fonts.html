@@ -89,18 +89,68 @@
 
     <section>
       <div class="section-head">
-        <h2>Fallbacks</h2>
-        <p>When Titillium Web or Epilogue can't load (offline Word, some legacy email clients), fall back to Arial — close enough proportions to keep layouts intact. Never substitute with Times, Calibri or Helvetica.</p>
+        <h2>Typography by medium</h2>
+        <p>Different channels use different primary fonts. Pick the right one for your output.</p>
       </div>
 
-      <pre><span class="c">/* CSS font stack */</span>
+      <table class="brand-table">
+        <thead><tr><th>Medium</th><th>Primary font</th><th>Fallback</th></tr></thead>
+        <tbody>
+          <tr><td><b>LinkedIn visuals</b></td><td>Titillium Web (Regular, SemiBold, Bold, Light)</td><td>Helvetica</td></tr>
+          <tr><td><b>Website</b></td><td>Inter (400, 500, 600, 700) via next/font</td><td>system sans-serif</td></tr>
+          <tr><td><b>Presentations</b></td><td>Inter or Titillium Web depending on context</td><td>Calibri</td></tr>
+          <tr><td><b>Documents</b></td><td>Titillium Web (headings) + Epilogue (body)</td><td>Arial</td></tr>
+        </tbody>
+      </table>
+
+      <h3 style="margin: 24px 0 12px; font-size: 18px;">Common rules across all media</h3>
+      <ul class="rules">
+        <li><b>Maximum 2 font weights per slide or section</b> — regular + bold. Don't mix three or more.</li>
+        <li><b>No italic usage</b> in carousels or slides. Reserve italic for pull-quotes in documents only.</li>
+        <li><b>Short text blocks.</b> 1-2 sentences per paragraph on slides, sentence fragments preferred.</li>
+        <li><b>Headings are bold and uppercase</b> with wider tracking. On web, set via CSS base layer.</li>
+      </ul>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <h2>Web typography scale</h2>
+        <p>The full type scale for website pages and components, using Inter.</p>
+      </div>
+
+      <table class="brand-table">
+        <thead><tr><th>Class</th><th>Size</th><th>Usage</th></tr></thead>
+        <tbody>
+          <tr><td><code>text-display-xl</code></td><td>4.5 rem</td><td>Homepage hero</td></tr>
+          <tr><td><code>text-display-lg</code></td><td>3.75 rem</td><td>Page heroes</td></tr>
+          <tr><td><code>text-display</code></td><td>3 rem</td><td>Section titles</td></tr>
+          <tr><td><code>text-heading-xl</code></td><td>2.25 rem</td><td>Sub-section headings</td></tr>
+          <tr><td><code>text-heading-lg</code></td><td>1.875 rem</td><td>Card group titles</td></tr>
+          <tr><td><code>text-heading</code></td><td>1.5 rem</td><td>Card titles</td></tr>
+          <tr><td><code>text-body-lg</code></td><td>1.125 rem</td><td>Lead paragraphs</td></tr>
+          <tr><td><code>text-body</code></td><td>1 rem</td><td>Default body</td></tr>
+          <tr><td><code>text-body-sm</code></td><td>0.875 rem</td><td>Metadata, nav</td></tr>
+          <tr><td><code>text-caption</code></td><td>0.75 rem</td><td>Fine print</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <h2>Fallbacks</h2>
+        <p>When the primary font can't load, fall back gracefully. Never substitute with Times.</p>
+      </div>
+
+      <pre><span class="c">/* CSS font stacks */</span>
 <span class="k">--font-head:</span> "Titillium Web", "Segoe UI", Arial, sans-serif;
-<span class="k">--font-body:</span> "Epilogue", "Segoe UI", Arial, sans-serif;</pre>
+<span class="k">--font-body:</span> "Epilogue", "Segoe UI", Arial, sans-serif;
+<span class="k">--font-web:</span>  "Inter", system-ui, sans-serif;</pre>
 
       <h3 style="margin: 24px 0 12px; font-size: 18px;">Where to get the fonts</h3>
       <ul class="rules">
-        <li><b>Titillium Web</b> — <a href="https://fonts.google.com/specimen/Titillium+Web" target="_blank" rel="noopener">fonts.google.com/specimen/Titillium+Web</a>. Free, open-source. Install weights 400 / 600 / 700.</li>
+        <li><b>Titillium Web</b> — <a href="https://fonts.google.com/specimen/Titillium+Web" target="_blank" rel="noopener">fonts.google.com/specimen/Titillium+Web</a>. Free, open-source. Install weights 300 / 400 / 600 / 700.</li>
         <li><b>Epilogue</b> — <a href="https://fonts.google.com/specimen/Epilogue" target="_blank" rel="noopener">fonts.google.com/specimen/Epilogue</a>. Free, open-source. Install weights 400 / 500 / 600 / 700.</li>
+        <li><b>Inter</b> — <a href="https://fonts.google.com/specimen/Inter" target="_blank" rel="noopener">fonts.google.com/specimen/Inter</a>. Free, open-source. Install weights 400 / 500 / 600 / 700.</li>
       </ul>
     </section>
 

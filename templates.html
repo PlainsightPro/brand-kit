@@ -81,6 +81,110 @@
 
     <section>
       <div class="section-head">
+        <h2>LinkedIn carousel specs</h2>
+        <p>Every Plainsight carousel follows a fixed canvas, two template variants, and a 7-slide narrative arc.</p>
+      </div>
+
+      <h3 style="margin: 0 0 12px; font-size: 18px;">Canvas</h3>
+      <p style="font-size: 14px; color: var(--ps-blue-55); margin-bottom: 24px;">1080 &times; 1350 px (4:5 ratio). Margins: 72 px all sides. Content width: 936 px.</p>
+
+      <h3 style="margin: 0 0 12px; font-size: 18px;">Two templates</h3>
+      <div class="grid grid-2" style="margin-bottom: 24px;">
+        <div class="card card-cream">
+          <h4 style="margin: 0 0 8px;">Template A — "Warm Accent"</h4>
+          <p style="font-size: 14px; color: var(--ps-blue-55); margin: 0;">Off-white background, blue triangles both corners, thick orange accent lines (160 px, 6 px), navy punchline cards (24 px radius), orange closing cards (20 px radius).</p>
+        </div>
+        <div class="card card-cream">
+          <h4 style="margin: 0 0 8px;">Template B — "Bold Statements"</h4>
+          <p style="font-size: 14px; color: var(--ps-blue-55); margin: 0;">Off-white background, bottom-only blue triangles, oversized typography, orange underline bars (180 px, 7 px) below titles, prominent statement cards.</p>
+        </div>
+      </div>
+
+      <h3 style="margin: 0 0 12px; font-size: 18px;">7-slide narrative arc</h3>
+      <table class="brand-table">
+        <thead><tr><th>Slide</th><th>Purpose</th><th>Content density</th></tr></thead>
+        <tbody>
+          <tr><td><b>1 — Hook</b></td><td>Strong statement creating curiosity or tension</td><td>Max 3 lines + subtitle (max 2 lines)</td></tr>
+          <tr><td><b>2 — Recognition</b></td><td>What people commonly see ("I recognise this")</td><td>1 title + 3-5 observation lines + 1 punchline</td></tr>
+          <tr><td><b>3 — Reframe</b></td><td>Reveal the deeper issue, shift perspective</td><td>1 title + 1 intro + 3-5 bullets + 1 closing</td></tr>
+          <tr><td><b>4 — Trade-off</b></td><td>Two opposing sides / the tension</td><td>1 title + 2 contrast boxes (3-4 bullets each) + 1 closing</td></tr>
+          <tr><td><b>5 — Practical</b></td><td>Actionable guardrails or steps</td><td>1 title + 1 intro + 3-5 cards (title + desc each)</td></tr>
+          <tr><td><b>6 — Perspective</b></td><td>Plainsight point of view</td><td>1 title + 3-4 statement cards</td></tr>
+          <tr><td><b>7 — Closing</b></td><td>Reflective statement (not promotional)</td><td>1 statement (max 3 lines) + 1 subtext line</td></tr>
+        </tbody>
+      </table>
+
+      <h3 style="margin: 24px 0 12px; font-size: 18px;">Slide furniture</h3>
+      <ul class="rules">
+        <li><b>Position dots:</b> Top-right, 5 px radius, 18 px spacing. Active = orange, inactive = #c0c0c0.</li>
+        <li><b>Slide counter:</b> Bottom-left, "1 / 7" format, muted blue (#8888bb), 14pt.</li>
+        <li><b>Topic badge:</b> Top-left pill, uppercase. Navy bg (Template A) or orange bg (Template B).</li>
+        <li><b>Logo:</b> Bottom-right, 150 px wide, blue version.</li>
+      </ul>
+
+      <h3 style="margin: 24px 0 12px; font-size: 18px;">Cards &amp; accents</h3>
+      <ul class="rules">
+        <li><b>Rounded corners:</b> 16-24 px radius throughout.</li>
+        <li><b>Card fills:</b> Navy for punchline cards, orange for closing cards, white for content cards.</li>
+        <li><b>Orange left accent bars:</b> 6-8 px wide, rounded ends.</li>
+        <li><b>Orange bullets:</b> Filled circle, 5 px radius, 24 px text indent.</li>
+        <li><b>Number badges:</b> 42-50 px circle, orange or navy fill, white text.</li>
+      </ul>
+
+      <h3 style="margin: 24px 0 12px; font-size: 18px;">Offerings &amp; topic badges</h3>
+      <table class="brand-table">
+        <thead><tr><th>Offering</th><th>Badge label</th><th>Example topics</th></tr></thead>
+        <tbody>
+          <tr><td>AI &amp; GenAI</td><td><code>AI &amp; GENAI · PLAINSIGHT</code></td><td>AI pilots, production AI, shadow AI, guardrails</td></tr>
+          <tr><td>Data &amp; Analytics</td><td><code>DATA &amp; ANALYTICS · PLAINSIGHT</code></td><td>Data foundations, reporting trust, platform adoption</td></tr>
+          <tr><td>Strategy &amp; Governance</td><td><code>STRATEGY &amp; GOVERNANCE · PLAINSIGHT</code></td><td>Ownership, prioritisation, maturity, governance</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <h2>Website components</h2>
+        <p>Layout rules and component patterns for the Plainsight website (Next.js / Tailwind).</p>
+      </div>
+
+      <h3 style="margin: 0 0 12px; font-size: 18px;">Layout rules</h3>
+      <ul class="rules">
+        <li><b>Container:</b> <code>max-w-site</code> (1280 px) + <code>mx-auto px-4 sm:px-6 lg:px-8</code>.</li>
+        <li><b>Content column:</b> <code>max-w-content</code> (720 px) for text-heavy pages.</li>
+        <li><b>Section rhythm:</b> <code>py-16 md:py-24 lg:py-32</code>. Alternate <code>bg-surface</code> / <code>bg-surface-muted</code>.</li>
+        <li><b>Header:</b> Sticky, <code>bg-surface/95 backdrop-blur-sm</code>, h-16, z-50.</li>
+        <li><b>Footer:</b> <code>bg-brand-500</code> (navy), white text hierarchy.</li>
+      </ul>
+
+      <h3 style="margin: 24px 0 12px; font-size: 18px;">Component patterns</h3>
+      <ul class="rules">
+        <li><b>Buttons:</b> 4 variants — primary (orange), secondary (navy), outline, ghost. CTA buttons: <code>rounded-full uppercase tracking-wider font-semibold</code>.</li>
+        <li><b>Cards:</b> <code>rounded-card</code> (12 px), <code>border-surface-border</code>, <code>shadow-card</code> at rest / <code>shadow-card-hover</code> on hover. Title hover = accent-500.</li>
+        <li><b>Tags/Badges:</b> <code>rounded-full</code> pill shape. Variants: default (cream), brand (navy tint), accent (orange tint).</li>
+        <li><b>Section wrappers:</b> Use <code>SectionContainer</code> component with <code>narrow</code> and <code>background</code> props.</li>
+      </ul>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <h2>Presentation rules</h2>
+        <p>Slide design rules when creating PowerPoint decks for Plainsight.</p>
+      </div>
+
+      <ul class="rules">
+        <li><b>Background:</b> Off-white (#fcf8f3) for content slides, navy (#000075) for section dividers and closing.</li>
+        <li><b>Font:</b> Inter or Titillium Web, bold uppercase for headings.</li>
+        <li><b>Orange accent lines and bullets,</b> never orange backgrounds.</li>
+        <li><b>Triangle decorations</b> at corners — subtle, low opacity.</li>
+        <li><b>Logo</b> on title and closing slides.</li>
+        <li><b>Maximum 2 font weights</b> per slide.</li>
+        <li><b>One idea per slide,</b> generous whitespace.</li>
+      </ul>
+    </section>
+
+    <section>
+      <div class="section-head">
         <h2>Code &amp; design tokens</h2>
         <p>For anything we build in code — landing pages, internal tools, notebooks. Download once, reuse everywhere.</p>
       </div>
