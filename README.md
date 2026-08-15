@@ -1,6 +1,6 @@
 # Plainsight Brand Kit
 
-Self-contained, multi-page brand kit. No build step, no internet required (except for Google Fonts to load Titillium Web and Epilogue — falls back to Arial gracefully).
+Self-contained, multi-page brand kit. No build step, no internet required (except for Google Fonts to load Titillium Web and Inter — falls back to Arial gracefully).
 
 ## How to use it
 
@@ -36,16 +36,26 @@ plainsight-brand-kit/
     │   ├── plainsight-logo-white.svg
     │   └── plainsight-logo-white.png
     ├── graphics/
+    │   ├── triangle-blue.svg    # canonical triangle shapes — always place these,
+    │   ├── triangle-orange.svg  # never redraw them
+    │   ├── triangle-white.svg
     │   ├── triangle-blue.png
     │   ├── triangle-orange.png
     │   ├── triangle-white.png
     │   ├── rocket-vertical.png
     │   └── rocket-diagonal.png
     └── templates/
+        ├── brand.json           # machine-readable brand manifest (for tools & AI agents)
+        ├── plainsight-deck-master-2026.potx   # canonical PowerPoint template (snapshot;
+        │                                      # live version on SharePoint)
         ├── plainsight-tokens.css
         ├── tailwind.config.js
         └── plainsight-powerbi-theme.json
 ```
+
+## For tools and AI agents
+
+`assets/templates/brand.json` is the machine-readable version of this kit: colors, typography, logo and triangle rules (including exact placement geometry), voice principles, and a final checklist. It is the single source of truth for automated brand output. Agents should read it whole and place the triangle/logo asset files directly instead of redrawing them. The triangle SVGs draw their wireframe outline as a filled path internally; that is an SVG implementation detail — the triangle itself is never rendered as a solid filled shape.
 
 ## Updating
 
