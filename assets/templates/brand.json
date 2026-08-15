@@ -27,7 +27,7 @@
   },
   "typography": {
     "headings": { "family": "Titillium Web", "fallback": "Segoe UI, Arial, sans-serif", "style": "Bold, uppercase for section headings, wider tracking." },
-    "body": { "family": "Epilogue", "fallback": "Segoe UI, Arial, sans-serif" },
+    "body": { "family": "Inter", "fallback": "Segoe UI, Arial, sans-serif" },
     "rules": [
       "Maximum 2 font weights per slide or section.",
       "No italics in carousels or slides.",
@@ -87,24 +87,52 @@
     "assets": { "vertical": "assets/graphics/rocket-vertical.png", "diagonal": "assets/graphics/rocket-diagonal.png" },
     "rules": ["Two-tone palette only.", "Partially cropped placement, like triangles.", "Do not combine with triangles in one piece."]
   },
+  "templates": {
+    "powerpoint_master": {
+      "name": "2026 PowerPoint template (rebranding)",
+      "location": "SharePoint > Plainsight > General > Digital Templates > Office Templates > 2026_PWP Sjabloon Plainsight rebranding.potx",
+      "url": "https://plainsightis.sharepoint.com/:p:/r/sites/Plainsight/Shared%20Documents/%F0%9F%94%8A%20General/Digital%20Templates/Office%20Templates/2026_PWP%20Sjabloon%20Plainsight%20rebranding.potx?d=w9f28fd0aa52f4f70be8e694b1af48b3d&csf=1&web=1&e=eUEmh5",
+      "rule": "All Plainsight decks start from this template. Do not rebuild slide layouts from scratch."
+    },
+    "power_bi_theme": "assets/templates/plainsight-powerbi-theme.json",
+    "css_tokens": "assets/templates/plainsight-tokens.css",
+    "tailwind_config": "assets/templates/tailwind.config.js"
+  },
   "voice": {
-    "summary": "Senior practitioners who respect the reader's time. Plain words, concrete claims, no hype.",
+    "summary": "Senior practitioners who respect the reader's time. Knowledge first, in clear human language. We must never sound like AI wrote it, and never sound like every other consultancy.",
     "principles": [
       { "name": "Clear, not clever", "detail": "Short sentences. Plain English or plain Dutch. Trade the buzzword for the thing it describes." },
       { "name": "Concrete, not vague", "detail": "Numbers, timeframes, named technologies. '30% faster' beats 'significantly faster'." },
-      { "name": "Confident, not loud", "detail": "No caps-shouting, no stacked exclamation marks. The work speaks; we describe it." }
+      { "name": "Confident, not loud", "detail": "No caps-shouting, no stacked exclamation marks. The work speaks; we describe it." },
+      { "name": "Expert, not jargon", "detail": "For output leaving Plainsight, keep technical language light. Show expertise through concrete examples and honest observations, not through vocabulary." }
     ],
-    "sound_like": ["Human, warm, intelligent", "Accessible, calm confidence"],
-    "avoid": ["Generic consultancy speak", "Inflated claims and hype language", "Buzzwords without substance"],
-    "linkedin": "Knowledge-sharing first. Customer-angled, structured, concrete examples. Every post should teach something. Closing slides reflective, not promotional."
+    "never_sound_like_ai": {
+      "hard_rules": [
+        "No em dashes or en dashes as separators. Use commas, periods, or restructure.",
+        "No AI-style anecdote openers ('This was my Tuesday morning', 'I'm thrilled to announce').",
+        "No dramatic rule-of-three ('innovation, inspiration, and impact'). Use the natural number of items.",
+        "No numbered lists of obvious advice, no generic conclusions ('The future looks bright'), no signposting.",
+        "If a sentence could appear on any consultancy's feed, rewrite it or cut it."
+      ],
+      "banned_words": ["genuinely", "straightforward", "it's worth noting", "let's dive in", "in today's landscape", "leverage", "game-changer", "cutting-edge", "pivotal", "ecosystem", "foster", "elevate", "moreover", "furthermore", "showcase", "delve", "key takeaway", "utilize", "synergy", "tapestry", "navigate (metaphorical)"]
+    },
+    "culture": [
+      "Transparent by default: we say what we do, why, and what comes next.",
+      "We share feedback openly, and knowledge beyond the boundaries of our own organisation.",
+      "Not corporate, no hierarchy in tone. Taking responsibility means ownership, not being the boss of someone else."
+    ],
+    "sound_like": ["Human, warm, intelligent", "Accessible, calm confidence", "Smart friend over coffee, not a press release"],
+    "avoid": ["Generic consultancy speak", "Inflated claims and hype language", "Buzzwords without substance", "Anything that reads as AI-generated"],
+    "linkedin": "Knowledge-sharing first: every post should teach something, from a practitioner's perspective. One point per post, made well, under 150 words. Concrete examples from real situations. Never sound like all the others."
   },
   "agent_checklist": [
     "Background is cream #fcf8f3 or blue #000075, never orange.",
     "Triangles placed from asset files, wireframe, rounded, in asymmetric corner pairs, 60% visible.",
     "Orange used only as accent.",
-    "Max 2 font weights; headings Titillium Web bold uppercase.",
+    "Max 2 font weights; headings Titillium Web bold uppercase, body Inter.",
     "Logo from asset files, correct variant for the background.",
-    "Copy passes the voice test: clear, concrete, confident; no buzzwords.",
+    "Decks start from the official .potx template.",
+    "Copy passes the voice test: clear, concrete, confident; no buzzwords, no banned words, no em dashes.",
     "One motif (triangles or rocket), decorations never obscure content."
   ]
 }
