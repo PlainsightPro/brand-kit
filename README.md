@@ -46,6 +46,8 @@ plainsight-brand-kit/
     │   └── rocket-diagonal.png
     └── templates/
         ├── brand.json           # machine-readable brand manifest (for tools & AI agents)
+        ├── plainsight-deck-master-2026.potx   # canonical PowerPoint template (snapshot;
+        │                                      # live version on SharePoint)
         ├── plainsight-tokens.css
         ├── tailwind.config.js
         └── plainsight-powerbi-theme.json
