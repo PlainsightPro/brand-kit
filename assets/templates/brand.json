@@ -1,0 +1,110 @@
+{
+  "meta": {
+    "name": "Plainsight Brand Manifest",
+    "version": "1.1.0",
+    "updated": "2026-08-15",
+    "source_of_truth": "https://github.com/PlainsightPro/brand-kit",
+    "purpose": "Single machine-readable brand spec for humans, tools, and AI agents. When any other document disagrees with this file, this file wins. Agents: read this file whole; never rely on fragments of it."
+  },
+  "colors": {
+    "blue": { "hex": "#000075", "role": "Primary. Headings, dark backgrounds, default text on light." },
+    "orange": { "hex": "#d5693a", "role": "Accent only. CTAs, links, highlights, bullets, badges. Never a full-section or full-slide background." },
+    "orange_svg_variant": { "hex": "#BD5428", "role": "Only appears inside triangle-orange.svg. Do not use as a UI color." },
+    "cream": { "hex": "#fcf8f3", "role": "Default page and slide background." },
+    "white": { "hex": "#ffffff", "role": "Cards and content containers." },
+    "mist": { "hex": "#f6f6fa", "role": "Light background variant." },
+    "muted_cream": { "hex": "#F3ECE4", "role": "Alternating section backgrounds (web)." },
+    "dark_text": { "hex": "#1a1a3e", "role": "Body text on light backgrounds (softer navy)." },
+    "muted_blue": { "hex": "#8888bb", "role": "Secondary metadata, labels, counters." },
+    "light_navy": { "hex": "#b0b0d0", "role": "Subtitle text on dark backgrounds." },
+    "light_gray": { "hex": "#e8e8e8", "role": "Subtle card borders." },
+    "rules": [
+      "Blue and cream alternate as backgrounds; white is for cards.",
+      "Orange is always an accent, never a background fill for a section or slide.",
+      "Text on blue = white or light navy. Text on cream = blue or dark text.",
+      "All pairings must meet WCAG AA contrast."
+    ]
+  },
+  "typography": {
+    "headings": { "family": "Titillium Web", "fallback": "Segoe UI, Arial, sans-serif", "style": "Bold, uppercase for section headings, wider tracking." },
+    "body": { "family": "Epilogue", "fallback": "Segoe UI, Arial, sans-serif" },
+    "rules": [
+      "Maximum 2 font weights per slide or section.",
+      "No italics in carousels or slides.",
+      "Short blocks: 1-2 sentences per paragraph on slides."
+    ]
+  },
+  "logos": {
+    "blue": { "svg": "assets/logos/plainsight-logo-blue.svg", "png": "assets/logos/plainsight-logo-blue.png", "use_on": "light backgrounds" },
+    "white": { "svg": "assets/logos/plainsight-logo-white.svg", "png": "assets/logos/plainsight-logo-white.png", "use_on": "blue or dark backgrounds" },
+    "placement": {
+      "linkedin": "Bottom-right, 150 px wide, 36 px from bottom edge. Blue version.",
+      "website": "Header 160x28 px. Blue on light, white on navy footer.",
+      "presentations": "Title and closing slides only, bottom-right, matched to slide background."
+    }
+  },
+  "triangles": {
+    "rule": "The Plainsight triangle is a WIREFRAME OUTLINE with rounded corners. It is never a solid filled triangle. Always place the canonical SVG/PNG files below; never redraw the shape. The SVG paths use a fill attribute internally to paint the outline strokes; that is an implementation detail, not permission to fill the triangle.",
+    "assets": {
+      "blue": { "svg": "assets/graphics/triangle-blue.svg", "png": "assets/graphics/triangle-blue.png", "use_on": "light / cream backgrounds" },
+      "orange": { "svg": "assets/graphics/triangle-orange.svg", "png": "assets/graphics/triangle-orange.png", "use_on": "blue or cream backgrounds (hero accents)" },
+      "white": { "svg": "assets/graphics/triangle-white.svg", "png": "assets/graphics/triangle-white.png", "use_on": "blue or dark backgrounds" }
+    },
+    "native_size_px": { "width": 313, "height": 358 },
+    "placement": {
+      "principle": "Triangles appear in asymmetric pairs at canvas corners, partially cropped: 60% visible, 40% bleeding off the canvas edge. Never centered in a clear frame.",
+      "linkedin_slides": {
+        "scale": 1.1,
+        "effective_size_px": { "width": 344, "height": 394 },
+        "top_right_pair": {
+          "back": "x = canvas_width - triangle_width + 30, y = canvas_height - 0.4 * triangle_height",
+          "front": "back position shifted left 90 px and down 60 px"
+        },
+        "bottom_left_pair": {
+          "left_lower": "x = -30, y = -0.4 * triangle_height - 60",
+          "right_higher": "x = left_x + 120, y = -0.4 * triangle_height"
+        },
+        "template_a": "both corner pairs",
+        "template_b": "bottom-left pair only"
+      },
+      "website": {
+        "cream_sections": "Top-right corner, blue at 10-15% opacity.",
+        "navy_sections": "Top-right and bottom-left, white at 5-10% opacity. CTA and footer only.",
+        "hero": "One triangle maximum, top-right."
+      },
+      "presentations": "Corner decoration only, subtle, never obscuring content."
+    },
+    "hard_rules": [
+      "Never fill the triangle with a solid color.",
+      "Never redraw or approximate the triangle; place the asset files.",
+      "Only three colors exist: blue, orange, white.",
+      "One motif per piece: triangles or rocket, not both.",
+      "No triangle larger than one third of the page. Accents, not heroes.",
+      "Decorative only: never obscure text or interactive content (pointer-events: none, aria-hidden)."
+    ]
+  },
+  "rockets": {
+    "assets": { "vertical": "assets/graphics/rocket-vertical.png", "diagonal": "assets/graphics/rocket-diagonal.png" },
+    "rules": ["Two-tone palette only.", "Partially cropped placement, like triangles.", "Do not combine with triangles in one piece."]
+  },
+  "voice": {
+    "summary": "Senior practitioners who respect the reader's time. Plain words, concrete claims, no hype.",
+    "principles": [
+      { "name": "Clear, not clever", "detail": "Short sentences. Plain English or plain Dutch. Trade the buzzword for the thing it describes." },
+      { "name": "Concrete, not vague", "detail": "Numbers, timeframes, named technologies. '30% faster' beats 'significantly faster'." },
+      { "name": "Confident, not loud", "detail": "No caps-shouting, no stacked exclamation marks. The work speaks; we describe it." }
+    ],
+    "sound_like": ["Human, warm, intelligent", "Accessible, calm confidence"],
+    "avoid": ["Generic consultancy speak", "Inflated claims and hype language", "Buzzwords without substance"],
+    "linkedin": "Knowledge-sharing first. Customer-angled, structured, concrete examples. Every post should teach something. Closing slides reflective, not promotional."
+  },
+  "agent_checklist": [
+    "Background is cream #fcf8f3 or blue #000075, never orange.",
+    "Triangles placed from asset files, wireframe, rounded, in asymmetric corner pairs, 60% visible.",
+    "Orange used only as accent.",
+    "Max 2 font weights; headings Titillium Web bold uppercase.",
+    "Logo from asset files, correct variant for the background.",
+    "Copy passes the voice test: clear, concrete, confident; no buzzwords.",
+    "One motif (triangles or rocket), decorations never obscure content."
+  ]
+}
