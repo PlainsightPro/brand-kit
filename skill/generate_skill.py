@@ -43,7 +43,18 @@ BUNDLED_ASSETS: dict[str, str] = {
     "logo-blue.svg": "assets/logos/plainsight-logo-blue.svg",
     "logo-white.svg": "assets/logos/plainsight-logo-white.svg",
     "brand.json": "assets/templates/brand.json",
+    # The small token files ride along. A skill that points at a file without
+    # shipping it is a skill that tells the reader to improvise, which is the
+    # exact failure this program exists to remove.
+    "templates/plainsight-powerbi-theme.json": "assets/templates/plainsight-powerbi-theme.json",
+    "templates/plainsight-tokens.css": "assets/templates/plainsight-tokens.css",
+    "templates/tailwind.config.js": "assets/templates/tailwind.config.js",
 }
+
+#: Referenced but deliberately NOT bundled, and rendered with this prefix so a
+#: reader can see it lives upstream. The PowerPoint master is 36 MB; putting it in
+#: every colleague's skill directory serves nobody.
+UPSTREAM_ONLY_PREFIX = "brand-kit:"
 
 #: The prose template may describe procedure and layout maths. It may NOT carry a
 #: brand value: those live in brand.json alone. Enforced, because "just this one
@@ -221,14 +232,20 @@ def render_template_files(manifest: dict[str, Any]) -> str:
     if isinstance(master, dict):
         parts.append(f"**{master.get('name', 'PowerPoint master')}.** {master.get('rule', '')}")
         parts.append("")
-        parts.append(f"- Bundled snapshot: `{master.get('file', '')}`")
+        # Not bundled, so prefixed: nobody should look for it inside this skill.
+        parts.append(f"- In brand-kit: `{UPSTREAM_ONLY_PREFIX}{master.get('file', '')}`")
         if live := master.get("live_version"):
             parts.append(f"- Live version: {live}")
         parts.append("")
+
+    bundled_sources = {source: local for local, source in BUNDLED_ASSETS.items()}
     rows = [(key, value) for key, value in templates.items() if isinstance(value, str)]
     if rows:
-        parts.extend(["| Asset | Path |", "|---|---|"])
-        parts.extend(f"| {key.replace('_', ' ')} | `{value}` |" for key, value in rows)
+        parts.extend(["| Asset | Path | Bundled |", "|---|---|---|"])
+        for key, value in rows:
+            local = bundled_sources.get(value)
+            path = f"assets/{local}" if local else f"{UPSTREAM_ONLY_PREFIX}{value}"
+            parts.append(f"| {key.replace('_', ' ')} | `{path}` | {'yes' if local else 'no'} |")
     return "\n".join(parts)
 
 
@@ -284,6 +301,42 @@ RENDERERS = {
 }
 
 
+#: Every `assets/...` path the generated skill names must exist inside the skill.
+#: The first version of this generator rendered brand.json's repo-relative template
+#: paths verbatim, so the shipped skill pointed at four files that were not in it.
+#: The manifest's own references were already checked; the OUTPUT's were not.
+_ASSET_REFERENCE_RE = re.compile(r"`assets/([^`]+)`")
+
+
+def check_bundled_line_endings() -> list[str]:
+    """Return bundled text assets that contain a carriage return.
+
+    These files are LF in this repository and their sha256 is recorded downstream
+    (the Plainsight Brain keeps a digest per file). `check_skill` compares
+    working-tree bytes, which on Windows can be CRLF on BOTH sides and so agrees
+    with itself while the stored blobs diverge. That happened: the bundled copies
+    were committed with CRLF while their sources stayed LF, and every downstream
+    digest would have broken. A carriage return in one of these files is always a
+    line-ending accident, never intent.
+    """
+    offenders: list[str] = []
+    for local_name in BUNDLED_ASSETS:
+        target = SKILL_ASSETS / local_name
+        if target.is_file() and b"\r" in target.read_bytes():
+            offenders.append(f"assets/{local_name}")
+    return offenders
+
+
+def check_generated_references(content: str) -> list[str]:
+    """Return the asset paths the generated skill names but does not ship."""
+    missing: list[str] = []
+    for reference in sorted(set(_ASSET_REFERENCE_RE.findall(content))):
+        target = SKILL_ASSETS / reference.rstrip("/")
+        if not (target.is_dir() if reference.endswith("/") else target.is_file()):
+            missing.append(f"assets/{reference}")
+    return missing
+
+
 def build_skill(manifest: dict[str, Any], template: str) -> str:
     check_template(template)
     rendered = template
@@ -303,8 +356,10 @@ def write_skill(content: str) -> list[str]:
     SKILL_FILE.write_bytes(content.encode("utf-8"))
     written = [str(SKILL_FILE.relative_to(ROOT)).replace("\\", "/")]
     for local_name, source in BUNDLED_ASSETS.items():
-        shutil.copyfile(ROOT / source, SKILL_ASSETS / local_name)
-        written.append(str((SKILL_ASSETS / local_name).relative_to(ROOT)).replace("\\", "/"))
+        target = SKILL_ASSETS / local_name
+        target.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copyfile(ROOT / source, target)
+        written.append(str(target.relative_to(ROOT)).replace("\\", "/"))
     return written
 
 
@@ -341,11 +396,38 @@ def main() -> int:
                 print(f"  {path}", file=sys.stderr)
             print("\nRun `python skill/generate_skill.py` and commit the result.", file=sys.stderr)
             return 1
+        if dangling := check_generated_references(content):
+            print("error: the skill names assets it does not ship:", file=sys.stderr)
+            for path in dangling:
+                print(f"  {path}", file=sys.stderr)
+            return 1
+        if crlf := check_bundled_line_endings():
+            print("error: bundled assets contain carriage returns:", file=sys.stderr)
+            for path in crlf:
+                print(f"  {path}", file=sys.stderr)
+            print(
+                "Renormalize: delete them, `git checkout -- assets/`, then regenerate.",
+                file=sys.stderr,
+            )
+            return 1
         print(f"skill is current ({len(content)} chars, {len(BUNDLED_ASSETS)} assets)")
         return 0
 
     for path in write_skill(content):
         print(f"wrote {path}")
+
+    # Checked after writing, because the references are resolved against what was
+    # just shipped. A dangling reference still fails the build.
+    if dangling := check_generated_references(content):
+        print("error: the skill names assets it does not ship:", file=sys.stderr)
+        for path in dangling:
+            print(f"  {path}", file=sys.stderr)
+        return 1
+    if crlf := check_bundled_line_endings():
+        print("error: bundled assets contain carriage returns:", file=sys.stderr)
+        for path in crlf:
+            print(f"  {path}", file=sys.stderr)
+        return 1
     return 0
 
 
