@@ -10,7 +10,7 @@ description: "Plainsight visual design system and brand guidelines. Use this ski
 
 # Plainsight Brand Visual Skill
 
-Generated from `brand.json` v1.2.1 (updated 2026-08-16). Source of truth: https://github.com/PlainsightPro/brand-kit. When any other document disagrees with the manifest, the manifest wins.
+Generated from `brand.json` v1.2.2 (updated 2026-08-16). Source of truth: https://github.com/PlainsightPro/brand-kit. When any other document disagrees with the manifest, the manifest wins.
 
 ## The one rule that matters most
 
@@ -154,6 +154,12 @@ Native size: 313 x 358 px.
 - Problem: The layouts and text boxes carry fonts that are not Plainsight typography. The bundled snapshot's four themes use Bahnschrift, Tw Cen MT, Calibri Light and Calibri; the live SharePoint file additionally has Quicksand Light on layout text boxes and resists being changed there.
 - What to do: Start from the template for the layouts and the geometry, then set type from typography above. Never keep the inherited font because the template offered it.
 - Status: open, reported 2026-08-16
+
+**`brand-kit:`**
+
+- Problem: colors.rules requires WCAG AA on every pairing, and these two cannot meet it as body-size text on cream. Orange #d5693a reaches 3.36:1 and muted_blue #8888bb 3.16:1, where AA asks 4.5:1 for normal text. Both clear the 3:1 bar for large text, borders, icons and other non-text UI, and both pass on the blue ground (4.70:1 and 5.00:1). Their stated roles put them on small text, so an agent following the roles literally on cream produces text that fails AA.
+- What to do: On cream or white, use these two for borders, bullets, icons, badges and other non-text accents, or for large text from 18.66px bold upward. For body-size text on a light ground use blue #000075 or dark_text #1a1a3e, and carry hierarchy with size and weight rather than a lighter colour. On the blue ground both are fine for text.
+- Status: accepted, reported 2026-08-16
 
 ## LinkedIn visuals
 

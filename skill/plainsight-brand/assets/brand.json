@@ -1,7 +1,7 @@
 {
   "meta": {
     "name": "Plainsight Brand Manifest",
-    "version": "1.2.1",
+    "version": "1.2.2",
     "updated": "2026-08-16",
     "source_of_truth": "https://github.com/PlainsightPro/brand-kit",
     "purpose": "Single machine-readable brand spec for humans, tools, and AI agents. When any other document disagrees with this file, this file wins. Agents: read this file whole; never rely on fragments of it."
@@ -108,6 +108,15 @@
       "problem": "The layouts and text boxes carry fonts that are not Plainsight typography. The bundled snapshot's four themes use Bahnschrift, Tw Cen MT, Calibri Light and Calibri; the live SharePoint file additionally has Quicksand Light on layout text boxes and resists being changed there.",
       "rule": "Start from the template for the layouts and the geometry, then set type from typography above. Never keep the inherited font because the template offered it.",
       "status": "open",
+      "reported": "2026-08-16"
+    },
+    {
+      "id": "accent-contrast-on-cream",
+      "affects": "colors.orange and colors.muted_blue, on the cream and white grounds only",
+      "problem": "colors.rules requires WCAG AA on every pairing, and these two cannot meet it as body-size text on cream. Orange #d5693a reaches 3.36:1 and muted_blue #8888bb 3.16:1, where AA asks 4.5:1 for normal text. Both clear the 3:1 bar for large text, borders, icons and other non-text UI, and both pass on the blue ground (4.70:1 and 5.00:1). Their stated roles put them on small text, so an agent following the roles literally on cream produces text that fails AA.",
+      "rule": "On cream or white, use these two for borders, bullets, icons, badges and other non-text accents, or for large text from 18.66px bold upward. For body-size text on a light ground use blue #000075 or dark_text #1a1a3e, and carry hierarchy with size and weight rather than a lighter colour. On the blue ground both are fine for text.",
+      "decision": "Accepted, Bo, 2026-08-16. The colours are not changing: they read fine for most people in practice. Recorded so agents apply the rule above instead of rediscovering the conflict, or picking the accessible option and looking off-brand.",
+      "status": "accepted",
       "reported": "2026-08-16"
     }
   ],
