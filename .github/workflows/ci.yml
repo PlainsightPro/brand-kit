@@ -1,0 +1,111 @@
+# Guard the single source of truth.
+#
+# This repository is where brand rules are edited, and three other places consume
+# them: the generated agent skill in skill/, the Plainsight Brain's committed pack
+# (content/brand/ in plainsight-brain, refreshed by scripts/sync_brand_kit.py), and
+# the Vision-Playbook branding docs. None of those can notice on their own when a
+# change here makes them stale or wrong, so the checks live at the source.
+#
+# What this catches:
+#   - brand.json stops parsing, or loses a section its consumers read
+#   - brand.json points at an asset that was renamed, moved, or deleted
+#   - the generated skill is committed stale after a brand.json edit
+#   - someone hand-edits the generated skill instead of the template
+#   - a brand value creeps into the prose template, starting a second source of truth
+
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  brand-integrity:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      # No dependencies: the generator is standard library only, on purpose. A
+      # guard that needs a lockfile to run is a guard that stops running.
+      - name: Verify the generated skill is current
+        run: python skill/generate_skill.py --check
+
+      - name: Verify brand.json structure and asset references
+        run: |
+          python - <<'EOF'
+          import json, pathlib, sys
+
+          manifest = json.loads(pathlib.Path("assets/templates/brand.json").read_text(encoding="utf-8"))
+
+          # The keys consumers actually read. brand_get_kit and the Brain's
+          # activation briefing index into these by name.
+          required = {
+              "meta": ("version", "updated", "source_of_truth"),
+              "colors": ("blue", "orange", "cream", "white", "rules"),
+              "typography": ("headings", "body"),
+              "logos": ("blue", "white", "placement"),
+              "triangles": ("rule", "assets", "hard_rules", "native_size_px", "placement"),
+              "templates": ("powerpoint_master",),
+              "voice": ("summary", "never_sound_like_ai"),
+              "agent_checklist": (),
+          }
+          problems = []
+          for section, keys in required.items():
+              if section not in manifest:
+                  problems.append(f"missing top-level key: {section}")
+                  continue
+              node = manifest[section]
+              for key in keys:
+                  if not isinstance(node, dict) or key not in node:
+                      problems.append(f"missing key: {section}.{key}")
+
+          # Every triangle and logo variant needs a real file behind it, because the
+          # whole rule is "place the asset, never redraw it".
+          for variant, spec in (manifest.get("triangles", {}).get("assets") or {}).items():
+              for kind in ("svg", "png"):
+                  if kind not in (spec or {}):
+                      problems.append(f"triangles.assets.{variant} has no {kind}")
+
+          # And nothing anywhere may point at a path that does not exist.
+          def walk(node):
+              if isinstance(node, dict):
+                  for value in node.values():
+                      yield from walk(value)
+              elif isinstance(node, list):
+                  for value in node:
+                      yield from walk(value)
+              elif isinstance(node, str) and node.startswith("assets/"):
+                  yield node
+
+          for reference in sorted(set(walk(manifest))):
+              if not pathlib.Path(reference).is_file():
+                  problems.append(f"brand.json references a missing asset: {reference}")
+
+          # The regression that started the brand consistency program: a table that
+          # told tools to FILL the triangle. The rule text must still forbid it.
+          rule = str(manifest.get("triangles", {}).get("rule", "")).lower()
+          if "never" not in rule or "fill" not in rule:
+              problems.append("triangles.rule no longer states that the triangle is never filled")
+
+          if problems:
+              print("brand.json integrity check FAILED:")
+              for problem in problems:
+                  print(f"  - {problem}")
+              sys.exit(1)
+          print(f"brand.json v{manifest['meta']['version']} is structurally sound; every asset reference resolves.")
+          EOF
