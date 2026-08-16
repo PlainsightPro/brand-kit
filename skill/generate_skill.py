@@ -150,9 +150,48 @@ def render_typography(manifest: dict[str, Any]) -> str:
     if isinstance(headings, dict) and headings.get("style"):
         lines.append("")
         lines.append(f"Heading style: {headings['style']}")
+    never = typography.get("never_use")
+    if isinstance(never, list) and never:
+        families = ", ".join(f"`{item}`" for item in never if isinstance(item, str))
+        lines.extend(["", f"**Never use:** {families}"])
+        if note := typography.get("override_note"):
+            lines.extend(["", str(note)])
     if rules := _bullets(typography.get("rules")):
         lines.extend(["", rules])
     return "\n".join(lines)
+
+
+def render_known_issues(manifest: dict[str, Any]) -> str:
+    """Render the open defects in the brand assets themselves.
+
+    An asset can disagree with the manifest, and when it does the reader needs to
+    know before they trust the asset. Silence here means someone keeps whatever
+    the template offered them.
+    """
+    issues = manifest.get("known_issues")
+    if not isinstance(issues, list) or not issues:
+        return "None recorded. Nothing currently disagrees with the manifest."
+    parts: list[str] = []
+    for issue in issues:
+        if not isinstance(issue, dict):
+            continue
+        # Prefixed unless the file is actually in the bundle, so the reader knows
+        # where to look and the dangling-reference guard stays meaningful.
+        path = str(issue.get("file", "")).strip()
+        bundled = {source: local for local, source in BUNDLED_ASSETS.items()}
+        label = f"assets/{bundled[path]}" if path in bundled else f"{UPSTREAM_ONLY_PREFIX}{path}"
+        parts.append(f"**`{label or 'unknown asset'}`**")
+        parts.append("")
+        if affects := issue.get("also_affects"):
+            parts.append(f"- Also affects: {affects}")
+        parts.append(f"- Problem: {issue.get('problem', '')}")
+        parts.append(f"- What to do: {issue.get('rule', '')}")
+        status = str(issue.get("status", "")).strip()
+        reported = str(issue.get("reported", "")).strip()
+        if status or reported:
+            parts.append(f"- Status: {status or 'unknown'}{f', reported {reported}' if reported else ''}")
+        parts.append("")
+    return "\n".join(parts).rstrip()
 
 
 def render_triangle_rule(manifest: dict[str, Any]) -> str:
@@ -296,6 +335,7 @@ RENDERERS = {
     "TRIANGLE_PLACEMENT": render_triangle_placement,
     "LOGO_PLACEMENT": render_logo_placement,
     "TEMPLATE_FILES": render_template_files,
+    "KNOWN_ISSUES": render_known_issues,
     "VOICE": render_voice,
     "CHECKLIST": render_checklist,
 }
