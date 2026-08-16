@@ -1,0 +1,16 @@
+# These files are consumed byte-for-byte, not read as prose.
+#
+# The generated skill bundles copies of the SVGs and of brand.json, and CI asserts
+# the copies are identical to the originals. With core.autocrlf=true (the Windows
+# default) git rewrites every LF on checkout, and any consumer that checksums these
+# files sees a different digest on Windows than on Linux CI. The Plainsight Brain
+# does exactly that: content/brand/brand-kit.sync.json records a sha256 per file.
+#
+# So never translate them.
+*.svg    -text
+*.json   -text
+*.css    -text
+*.js     -text
+*.potx   binary
+*.png    binary
+*.jpg    binary
