@@ -14,3 +14,10 @@
 *.potx   binary
 *.png    binary
 *.jpg    binary
+
+# The generated skill is byte-compared against a fresh generation, and the
+# generator writes LF. Without this, `generate_skill.py --check` reports the file
+# as stale on every Windows clone while passing on Linux CI: a guard that cries
+# wolf is a guard people learn to ignore. It also means the SKILL.md a colleague
+# installs is identical on every platform.
+skill/plainsight-brand/SKILL.md  -text
