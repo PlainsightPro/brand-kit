@@ -1,7 +1,7 @@
 {
   "meta": {
     "name": "Plainsight Brand Manifest",
-    "version": "1.2.0",
+    "version": "1.2.1",
     "updated": "2026-08-16",
     "source_of_truth": "https://github.com/PlainsightPro/brand-kit",
     "purpose": "Single machine-readable brand spec for humans, tools, and AI agents. When any other document disagrees with this file, this file wins. Agents: read this file whole; never rely on fragments of it."
@@ -94,7 +94,6 @@
       "name": "2026 PowerPoint template (rebranding)",
       "file": "assets/templates/plainsight-deck-master-2026.potx",
       "live_version": "SharePoint > Plainsight > General > Digital Templates > Office Templates > 2026_PWP Sjabloon Plainsight rebranding.potx",
-      "url": "https://plainsightis.sharepoint.com/:p:/r/sites/Plainsight/Shared%20Documents/%F0%9F%94%8A%20General/Digital%20Templates/Office%20Templates/2026_PWP%20Sjabloon%20Plainsight%20rebranding.potx?d=w9f28fd0aa52f4f70be8e694b1af48b3d&csf=1&web=1&e=eUEmh5",
       "rule": "All Plainsight decks start from this template. Do not rebuild slide layouts from scratch. SharePoint holds the live version; the bundled file is a snapshot."
     },
     "power_bi_theme": "assets/templates/plainsight-powerbi-theme.json",
