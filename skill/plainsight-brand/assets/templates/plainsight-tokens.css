@@ -1,0 +1,26 @@
+:root {
+  --ps-blue:    #000075;
+  --ps-orange:  #d5693a;
+  --ps-cream:   #fcf8f3;
+  --ps-mist:    #f6f6fa;
+  --ps-white:   #ffffff;
+  --ps-blue-55: rgba(0, 0, 117, 0.55);
+  --ps-blue-18: rgba(0, 0, 117, 0.18);
+  --ps-blue-08: rgba(0, 0, 117, 0.08);
+  --font-head:  "Titillium Web", "Segoe UI", Arial, sans-serif;
+  --font-body:  "Inter", "Segoe UI", Arial, sans-serif;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--ps-blue);
+  background: var(--ps-white);
+}
+
+h1, h2, h3, h4, h5, h6 { font-family: var(--font-head); color: var(--ps-blue); }
+
+.cta {
+  background: var(--ps-orange); color: #fff;
+  padding: 12px 28px; border: 0; border-radius: 4px;
+  font-family: var(--font-head); font-weight: 600;
+}

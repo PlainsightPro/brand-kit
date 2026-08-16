@@ -133,14 +133,14 @@ Native size: 313 x 358 px.
 
 **2026 PowerPoint template (rebranding).** All Plainsight decks start from this template. Do not rebuild slide layouts from scratch. SharePoint holds the live version; the bundled file is a snapshot.
 
-- Bundled snapshot: `assets/templates/plainsight-deck-master-2026.potx`
+- In brand-kit: `brand-kit:assets/templates/plainsight-deck-master-2026.potx`
 - Live version: SharePoint > Plainsight > General > Digital Templates > Office Templates > 2026_PWP Sjabloon Plainsight rebranding.potx
 
-| Asset | Path |
-|---|---|
-| power bi theme | `assets/templates/plainsight-powerbi-theme.json` |
-| css tokens | `assets/templates/plainsight-tokens.css` |
-| tailwind config | `assets/templates/tailwind.config.js` |
+| Asset | Path | Bundled |
+|---|---|---|
+| power bi theme | `assets/templates/plainsight-powerbi-theme.json` | yes |
+| css tokens | `assets/templates/plainsight-tokens.css` | yes |
+| tailwind config | `assets/templates/tailwind.config.js` | yes |
 
 ## LinkedIn visuals
 
