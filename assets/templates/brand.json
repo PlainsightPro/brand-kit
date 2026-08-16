@@ -1,8 +1,8 @@
 {
   "meta": {
     "name": "Plainsight Brand Manifest",
-    "version": "1.1.0",
-    "updated": "2026-08-15",
+    "version": "1.2.0",
+    "updated": "2026-08-16",
     "source_of_truth": "https://github.com/PlainsightPro/brand-kit",
     "purpose": "Single machine-readable brand spec for humans, tools, and AI agents. When any other document disagrees with this file, this file wins. Agents: read this file whole; never rely on fragments of it."
   },
@@ -28,6 +28,8 @@
   "typography": {
     "headings": { "family": "Titillium Web", "fallback": "Segoe UI, Arial, sans-serif", "style": "Bold, uppercase for section headings, wider tracking." },
     "body": { "family": "Inter", "fallback": "Segoe UI, Arial, sans-serif" },
+    "never_use": ["Quicksand", "Quicksand Light", "Bahnschrift", "Tw Cen MT", "Calibri", "Calibri Light", "Epilogue"],
+    "override_note": "A file may specify one of these anyway. The deck master's own layouts and theme do (Bahnschrift, Tw Cen MT, Calibri). Override it: this manifest wins over any template, layout, text box or inherited theme. Only the families above are Plainsight typography, with the listed fallbacks when they are not installed.",
     "rules": [
       "Maximum 2 font weights per slide or section.",
       "No italics in carousels or slides.",
@@ -99,6 +101,17 @@
     "css_tokens": "assets/templates/plainsight-tokens.css",
     "tailwind_config": "assets/templates/tailwind.config.js"
   },
+  "known_issues": [
+    {
+      "id": "deck-master-fonts",
+      "file": "assets/templates/plainsight-deck-master-2026.potx",
+      "also_affects": "the live SharePoint version of the same template",
+      "problem": "The layouts and text boxes carry fonts that are not Plainsight typography. The bundled snapshot's four themes use Bahnschrift, Tw Cen MT, Calibri Light and Calibri; the live SharePoint file additionally has Quicksand Light on layout text boxes and resists being changed there.",
+      "rule": "Start from the template for the layouts and the geometry, then set type from typography above. Never keep the inherited font because the template offered it.",
+      "status": "open",
+      "reported": "2026-08-16"
+    }
+  ],
   "voice": {
     "summary": "Senior practitioners who respect the reader's time. Knowledge first, in clear human language. We must never sound like AI wrote it, and never sound like every other consultancy.",
     "principles": [
@@ -131,6 +144,7 @@
     "Triangles placed from asset files, wireframe, rounded, in asymmetric corner pairs, 60% visible.",
     "Orange used only as accent.",
     "Max 2 font weights; headings Titillium Web bold uppercase, body Inter.",
+    "If a template, layout or text box specifies another font, override it to the typography above: the deck master does this and it is a known defect.",
     "Logo from asset files, correct variant for the background.",
     "Decks start from the official .potx template.",
     "Copy passes the voice test: clear, concrete, confident; no buzzwords, no banned words, no em dashes.",

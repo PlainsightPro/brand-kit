@@ -10,7 +10,7 @@ description: "Plainsight visual design system and brand guidelines. Use this ski
 
 # Plainsight Brand Visual Skill
 
-Generated from `brand.json` v1.1.0 (updated 2026-08-15). Source of truth: https://github.com/PlainsightPro/brand-kit. When any other document disagrees with the manifest, the manifest wins.
+Generated from `brand.json` v1.2.0 (updated 2026-08-16). Source of truth: https://github.com/PlainsightPro/brand-kit. When any other document disagrees with the manifest, the manifest wins.
 
 ## The one rule that matters most
 
@@ -67,6 +67,10 @@ serves it as a resource.
 | Body | **Inter** | Segoe UI, Arial, sans-serif |
 
 Heading style: Bold, uppercase for section headings, wider tracking.
+
+**Never use:** `Quicksand`, `Quicksand Light`, `Bahnschrift`, `Tw Cen MT`, `Calibri`, `Calibri Light`, `Epilogue`
+
+A file may specify one of these anyway. The deck master's own layouts and theme do (Bahnschrift, Tw Cen MT, Calibri). Override it: this manifest wins over any template, layout, text box or inherited theme. Only the families above are Plainsight typography, with the listed fallbacks when they are not installed.
 
 - Maximum 2 font weights per slide or section.
 - No italics in carousels or slides.
@@ -141,6 +145,15 @@ Native size: 313 x 358 px.
 | power bi theme | `assets/templates/plainsight-powerbi-theme.json` | yes |
 | css tokens | `assets/templates/plainsight-tokens.css` | yes |
 | tailwind config | `assets/templates/tailwind.config.js` | yes |
+
+## Known problems in the assets
+
+**`brand-kit:assets/templates/plainsight-deck-master-2026.potx`**
+
+- Also affects: the live SharePoint version of the same template
+- Problem: The layouts and text boxes carry fonts that are not Plainsight typography. The bundled snapshot's four themes use Bahnschrift, Tw Cen MT, Calibri Light and Calibri; the live SharePoint file additionally has Quicksand Light on layout text boxes and resists being changed there.
+- What to do: Start from the template for the layouts and the geometry, then set type from typography above. Never keep the inherited font because the template offered it.
+- Status: open, reported 2026-08-16
 
 ## LinkedIn visuals
 
@@ -268,6 +281,7 @@ Senior practitioners who respect the reader's time. Knowledge first, in clear hu
 - [ ] Triangles placed from asset files, wireframe, rounded, in asymmetric corner pairs, 60% visible.
 - [ ] Orange used only as accent.
 - [ ] Max 2 font weights; headings Titillium Web bold uppercase, body Inter.
+- [ ] If a template, layout or text box specifies another font, override it to the typography above: the deck master does this and it is a known defect.
 - [ ] Logo from asset files, correct variant for the background.
 - [ ] Decks start from the official .potx template.
 - [ ] Copy passes the voice test: clear, concrete, confident; no buzzwords, no banned words, no em dashes.

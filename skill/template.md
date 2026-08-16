@@ -62,6 +62,10 @@ serves it as a resource.
 
 {{TEMPLATE_FILES}}
 
+## Known problems in the assets
+
+{{KNOWN_ISSUES}}
+
 ## LinkedIn visuals
 
 ### Canvas
