@@ -133,7 +133,7 @@ One idea per slide, and stop before the slide is full:
 ## Website
 
 - Alternate cream and primary-colour sections down the page; white is for cards sitting on top of them.
-- One triangle maximum in a hero, top-right, at low opacity.
+- One pair in a hero, top-right, at low opacity. Never a lone triangle.
 - Decorative elements are always `pointer-events: none` and `aria-hidden="true"`.
 - CTA buttons are pill-shaped, uppercase, with wide letter spacing and semibold weight.
 - Use the CSS custom properties and Tailwind config from `assets/templates/` rather than hardcoding values.

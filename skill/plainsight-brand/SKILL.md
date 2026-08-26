@@ -10,7 +10,7 @@ description: "Plainsight visual design system and brand guidelines. Use this ski
 
 # Plainsight Brand Visual Skill
 
-Generated from `brand.json` v1.2.2 (updated 2026-08-16). Source of truth: https://github.com/PlainsightPro/brand-kit. When any other document disagrees with the manifest, the manifest wins.
+Generated from `brand.json` v1.2.3 (updated 2026-08-26). Source of truth: https://github.com/PlainsightPro/brand-kit. When any other document disagrees with the manifest, the manifest wins.
 
 ## The one rule that matters most
 
@@ -116,9 +116,9 @@ Native size: 313 x 358 px.
 
 **Website.**
 
-- cream sections: Top-right corner, blue at 10-15% opacity.
-- navy sections: Top-right and bottom-left, white at 5-10% opacity. CTA and footer only.
-- hero: One triangle maximum, top-right.
+- cream sections: Top-right pair, blue at 10-15% opacity.
+- navy sections: Top-right and bottom-left pairs, white at 5-10% opacity. CTA and footer only.
+- hero: One pair, top-right.
 
 **Presentations.** Corner decoration only, subtle, never obscuring content.
 
@@ -228,7 +228,7 @@ One idea per slide, and stop before the slide is full:
 ## Website
 
 - Alternate cream and primary-colour sections down the page; white is for cards sitting on top of them.
-- One triangle maximum in a hero, top-right, at low opacity.
+- One pair in a hero, top-right, at low opacity. Never a lone triangle.
 - Decorative elements are always `pointer-events: none` and `aria-hidden="true"`.
 - CTA buttons are pill-shaped, uppercase, with wide letter spacing and semibold weight.
 - Use the CSS custom properties and Tailwind config from `assets/templates/` rather than hardcoding values.
