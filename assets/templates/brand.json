@@ -1,8 +1,8 @@
 {
   "meta": {
     "name": "Plainsight Brand Manifest",
-    "version": "1.2.2",
-    "updated": "2026-08-16",
+    "version": "1.2.3",
+    "updated": "2026-08-26",
     "source_of_truth": "https://github.com/PlainsightPro/brand-kit",
     "purpose": "Single machine-readable brand spec for humans, tools, and AI agents. When any other document disagrees with this file, this file wins. Agents: read this file whole; never rely on fragments of it."
   },
@@ -70,9 +70,17 @@
         "template_b": "bottom-left pair only"
       },
       "website": {
-        "cream_sections": "Top-right corner, blue at 10-15% opacity.",
-        "navy_sections": "Top-right and bottom-left, white at 5-10% opacity. CTA and footer only.",
-        "hero": "One triangle maximum, top-right."
+        "cream_sections": "Top-right pair, blue at 10-15% opacity.",
+        "navy_sections": "Top-right and bottom-left pairs, white at 5-10% opacity. CTA and footer only.",
+        "hero": "One pair, top-right."
+      },
+      "documents": {
+        "principle": "Proposals, offers and other long-form documents follow the pair principle: one asymmetric top-right pair on the opening screen, cropped by the page edges, and no triangle anywhere else in the document.",
+        "opacity": "Blue at 10-15% on cream, white at 5-10% on blue.",
+        "top_right_pair": {
+          "back": "Aligned to the top-right page corner, about 40% of the triangle cropped away by the top and right edges.",
+          "front": "The same triangle shifted 90 px left and 60 px down from the back one, so the two overlap."
+        }
       },
       "presentations": "Corner decoration only, subtle, never obscuring content."
     },
