@@ -1,10 +1,18 @@
 {
   "meta": {
     "name": "Plainsight Brand Manifest",
-    "version": "1.2.3",
-    "updated": "2026-08-26",
+    "version": "1.3.0",
+    "updated": "2026-08-28",
     "source_of_truth": "https://github.com/PlainsightPro/brand-kit",
     "purpose": "Single machine-readable brand spec for humans, tools, and AI agents. When any other document disagrees with this file, this file wins. Agents: read this file whole; never rely on fragments of it."
+  },
+  "identity": {
+    "purpose": "Public organization labels for tenant-facing surfaces (offer pages, mail snippets, deal-note timestamps). The application code carries no organization name; every deployment configures its own identity here.",
+    "display_name": "Plainsight",
+    "site_label": "plainsight.pro",
+    "contact_label": "the Plainsight team",
+    "mail_label": "Your Plainsight proposal",
+    "timezone": "Europe/Brussels"
   },
   "colors": {
     "blue": { "hex": "#000075", "role": "Primary. Headings, dark backgrounds, default text on light." },

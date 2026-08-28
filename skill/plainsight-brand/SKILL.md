@@ -10,7 +10,7 @@ description: "Plainsight visual design system and brand guidelines. Use this ski
 
 # Plainsight Brand Visual Skill
 
-Generated from `brand.json` v1.2.3 (updated 2026-08-26). Source of truth: https://github.com/PlainsightPro/brand-kit. When any other document disagrees with the manifest, the manifest wins.
+Generated from `brand.json` v1.3.0 (updated 2026-08-28). Source of truth: https://github.com/PlainsightPro/brand-kit. When any other document disagrees with the manifest, the manifest wins.
 
 ## The one rule that matters most
 
