@@ -1,5 +1,23 @@
 [
   {
+    "slug": "ai-maturity-ladder",
+    "file": "assets/visuals/ai-maturity-ladder.png",
+    "title": "AI maturity ladder",
+    "alt": "The maturity ladder: five ascending steps from None, Ad hoc and reactive, Aware but fragmented, Structured and focused, to Strategic and scalable, along an axis labelled Level of AI readiness.",
+    "description": "The AI maturity scan's five-level ladder, as drawn on the plainsight.pro AI Maturity Scan page. Use it in a strategy or maturity-scan offer where the drafted alternative would be a levels section with five items. Generic: no client data.",
+    "source": "plainsight.pro/strategy/ai-maturity-scan, 'The maturity ladder' card, captured 2026-10-22 at 1247 px",
+    "added": "2026-10-22"
+  },
+  {
+    "slug": "ai-maturity-readiness",
+    "file": "assets/visuals/ai-maturity-readiness.png",
+    "title": "AI maturity readiness per dimension",
+    "alt": "An example readiness report: six dimensions (strategic direction, data, tools and technology, governance and compliance, organisation and processes, people, skills and culture) each with a navy bar for the current level on a scale of L1 to L5, an orange marker for the target, and an orange priority number for four of them.",
+    "description": "What the maturity scan's report looks like, with ILLUSTRATIVE example values, as drawn on the plainsight.pro AI Maturity Scan page. Use it only to show the shape of the deliverable, with a caption that says the values are an example; never present it as a client's scores.",
+    "source": "plainsight.pro/strategy/ai-maturity-scan, 'Per-dimension readiness' card, captured 2026-10-22 at 1288 px",
+    "added": "2026-10-22"
+  },
+  {
     "slug": "jobs-culture",
     "file": "assets/photos/jobs-culture.jpg",
     "title": "Jobs culture",
