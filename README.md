@@ -47,7 +47,8 @@ plainsight-brand-kit/
     ├── visuals/
     │   ├── visuals.json         # catalogue of approved reusable visuals (slug, title, alt,
     │   │                        # description, source, added); the Brain mirrors it into offers
-    │   └── <slug>.png | .jpg    # one file per entry, PNG or JPEG, at most 400 KB, generic only
+    │   └── <slug>.png | .jpg    # one file per entry, PNG or JPEG, at most 400 KB, generic only;
+    │                            # an entry may instead point at an existing assets/photos file
     └── templates/
         ├── brand.json           # machine-readable brand manifest (for tools & AI agents)
         ├── plainsight-deck-master-2026.potx   # canonical PowerPoint template (snapshot;
@@ -61,7 +62,7 @@ plainsight-brand-kit/
 
 `assets/templates/brand.json` is the machine-readable version of this kit: colors, typography, logo and triangle rules (including exact placement geometry), voice principles, and a final checklist. It is the single source of truth for automated brand output. Agents should read it whole and place the triangle/logo asset files directly instead of redrawing them. The triangle SVGs draw their wireframe outline as a filled path internally; that is an SVG implementation detail — the triangle itself is never rendered as a solid filled shape.
 
-`assets/visuals/visuals.json` lists approved reusable visuals (diagrams such as the maturity scan) by slug. The Plainsight Brain mirrors this folder into its offer renderer, so an offer places a visual with `{"kind": "figure", "visual": "<slug>"}` and never pastes image bytes. This repository is public: only generic visuals belong here, never a client name or client data. To add one: export the approved artwork as PNG (about 1600 px wide), add the file and a catalogue entry (`slug`, `file`, `title`, `alt`, `description`, `source`, `added`), open a PR; CI checks both.
+`assets/visuals/visuals.json` lists approved reusable visuals (diagrams such as the maturity scan) by slug. The Plainsight Brain mirrors this folder into its offer renderer, so an offer places a visual with `{"kind": "figure", "visual": "<slug>"}` and never pastes image bytes. This repository is public: only generic visuals belong here, never a client name or client data. To add one: export the approved artwork as PNG (about 1600 px wide), add the file and a catalogue entry (`slug`, `file`, `title`, `alt`, `description`, `source`, `added`), open a PR; CI checks both. The website photos under `assets/photos/` are catalogued the same way, with the alt text from `photos.html`, so an offer can place one by its file stem.
 
 ## Updating
 
