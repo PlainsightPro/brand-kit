@@ -109,3 +109,70 @@ jobs:
               sys.exit(1)
           print(f"brand.json v{manifest['meta']['version']} is structurally sound; every asset reference resolves.")
           EOF
+
+      - name: Verify the visuals catalogue and its files
+        run: |
+          python - <<'EOF'
+          import json, pathlib, re, sys
+
+          # Approved reusable visuals (the maturity scan and its successors),
+          # plus catalogue entries for photos and graphics that already live
+          # under assets/: an entry may point there instead of duplicating
+          # the file, as long as the slug is the file stem.
+          # The Plainsight Brain mirrors this folder into its offer renderer,
+          # so a broken entry here is a blank picture on a client page there.
+          folder = pathlib.Path("assets/visuals")
+          catalogue = json.loads((folder / "visuals.json").read_text(encoding="utf-8"))
+          if not isinstance(catalogue, list):
+              print("visuals.json must hold a list"); sys.exit(1)
+
+          slug_re = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
+          # The type is read from the bytes, never from the name: the website
+          # photos are WebP files named .jpg, and the Brain serves what the
+          # bytes are.
+          def image_type(data):
+              if data.startswith(bytes([0x89]) + b"PNG"):
+                  return "png"
+              if data.startswith(bytes([0xFF, 0xD8, 0xFF])):
+                  return "jpeg"
+              if data[:4] == b"RIFF" and data[8:12] == b"WEBP":
+                  return "webp"
+              return ""
+          suffixes = (".png", ".jpg", ".jpeg", ".webp")
+          cap = 400 * 1024
+          problems, seen = [], set()
+          for entry in catalogue:
+              if not isinstance(entry, dict):
+                  problems.append(f"entry is not an object: {entry!r}"); continue
+              slug = str(entry.get("slug") or "")
+              if not slug_re.match(slug):
+                  problems.append(f"bad slug: {slug!r}"); continue
+              if slug in seen:
+                  problems.append(f"duplicate slug: {slug}")
+              seen.add(slug)
+              for key in ("title", "alt", "description", "source", "added"):
+                  if not str(entry.get(key) or "").strip():
+                      problems.append(f"{slug}: missing {key}")
+              file = str(entry.get("file") or "")
+              path = pathlib.Path(file)
+              if path.suffix not in suffixes or path.parent.as_posix() not in ("assets/visuals", "assets/photos", "assets/graphics") or path.stem != slug:
+                  problems.append(f"{slug}: file must be assets/visuals|photos|graphics/{slug}.png, .jpg or .webp, got {file!r}"); continue
+              if not path.is_file():
+                  problems.append(f"{slug}: missing file {file}"); continue
+              data = path.read_bytes()
+              if not image_type(data):
+                  problems.append(f"{slug}: {file} is not a PNG, JPEG or WebP image")
+              if len(data) > cap:
+                  problems.append(f"{slug}: {file} is {len(data)} bytes, cap is {cap}")
+          for path in sorted(folder.iterdir()):
+              if path.name == "visuals.json":
+                  continue
+              if path.stem not in seen or path.suffix not in suffixes:
+                  problems.append(f"file without a catalogue entry: {path.as_posix()}")
+          if problems:
+              print("visuals integrity check FAILED:")
+              for problem in problems:
+                  print(f"  - {problem}")
+              sys.exit(1)
+          print(f"visuals catalogue is sound: {len(catalogue)} entries, every file referenced.")
+          EOF
