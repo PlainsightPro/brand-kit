@@ -188,5 +188,35 @@
     "description": "The AI strategy framework: business strategy sets where to play and the strategic priorities; AI strategy answers how to win with AI, which capabilities to build and which management systems keep it running. Use it in a strategy or AI-roadmap offer where the drafted alternative would be a lanes or principles section explaining the link between business and AI strategy. Generic: no client data. Has a moving twin: the gears turn on the page.",
     "source": "Plainsight AI strategy framework (the gears slide of the strategy deck), redrawn to the slide's layout and colours in the brand fonts with text outlined, 2026-10-24",
     "added": "2026-10-24"
+  },
+  {
+    "slug": "ai-delivery-cycle",
+    "file": "assets/visuals/ai-delivery-cycle.png",
+    "motion": "assets/visuals/ai-delivery-cycle.svg",
+    "title": "The AI delivery cycle",
+    "alt": "A wheel of four navy steps around a core labelled Govern, with an orange inner ring labelled Change at the top and Adopt at the bottom. The steps, clockwise from the top left: 01 Value discovery (binoculars), 02 Use case prioritisation (numbered list), 03 Proof of value (thumbs up), 04 Industrialize (plug). Three thin outer arcs name where each part sits: Strategic direction above, AI Lab on the right, AI Factory on the left.",
+    "description": "How Plainsight identifies, prioritises and delivers AI use cases once strategic direction is set: the four-step cycle with governance at the core and change and adoption running through every step, framed by Strategic direction, the AI Lab and the AI Factory. Use it in an AI strategy, AI Lab or use-case delivery offer where the drafted alternative would be a steps section with four items; write the step descriptions, the emphasis of the moment (which step is done, what change management means in practice) and the handover promise as offer text next to it, not into the picture. Generic: no client data. Has a moving twin: a translucent chevron glides slowly around the cycle.",
+    "source": "Plainsight AI strategy deck (2026), redrawn to the slide's layout and colours in the brand fonts with text outlined, Tabler outline icons",
+    "added": "2026-10-24"
+  },
+  {
+    "slug": "ai-readiness-dimensions",
+    "file": "assets/visuals/ai-readiness-dimensions.png",
+    "motion": "assets/visuals/ai-readiness-dimensions.svg",
+    "title": "AI readiness per dimension",
+    "alt": "Six dimensions each with a bar from L1 to L5: strategic direction, data, tools and technology, governance and compliance, organisation and processes, people, skills and culture. A navy bar shows the current level, a peach bar the gap to the target level marked above L3, and an orange circle numbers the priority of four of them: strategic direction first, organisation second, governance third, people fourth. Illustrative values.",
+    "description": "What the AI readiness scan's per-dimension report looks like, with ILLUSTRATIVE example values: current level, target, and the priority of each gap. Use it in a readiness scan or AI strategy offer to show the shape of the deliverable, with a caption that says the values are an example; never present it as a client's scores. Sharper, deck-drawn successor of ai-maturity-readiness. Has a moving twin: the bars grow in once.",
+    "source": "Plainsight AI strategy deck (2026), redrawn to the slide's layout and colours in the brand fonts with text outlined, Tabler outline icons",
+    "added": "2026-10-24"
+  },
+  {
+    "slug": "ai-readiness-ladder",
+    "file": "assets/visuals/ai-readiness-ladder.png",
+    "motion": "assets/visuals/ai-readiness-ladder.svg",
+    "title": "The AI readiness ladder with where you stand and the ambition",
+    "alt": "Five rising steps along an axis labelled Level of AI readiness against ROI: None, Ad hoc and reactive, Aware but fragmented, Structured and focused, Strategic and scalable. An orange pin labelled You're here stands on the second step and a dashed line labelled Ambition leads to an orange flag pin above the fourth. Illustrative positions.",
+    "description": "The readiness ladder as the scan reports it: five maturity levels with the current position and the ambition marked, ILLUSTRATIVE positions. Use it in a readiness scan or AI strategy offer to explain the levels and the gap in one picture, with a caption that says the pins are an example. Deck-drawn successor of ai-maturity-ladder, which stays for a plain ladder without pins. Has a moving twin: the steps rise once.",
+    "source": "Plainsight AI strategy deck (2026), redrawn to the slide's layout and colours in the brand fonts with text outlined, Tabler outline icons",
+    "added": "2026-10-24"
   }
 ]
