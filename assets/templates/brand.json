@@ -1,8 +1,8 @@
 {
   "meta": {
     "name": "Plainsight Brand Manifest",
-    "version": "1.3.0",
-    "updated": "2026-08-28",
+    "version": "1.4.0",
+    "updated": "2026-10-24",
     "source_of_truth": "https://github.com/PlainsightPro/brand-kit",
     "purpose": "Single machine-readable brand spec for humans, tools, and AI agents. When any other document disagrees with this file, this file wins. Agents: read this file whole; never rely on fragments of it."
   },
@@ -100,6 +100,13 @@
       "No triangle larger than one third of the page. Accents, not heroes.",
       "Decorative only: never obscure text or interactive content (pointer-events: none, aria-hidden)."
     ]
+  },
+  "motion": {
+    "rule": "A visual may move, never perform. Movement is slow and continuous and stays inside the picture: a cycle of at least 8 seconds, only transform and opacity change, opacity never below 0.4, no stepped timing, nothing flashes. Text is outlined so the twin loads no font and matches the still exactly.",
+    "min_cycle_seconds": 8,
+    "animated_properties": ["transform", "opacity"],
+    "min_opacity": 0.4,
+    "applies_to": "The SVG twins listed under motion in assets/visuals/visuals.json, next to their still PNG. The page shows the twin; the still is what prints. scripts/check_motion.py enforces this section."
   },
   "rockets": {
     "assets": { "vertical": "assets/graphics/rocket-vertical.png", "diagonal": "assets/graphics/rocket-diagonal.png" },

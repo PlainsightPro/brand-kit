@@ -178,5 +178,15 @@
     "description": "Website photograph from the Scans page of plainsight.pro: a Plainsight consultant analyzing a dashboard on a desktop monitor. Brand photography, for a figure that shows people and place rather than a diagram.",
     "source": "plainsight.pro, the Scans page (brand-kit assets/photos)",
     "added": "2026-10-22"
+  },
+  {
+    "slug": "where-to-play-how-to-win",
+    "file": "assets/visuals/where-to-play-how-to-win.png",
+    "motion": "assets/visuals/where-to-play-how-to-win.svg",
+    "title": "Where to play, how to win with AI",
+    "alt": "Five meshing gears. Two orange business-strategy gears on the left, labelled Where to play? (strategic positioning of the organisation: geography, markets, customer segments, products, channels) and Strategic priorities (e.g. per value stream), drive a sand-coloured gear in the middle labelled How to win with AI? (where do we see the biggest potential across the core value streams?), which drives two lilac AI-strategy gears on the right labelled Winning capabilities (AI capabilities your organisation must build to scale impact) and Management systems (structures and routines that ensure strategy is consistently executed, owned, governed and improved).",
+    "description": "The AI strategy framework: business strategy sets where to play and the strategic priorities; AI strategy answers how to win with AI, which capabilities to build and which management systems keep it running. Use it in a strategy or AI-roadmap offer where the drafted alternative would be a lanes or principles section explaining the link between business and AI strategy. Generic: no client data. Has a moving twin: the gears turn on the page.",
+    "source": "Plainsight AI strategy framework (the gears slide of the strategy deck), redrawn to the slide's layout and colours in the brand fonts with text outlined, 2026-10-24",
+    "added": "2026-10-24"
   }
 ]
