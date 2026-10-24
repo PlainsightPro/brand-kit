@@ -167,6 +167,8 @@ jobs:
           for path in sorted(folder.iterdir()):
               if path.name == "visuals.json":
                   continue
+              if path.suffix == ".svg" and path.stem in seen:
+                  continue  # a moving twin; scripts/check_motion.py verifies it
               if path.stem not in seen or path.suffix not in suffixes:
                   problems.append(f"file without a catalogue entry: {path.as_posix()}")
           if problems:
@@ -176,3 +178,9 @@ jobs:
               sys.exit(1)
           print(f"visuals catalogue is sound: {len(catalogue)} entries, every file referenced.")
           EOF
+
+      # A twin moves on the offer page and prints as its still. The checker
+      # takes every number from brand.json -> motion, so the rule is tuned
+      # there, never in the script.
+      - name: Verify the moving twins against the motion rule
+        run: python scripts/check_motion.py
