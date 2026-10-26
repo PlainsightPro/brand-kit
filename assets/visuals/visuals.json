@@ -218,5 +218,15 @@
     "description": "The readiness ladder as the scan reports it: five maturity levels with the current position and the ambition marked, ILLUSTRATIVE positions. Use it in a readiness scan or AI strategy offer to explain the levels and the gap in one picture, with a caption that says the pins are an example. Deck-drawn successor of ai-maturity-ladder, which stays for a plain ladder without pins. Has a moving twin: the steps rise once.",
     "source": "Plainsight AI strategy deck (2026), redrawn to the slide's layout and colours in the brand fonts with text outlined, Tabler outline icons",
     "added": "2026-10-24"
+  },
+  {
+    "slug": "crawl-walk-run",
+    "file": "assets/visuals/crawl-walk-run.png",
+    "motion": "assets/visuals/crawl-walk-run.svg",
+    "title": "Crawl, walk, run: the delivery model with a gate between every stage",
+    "alt": "Three stages along a dashed timeline with an orange decision gate between each. Crawl: assist and display, AI helps and a human decides, low risk, fast learning, an immediate value signal. Gate: technical reliability and trust earned? Walk: advise and route, AI recommends and a human validates, trust deepens, scope widens. Gate: value materialised, ROI measured? Run: autonomous on the happy path, AI acts and humans handle exceptions, earned, not assumed. Closing line: trust earned, not assumed; at every gate the option to stop, pivot or scale stays on the table.",
+    "description": "The crawl, walk, run delivery model as drawn on plainsight.pro's AI offering page: three stages of autonomy with a go or no-go gate between each. Use it in a build or pilot offer, in the section that explains how a use case is delivered and why every phase ends on a decision (the Blueprint & Build track of the offering); not in a strategy-only offer. Generic: no client data. Has a moving twin: the timeline draws itself, the stages settle in turn and the gates pop; hover a stage or a gate.",
+    "source": "plainsight.pro AI offering page, public/images/Offering pages/04-crawl-walk-run.svg, redrawn with text outlined in the brand fonts (the pictograms are the page's own), 2026-10-26",
+    "added": "2026-10-26"
   }
 ]
