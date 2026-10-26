@@ -156,6 +156,23 @@ def _at_rule_blocks(css: str, name: str) -> list[str]:
         start = i + 1
 
 
+def _split_animations(declaration: str) -> list[str]:
+    """Split an `animation` list on the commas between animations, not those inside `cubic-bezier()`."""
+    parts, depth, current = [], 0, []
+    for ch in declaration:
+        if ch == "(":
+            depth += 1
+        elif ch == ")":
+            depth = max(depth - 1, 0)
+        if ch == "," and depth == 0:
+            parts.append("".join(current))
+            current = []
+        else:
+            current.append(ch)
+    parts.append("".join(current))
+    return [part for part in parts if part.strip()]
+
+
 def _seconds(token: str) -> float | None:
     match = _TIME_RE.match(token.strip())
     if not match:
@@ -191,7 +208,7 @@ def check_calm(raw: bytes, rules: Any) -> list[str]:
             if seconds is not None and seconds < min_cycle:
                 problems.append(f"animation-duration {token} is under the {min_cycle:g}s minimum")
     for declaration in _SHORTHAND_RE.findall(css):
-        for one in declaration.split(","):
+        for one in _split_animations(declaration):
             times = [s for s in (_seconds(t) for t in one.split()) if s is not None]
             if not times:
                 problems.append(f"animation {one.strip()!r} has no duration")
