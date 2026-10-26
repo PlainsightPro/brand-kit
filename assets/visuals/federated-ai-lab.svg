@@ -2,8 +2,8 @@
 <title>The federated AI Lab</title>
 <desc>A central AI Lab with one AI expert embedded in every department: central expertise, business knowledge where the work happens.</desc>
 <style>
-@keyframes emit { from { transform: scale(0.02); } to { transform: scale(1); } }
-@keyframes settle { from { opacity: 0.4; } to { opacity: 1; } }
+@keyframes emit { from { transform: scale(0.3); } to { transform: scale(1); } }
+@keyframes settle { from { opacity: 0.55; } to { opacity: 1; } }
 @keyframes breathe { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
 #hub { transform-origin: 450px 440px; animation: breathe 12s ease-in-out infinite; }
 .dept .circle, .dept .link { transition: stroke-width 0.3s, stroke 0.3s; }
@@ -11,29 +11,29 @@
 .dept:hover .circle { stroke: #d5693a; stroke-width: 7; }
 .dept:hover .link { stroke: #d5693a; stroke-width: 4; }
 .dept:hover .ai { transform: scale(1.3); }
-#s0 { transform-origin: 450px 440px; animation: emit 10s ease-out 0.00s both; }
-#d0 { animation: settle 10s ease-out 0.40s both; }
+#s0 { transform-origin: 450px 440px; animation: emit 8s cubic-bezier(0.16, 1, 0.3, 1) 0.00s both; }
+#d0 { animation: settle 8s cubic-bezier(0.16, 1, 0.3, 1) 0.20s both; }
 #s0 .ai { transform-origin: 392.6px 301.4px; }
-#s1 { transform-origin: 450px 440px; animation: emit 10s ease-out 0.25s both; }
-#d1 { animation: settle 10s ease-out 0.65s both; }
+#s1 { transform-origin: 450px 440px; animation: emit 8s cubic-bezier(0.16, 1, 0.3, 1) 0.10s both; }
+#d1 { animation: settle 8s cubic-bezier(0.16, 1, 0.3, 1) 0.30s both; }
 #s1 .ai { transform-origin: 507.4px 301.4px; }
-#s2 { transform-origin: 450px 440px; animation: emit 10s ease-out 0.50s both; }
-#d2 { animation: settle 10s ease-out 0.90s both; }
+#s2 { transform-origin: 450px 440px; animation: emit 8s cubic-bezier(0.16, 1, 0.3, 1) 0.20s both; }
+#d2 { animation: settle 8s cubic-bezier(0.16, 1, 0.3, 1) 0.40s both; }
 #s2 .ai { transform-origin: 588.6px 382.6px; }
-#s3 { transform-origin: 450px 440px; animation: emit 10s ease-out 0.75s both; }
-#d3 { animation: settle 10s ease-out 1.15s both; }
+#s3 { transform-origin: 450px 440px; animation: emit 8s cubic-bezier(0.16, 1, 0.3, 1) 0.30s both; }
+#d3 { animation: settle 8s cubic-bezier(0.16, 1, 0.3, 1) 0.50s both; }
 #s3 .ai { transform-origin: 588.6px 497.4px; }
-#s4 { transform-origin: 450px 440px; animation: emit 10s ease-out 1.00s both; }
-#d4 { animation: settle 10s ease-out 1.40s both; }
+#s4 { transform-origin: 450px 440px; animation: emit 8s cubic-bezier(0.16, 1, 0.3, 1) 0.40s both; }
+#d4 { animation: settle 8s cubic-bezier(0.16, 1, 0.3, 1) 0.60s both; }
 #s4 .ai { transform-origin: 507.4px 578.6px; }
-#s5 { transform-origin: 450px 440px; animation: emit 10s ease-out 1.25s both; }
-#d5 { animation: settle 10s ease-out 1.65s both; }
+#s5 { transform-origin: 450px 440px; animation: emit 8s cubic-bezier(0.16, 1, 0.3, 1) 0.50s both; }
+#d5 { animation: settle 8s cubic-bezier(0.16, 1, 0.3, 1) 0.70s both; }
 #s5 .ai { transform-origin: 392.6px 578.6px; }
-#s6 { transform-origin: 450px 440px; animation: emit 10s ease-out 1.50s both; }
-#d6 { animation: settle 10s ease-out 1.90s both; }
+#s6 { transform-origin: 450px 440px; animation: emit 8s cubic-bezier(0.16, 1, 0.3, 1) 0.60s both; }
+#d6 { animation: settle 8s cubic-bezier(0.16, 1, 0.3, 1) 0.80s both; }
 #s6 .ai { transform-origin: 311.4px 497.4px; }
-#s7 { transform-origin: 450px 440px; animation: emit 10s ease-out 1.75s both; }
-#d7 { animation: settle 10s ease-out 2.15s both; }
+#s7 { transform-origin: 450px 440px; animation: emit 8s cubic-bezier(0.16, 1, 0.3, 1) 0.70s both; }
+#d7 { animation: settle 8s cubic-bezier(0.16, 1, 0.3, 1) 0.90s both; }
 #s7 .ai { transform-origin: 311.4px 382.6px; }
 </style>
 <path d="M557.0 70 H774 A56 56 0 0 1 830 126 V734 A56 56 0 0 1 774 790 H126 A56 56 0 0 1 70 734 V126 A56 56 0 0 1 126 70 H343.0" fill="none" stroke="#d5693a" stroke-width="3.5"/>
