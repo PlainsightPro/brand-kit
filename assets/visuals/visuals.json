@@ -228,5 +228,15 @@
     "description": "The crawl, walk, run delivery model as drawn on plainsight.pro's AI offering page: three stages of autonomy with a go or no-go gate between each. Use it in a build or pilot offer, in the section that explains how a use case is delivered and why every phase ends on a decision (the Blueprint & Build track of the offering); not in a strategy-only offer. Generic: no client data. Has a moving twin: the timeline draws itself, the stages settle in turn and the gates pop; hover a stage or a gate.",
     "source": "plainsight.pro AI offering page, public/images/Offering pages/04-crawl-walk-run.svg, redrawn with text outlined in the brand fonts (the pictograms are the page's own), 2026-10-26",
     "added": "2026-10-26"
+  },
+  {
+    "slug": "federated-ai-lab",
+    "file": "assets/visuals/federated-ai-lab.png",
+    "motion": "assets/visuals/federated-ai-lab.svg",
+    "title": "Federated AI Lab",
+    "alt": "A central orange circle labelled AI Lab inside a rounded orange frame labelled Federated. Eight navy circles around it, one per department: Sales, Marketing, Finance, Customer Service, Procurement, Operations, HR and IT. A line connects each department to the hub and carries a small orange AI node, the AI expert embedded in that department. Dots between the circles stand for further departments.",
+    "description": "The federated operating model for AI: a central AI Lab holds the expertise, standards and tooling, and every department has its own embedded AI expert who knows the business. Use it in an offer that proposes an AI Lab or an AI operating model (the AI Lab and operating framework building block) where the drafted alternative would be prose about roles and coordination; name the client's own departments in the text, the picture keeps generic ones. Redrawn from the Embedding AI in your organisation slide of the AI strategy deck; the deck's chosen option badge and pros and cons are left out on purpose.",
+    "source": "Plainsight AI strategy deck, Embedding AI in your organisation, federated option; redrawn in the brand fonts with the text outlined, 2026-10-26",
+    "added": "2026-10-26"
   }
 ]
