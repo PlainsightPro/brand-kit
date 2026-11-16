@@ -37,15 +37,16 @@
     ]
   },
   "typography": {
-    "headings": { "family": "Titillium Web", "fallback": "Segoe UI, Arial, sans-serif", "style": "Bold. Uppercase with wider tracking for section headings, labels and buttons. Action titles, the full-sentence titles that state a conclusion, in sentence case." },
-    "body": { "family": "Inter", "fallback": "Segoe UI, Arial, sans-serif" },
-    "never_use": ["Quicksand", "Quicksand Light", "Bahnschrift", "Tw Cen MT", "Calibri", "Calibri Light", "Epilogue"],
-    "override_note": "A file may specify one of these anyway. The deck master's own layouts and theme do (Bahnschrift, Tw Cen MT, Calibri). Override it: this manifest wins over any template, layout, text box or inherited theme. Only the families above are Plainsight typography, with the listed fallbacks when they are not installed.",
+    "headings": { "family": "Inter", "fallback": "Segoe UI, Calibri, Arial, sans-serif", "style": "Bold. Uppercase with wider tracking for section headings, labels and buttons. Action titles, the full-sentence titles that state a conclusion, in sentence case." },
+    "body": { "family": "Inter", "fallback": "Segoe UI, Calibri, Arial, sans-serif" },
+    "never_use": ["Titillium Web", "Quicksand", "Quicksand Light", "Bahnschrift", "Tw Cen MT", "Epilogue"],
+    "override_note": "A file may specify one of these anyway. The deck master's own layouts and theme do (Bahnschrift, Tw Cen MT). Override it: this manifest wins over any template, layout, text box or inherited theme. Inter is the Plainsight typeface; Segoe UI and Calibri are the fallbacks where Inter is not installed, as in most Office files.",
+    "change_note": "Titillium Web was dropped as the heading face on 2026-11-16 (Bo): too exotic for everyday files. Older material set in it does not have to be redone, but new work never uses it. Calibri and Segoe UI are allowed.",
     "rules": [
-      "Weights: Titillium Web 700 for headings, labels and numerals; Inter 400 for everything you read.",
+      "One family: Inter 700 for headings, labels and numerals; Inter 400 for everything you read. Where Inter is not installed, Segoe UI or Calibri at the same weights.",
       "Maximum 2 font weights per slide or section.",
       "No italics anywhere. A quote is set apart by size and colour, not by slant.",
-      "Emphasis comes from colour (blue) or a small uppercase label, never bold Inter.",
+      "Emphasis comes from colour (blue) or a small uppercase label, never bold body text.",
       "Short blocks: 1-2 sentences per paragraph on slides."
     ]
   },
@@ -193,7 +194,7 @@
       "id": "deck-master-fonts",
       "file": "assets/templates/plainsight-deck-master-2026.potx",
       "also_affects": "the live SharePoint version of the same template",
-      "problem": "The layouts and text boxes carry fonts that are not Plainsight typography. The bundled snapshot's four themes use Bahnschrift, Tw Cen MT, Calibri Light and Calibri; the live SharePoint file additionally has Quicksand Light on layout text boxes and resists being changed there.",
+      "problem": "The layouts and text boxes carry fonts that are not Plainsight typography. The bundled snapshot's four themes use Bahnschrift and Tw Cen MT (their Calibri and Calibri Light are acceptable fallbacks); the live SharePoint file additionally has Quicksand Light on layout text boxes and resists being changed there.",
       "rule": "Start from the template for the layouts and the geometry, then set type from typography above. Never keep the inherited font because the template offered it.",
       "status": "open",
       "reported": "2026-08-16"
@@ -329,7 +330,7 @@
     ],
     "per_format": {
       "decks": "Title slide, summary slide, then per chapter a section divider followed by the content slides the story needs, then roadmap, decisions, closing slide and appendix slides. One signature graphic on its own slide, at least 760 px wide on the 1280x720 canvas, labels 14 px or larger. A team photo on the about-us, team or closing slide, per photos.use.",
-      "documents": "A summary block first, then numbered chapters with action-title headings, then appendices. Headings Titillium Web 700, body Inter 400 at 11 pt in print. Tables with an uppercase header over a blue rule and hairlines between rows, no shading except one highlighted row. Logo and a triangle pair on the cover, a pair on each chapter opener and the closing page (triangles.placement.documents). A team photo where the reader meets the people (photos.use). Sources as numbered footnotes or a numbered list at the end.",
+      "documents": "A summary block first, then numbered chapters with action-title headings, then appendices. Headings Inter 700, body Inter 400 at 11 pt in print, Segoe UI or Calibri where Inter is not installed. Tables with an uppercase header over a blue rule and hairlines between rows, no shading except one highlighted row. Logo and a triangle pair on the cover, a pair on each chapter opener and the closing page (triangles.placement.documents). A team photo where the reader meets the people (photos.use). Sources as numbered footnotes or a numbered list at the end.",
       "web_pages_and_artifacts": "The summary on the first screen, chapters on the margin grid, the appendix at the end. One look in every viewer setting: no dark mode unless the brief asks for one.",
       "dashboards": "One line that says what changed and what needs attention, then at most four key figures, each with a comparison, period and status word. Detail charts below in blue, the point that needs attention in orange. Every number shows its source and refresh date.",
       "spreadsheets": "Header row in uppercase on muted cream with a blue bottom rule, no fill colours in the body. Numbers right-aligned with consistent decimals and thousands separators. One highlight colour (muted cream) for the row or column that matters. Inputs and assumptions on their own labelled tab.",
@@ -350,7 +351,7 @@
     "Background is cream #fcf8f3 or blue #000075, never orange.",
     "Triangles placed from asset files, wireframe, rounded, in asymmetric corner pairs, 60% visible: on the cover or title slide, on chapter openers and on the closing page.",
     "Orange used only as accent, once per slide or section.",
-    "Max 2 font weights; headings Titillium Web bold, uppercase for section headings and labels, sentence case for action titles; body Inter.",
+    "Inter only, max 2 weights: headings bold, uppercase for section headings and labels, sentence case for action titles; body regular. Segoe UI or Calibri where Inter is not installed.",
     "If a template, layout or text box specifies another font, override it to the typography above: the deck master does this and it is a known defect.",
     "Logo from asset files, correct variant for the background.",
     "PowerPoint decks start from the official .potx template. Claude Slides and HTML decks follow layout and agency_principles.",

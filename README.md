@@ -1,6 +1,6 @@
 # Plainsight Brand Kit
 
-Self-contained, multi-page brand kit. No build step, no internet required (except for Google Fonts to load Titillium Web and Inter — falls back to Arial gracefully).
+Self-contained, multi-page brand kit. No build step, no internet required (except for Google Fonts to load Inter, which falls back to Segoe UI, Calibri or Arial gracefully).
 
 ## How to use it
 

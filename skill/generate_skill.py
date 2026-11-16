@@ -158,6 +158,8 @@ def render_typography(manifest: dict[str, Any]) -> str:
         lines.extend(["", f"**Never use:** {families}"])
         if note := typography.get("override_note"):
             lines.extend(["", str(note)])
+    if change := typography.get("change_note"):
+        lines.extend(["", str(change)])
     if rules := _bullets(typography.get("rules")):
         lines.extend(["", rules])
     return "\n".join(lines)

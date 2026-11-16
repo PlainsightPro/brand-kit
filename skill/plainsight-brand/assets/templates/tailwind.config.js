@@ -14,8 +14,8 @@ module.exports = {
         },
       },
       fontFamily: {
-        head: ['"Titillium Web"', '"Segoe UI"', 'Arial', 'sans-serif'],
-        body: ['"Inter"', '"Segoe UI"', 'Arial', 'sans-serif'],
+        head: ['"Inter"', '"Segoe UI"', 'Calibri', 'Arial', 'sans-serif'],
+        body: ['"Inter"', '"Segoe UI"', 'Calibri', 'Arial', 'sans-serif'],
       },
     },
   },

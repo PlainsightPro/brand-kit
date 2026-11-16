@@ -11,8 +11,8 @@
   --ps-blue-55: rgba(0, 0, 117, 0.55);
   --ps-blue-18: rgba(0, 0, 117, 0.18);
   --ps-blue-08: rgba(0, 0, 117, 0.08);
-  --font-head: "Titillium Web", "Segoe UI", Arial, sans-serif;
-  --font-body: "Inter", "Segoe UI", Arial, sans-serif;
+  --font-head: "Inter", "Segoe UI", Calibri, Arial, sans-serif;
+  --font-body: "Inter", "Segoe UI", Calibri, Arial, sans-serif;
   --font-mono: "SF Mono", "Menlo", "Consolas", monospace;
 }
 
