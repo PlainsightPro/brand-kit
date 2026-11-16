@@ -34,9 +34,15 @@ serves it as a resource.
 |---|---|---|
 | LinkedIn carousel | 1080 x 1350 px (4:5) | Template A or B below |
 | LinkedIn single post | 1080 x 1350 px (4:5) | Template B below |
-| Presentation | 16:9 | the official .potx, never a blank deck |
+| PowerPoint deck | 16:9 | the official .potx, never a blank deck |
+| Claude Slides or HTML deck | the slide canvas under Layout | Layout, Never look like AI and Make it look curated below |
+| Proposal, offer or document | page or web page | Make it look curated below, per format |
 | Website | responsive | the CSS tokens and Tailwind config in `assets/templates/` |
-| Power BI report | n/a | the Power BI theme in `assets/templates/` |
+| Power BI report | n/a | the Power BI theme in `assets/templates/` and the Charts rules |
+
+Client work (proposals, offers, decks, documents, reports, dashboards,
+artifacts) has one more rule on top of everything here: it must never look
+AI-generated. Read **Never look like AI** before you draw a single box.
 
 ## Colors
 
@@ -48,6 +54,10 @@ serves it as a resource.
 
 {{TYPOGRAPHY}}
 
+## Layout
+
+{{LAYOUT}}
+
 ## The triangle
 
 {{TRIANGLE_RULE}}
@@ -58,6 +68,26 @@ serves it as a resource.
 
 {{LOGO_PLACEMENT}}
 
+## Photos
+
+{{PHOTOS}}
+
+## Charts
+
+{{CHARTS}}
+
+## Icons
+
+{{ICONOGRAPHY}}
+
+## Never look like AI
+
+{{NEVER_LOOK_LIKE_AI}}
+
+## Make it look curated
+
+{{AGENCY_PRINCIPLES}}
+
 ## Templates and tokens
 
 {{TEMPLATE_FILES}}
@@ -67,6 +97,10 @@ serves it as a resource.
 {{KNOWN_ISSUES}}
 
 ## LinkedIn visuals
+
+The LinkedIn templates are a designed system of their own. Their pills, rounded
+cards, accent bars and number badges stay as described here; the **Never look
+like AI** rules are for client work, not for these carousels.
 
 ### Canvas
 
@@ -138,13 +172,21 @@ One idea per slide, and stop before the slide is full:
 - CTA buttons are pill-shaped, uppercase, with wide letter spacing and semibold weight.
 - Use the CSS custom properties and Tailwind config from `assets/templates/` rather than hardcoding values.
 
+These rules describe the plainsight.pro component library. A page or artifact
+generated for a client follows Layout and Never look like AI instead: no pills,
+no shadows, 8 to 12 px corners at most.
+
 ## Presentations
 
-- Start from the official .potx. Do not rebuild slide layouts from scratch.
-- Cream for content slides, primary colour for section dividers and the closing slide.
+- PowerPoint decks start from the official .potx. Do not rebuild its slide layouts from scratch.
+- Claude Slides and HTML decks cannot start from a .potx. They use the slide canvas and splits under Layout, and the deck order under Make it look curated.
+- Cream for content slides, primary colour for the title, section dividers and the closing slide.
 - Logo on the title and closing slides only, bottom-right, matched to the slide background.
-- Triangles are corner decoration only, subtle, never over content.
+- A triangle pair on the title, every section divider and the closing slide. A content slide may carry a subtle pair in a free corner, never touching text, a chart or a table.
+- Every content slide has an action title: one sentence, sentence case, stating the conclusion.
 - One idea per slide, one or two sentences per block.
+- A team photo from the Photos table on the about-us, team or closing slide.
+- No transitions and no build animations.
 
 ## Voice
 
@@ -166,5 +208,6 @@ One idea per slide, and stop before the slide is full:
 | `assets/brand.json` | The machine-readable manifest every value above came from |
 
 Larger assets stay in the brand-kit repository rather than in this skill: the
-PowerPoint master, photography, the rocket motif, PNG variants, the Power BI
-theme, and the CSS and Tailwind token files.
+PowerPoint master, the rocket motif and the PNG variants. Photography is served
+from the brand kit's public site; the Photos table above gives each photo's URL
+and alt text.

@@ -6,7 +6,7 @@
 <title>Fonts · Plainsight Brand Kit</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 <link rel="icon" href="assets/logos/plainsight-logo-blue.svg">
 </head>
@@ -38,40 +38,36 @@
 
     <span class="eyebrow">06 — Fonts</span>
     <h1>Typography</h1>
-    <p class="lead">Titillium Web for everything structural — titles, subtitles, headings, section labels. Inter for everything you actually read — body, quote, caption. Both are free on Google Fonts.</p>
+    <p class="lead">One family: Inter. Bold for everything structural (titles, headings, labels, numerals), regular for everything you read. It is free on Google Fonts and it is what plainsight.pro uses. Where Inter is not installed, as in most Office files, Segoe UI or Calibri take its place.</p>
 
     <section>
       <div class="section-head">
-        <h2>Titillium Web — headings</h2>
-        <p>The structural typeface. Always bold for titles and subtitles; regular for the lower heading levels.</p>
+        <h2>Inter bold: headings</h2>
+        <p>Titles, headings, section labels and numerals, always at 700. Until November 2026 headings were set in Titillium Web; older material in it does not have to be redone, but new work never uses it.</p>
       </div>
 
       <div class="type-spec head-sample">
-        <div class="label-row"><div><b>Title</b>Titillium Web · 42 · Bold</div></div>
-        <div class="sample" style="font-size: 42px; line-height: 1.1;">Title</div>
+        <div class="label-row"><div><b>Title</b>Inter · 42 · Bold</div></div>
+        <div class="sample" style="font-size: 42px; font-weight: 700; line-height: 1.1;">Title</div>
       </div>
       <div class="type-spec head-sample">
-        <div class="label-row"><div><b>Subtitle</b>Titillium Web · 36 · Bold</div></div>
-        <div class="sample" style="font-size: 36px; line-height: 1.15;">Subtitle</div>
+        <div class="label-row"><div><b>Action title</b>Inter · 32 · Bold · sentence case</div></div>
+        <div class="sample" style="font-size: 32px; font-weight: 700; line-height: 1.2; text-transform: none;">Three reports answer the same question</div>
       </div>
       <div class="type-spec head-sample">
-        <div class="label-row"><div><b>Heading</b>Titillium Web · 32 · Bold</div></div>
-        <div class="sample" style="font-size: 32px; line-height: 1.2;">Heading</div>
+        <div class="label-row"><div><b>Heading</b>Inter · 24 · Bold</div></div>
+        <div class="sample" style="font-size: 24px; font-weight: 700; line-height: 1.25;">Heading</div>
       </div>
       <div class="type-spec head-sample">
-        <div class="label-row"><div><b>Subheading</b>Titillium Web · 24 · Regular</div></div>
-        <div class="sample" style="font-size: 24px; font-weight: 400; line-height: 1.25;">Subheading</div>
-      </div>
-      <div class="type-spec head-sample">
-        <div class="label-row"><div><b>Section header</b>Titillium Web · 20 · Regular</div></div>
-        <div class="sample" style="font-size: 20px; font-weight: 400; line-height: 1.3;">Section header</div>
+        <div class="label-row"><div><b>Section label</b>Inter · 13 · Bold · uppercase, wide tracking</div></div>
+        <div class="sample" style="font-size: 13px; font-weight: 700; line-height: 1.3; text-transform: uppercase; letter-spacing: 0.12em;">Section label</div>
       </div>
     </section>
 
     <section>
       <div class="section-head">
         <h2>Inter — body &amp; quote</h2>
-        <p>The reading typeface. Regular for body, italic for pull-quotes, regular at 14 for captions.</p>
+        <p>The reading typeface. Regular for body, regular at 14 for captions. A quote is set apart by size and colour, never by italics.</p>
       </div>
 
       <div class="type-spec body-sample">
@@ -79,8 +75,8 @@
         <div class="sample" style="font-size: 16px; line-height: 1.6;">Body — we accelerate analytics and AI roadmaps with strategy, projects and experts that deliver real ROI.</div>
       </div>
       <div class="type-spec body-sample">
-        <div class="label-row"><div><b>Quote</b>Inter · 16 · Italic</div></div>
-        <div class="sample italic" style="font-size: 16px; line-height: 1.6;">"Plainsight turned our scattered data sources into a single, trustworthy platform in less than four months."</div>
+        <div class="label-row"><div><b>Quote</b>Inter · 22 · Regular · Plainsight Blue</div></div>
+        <div class="sample" style="font-size: 22px; line-height: 1.45; color: var(--ps-blue);">"Plainsight turned our scattered data sources into a single, trustworthy platform in less than four months."</div>
       </div>
       <div class="type-spec body-sample">
         <div class="label-row"><div><b>Caption</b>Inter · 14 · Regular</div></div>
@@ -91,25 +87,27 @@
     <section>
       <div class="section-head">
         <h2>Typography by medium</h2>
-        <p>Different channels use different primary fonts. Pick the right one for your output.</p>
+        <p>The same family everywhere. Only the fallback differs, depending on what the tool has installed.</p>
       </div>
 
       <table class="brand-table">
         <thead><tr><th>Medium</th><th>Primary font</th><th>Fallback</th></tr></thead>
         <tbody>
-          <tr><td><b>LinkedIn visuals</b></td><td>Titillium Web (Regular, SemiBold, Bold, Light)</td><td>Helvetica</td></tr>
+          <tr><td><b>LinkedIn visuals</b></td><td>Inter 700 (titles, badges) + Inter 400 (text)</td><td>Segoe UI</td></tr>
           <tr><td><b>Website</b></td><td>Inter (400, 500, 600, 700) via next/font</td><td>system sans-serif</td></tr>
-          <tr><td><b>Presentations</b></td><td>Inter or Titillium Web depending on context</td><td>Calibri</td></tr>
-          <tr><td><b>Documents</b></td><td>Titillium Web (headings) + Inter (body)</td><td>Arial</td></tr>
+          <tr><td><b>Presentations</b></td><td>Inter 700 (titles, labels, numerals) + Inter 400 (body). Override any font the template brings, except Calibri or Segoe UI as fallback.</td><td>Segoe UI, Calibri</td></tr>
+          <tr><td><b>Documents</b></td><td>Inter 700 (headings) + Inter 400 (body)</td><td>Segoe UI, Calibri</td></tr>
         </tbody>
       </table>
 
       <h3 style="margin: 24px 0 12px; font-size: 18px;">Common rules across all media</h3>
       <ul class="rules">
-        <li><b>Maximum 2 font weights per slide or section</b> — regular + bold. Don't mix three or more.</li>
-        <li><b>No italic usage</b> in carousels or slides. Reserve italic for pull-quotes in documents only.</li>
+        <li><b>Maximum 2 font weights per slide or section.</b> In client work: Inter 700 for headings, labels and numerals; Inter 400 for everything you read.</li>
+        <li><b>No italics anywhere.</b> A quote is set apart by size and colour.</li>
+        <li><b>Emphasis by colour or a label, never bold body text.</b> Use Plainsight Blue or a small uppercase label.</li>
         <li><b>Short text blocks.</b> 1-2 sentences per paragraph on slides, sentence fragments preferred.</li>
-        <li><b>Headings are bold and uppercase</b> with wider tracking. On web, set via CSS base layer.</li>
+        <li><b>Section headings, labels and buttons are bold and uppercase</b> with wider tracking. On web, set via CSS base layer.</li>
+        <li><b>Action titles are sentence case.</b> A title that states the conclusion of a slide or chapter is a full sentence: "Three reports answer the same question", not "REPORTING LANDSCAPE".</li>
       </ul>
     </section>
 
@@ -143,15 +141,14 @@
       </div>
 
       <pre><span class="c">/* CSS font stacks */</span>
-<span class="k">--font-head:</span> "Titillium Web", "Segoe UI", Arial, sans-serif;
-<span class="k">--font-body:</span> "Inter", "Segoe UI", Arial, sans-serif;
+<span class="k">--font-head:</span> "Inter", "Segoe UI", Calibri, Arial, sans-serif;
+<span class="k">--font-body:</span> "Inter", "Segoe UI", Calibri, Arial, sans-serif;
 <span class="k">--font-web:</span>  "Inter", system-ui, sans-serif;</pre>
 
       <h3 style="margin: 24px 0 12px; font-size: 18px;">Where to get the fonts</h3>
       <ul class="rules">
-        <li><b>Titillium Web</b> — <a href="https://fonts.google.com/specimen/Titillium+Web" target="_blank" rel="noopener">fonts.google.com/specimen/Titillium+Web</a>. Free, open-source. Install weights 300 / 400 / 600 / 700.</li>
-        <li><b>Inter</b> — <a href="https://fonts.google.com/specimen/Inter" target="_blank" rel="noopener">fonts.google.com/specimen/Inter</a>. Free, open-source. Install weights 400 / 500 / 600 / 700.</li>
-        <li><b>Inter</b> — <a href="https://fonts.google.com/specimen/Inter" target="_blank" rel="noopener">fonts.google.com/specimen/Inter</a>. Free, open-source. Install weights 400 / 500 / 600 / 700.</li>
+        <li><b>Inter</b>: <a href="https://fonts.google.com/specimen/Inter" target="_blank" rel="noopener">fonts.google.com/specimen/Inter</a>. Free, open-source. Install weights 400 and 700.</li>
+        <li><b>Segoe UI and Calibri</b> ship with Windows and Microsoft 365. Nothing to install.</li>
       </ul>
     </section>
 

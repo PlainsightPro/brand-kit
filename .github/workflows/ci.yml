@@ -62,6 +62,11 @@ jobs:
               "triangles": ("rule", "assets", "hard_rules", "native_size_px", "placement"),
               "templates": ("powerpoint_master",),
               "voice": ("summary", "never_sound_like_ai"),
+              "layout": ("slide_canvas", "rules"),
+              "charts": ("palette", "accent", "rules"),
+              "photos": ("rule", "catalogue", "base_url", "use", "treatment"),
+              "never_look_like_ai": ("principle", "test", "never", "formats"),
+              "agency_principles": ("principles", "per_format", "final_check"),
               "agent_checklist": (),
           }
           problems = []
@@ -101,6 +106,18 @@ jobs:
           rule = str(manifest.get("triangles", {}).get("rule", "")).lower()
           if "never" not in rule or "fill" not in rule:
               problems.append("triangles.rule no longer states that the triangle is never filled")
+
+          # Documents keep their triangle pair: the Brain's offer renderer
+          # mirrors these keys as constants.
+          documents = manifest.get("triangles", {}).get("placement", {}).get("documents", {})
+          for key in ("principle", "opacity", "top_right_pair"):
+              if key not in documents:
+                  problems.append(f"missing key: triangles.placement.documents.{key}")
+
+          # The chart palette is blue first; orange is the accent, never a series colour.
+          charts = manifest.get("charts", {})
+          if charts.get("accent") in (charts.get("palette") or []):
+              problems.append("charts.accent must not also be a palette colour")
 
           if problems:
               print("brand.json integrity check FAILED:")

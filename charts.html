@@ -6,7 +6,7 @@
 <title>Charts · Plainsight Brand Kit</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 <link rel="icon" href="assets/logos/plainsight-logo-blue.svg">
 </head>
@@ -43,24 +43,22 @@
     <section>
       <div class="section-head">
         <h2>Chart palette (ordered)</h2>
-        <p>Use the colors in this order. Don't skip ahead.</p>
+        <p>Data is blue. Further series take the blue tints in this order. Orange is not a series colour: it marks the one bar, line or point the title is about.</p>
       </div>
 
       <div class="chart-strip">
         <div style="background: #000075;"></div>
-        <div style="background: #d5693a;"></div>
         <div style="background: #3939A0;"></div>
         <div style="background: #7373AA;"></div>
         <div style="background: #ADADD4;"></div>
-        <div style="background: #A04A20;"></div>
+        <div style="background: #d5693a;"></div>
       </div>
       <div class="chart-strip-labels">
         <div class="seq-label">#000075</div>
-        <div class="seq-label">#d5693a</div>
         <div class="seq-label">#3939A0</div>
         <div class="seq-label">#7373AA</div>
         <div class="seq-label">#ADADD4</div>
-        <div class="seq-label">#A04A20</div>
+        <div class="seq-label">#d5693a · accent</div>
       </div>
     </section>
 
@@ -73,9 +71,9 @@
         <thead><tr><th>Chart shows…</th><th>Use colors</th><th>Example</th></tr></thead>
         <tbody>
           <tr><td>One series over time / categories</td><td><code>#000075</code> only</td><td>Monthly revenue, headcount over years</td></tr>
-          <tr><td>Actual vs. target, us vs. them</td><td><code>#000075</code> + <code>#d5693a</code></td><td>Forecast vs. actual, before vs. after</td></tr>
-          <tr><td>3–5 series, no semantic difference</td><td>Blue tints in order</td><td>Revenue by region</td></tr>
-          <tr><td>One highlighted item in a list of many</td><td>All gray (Blue 18%) + the one in Orange</td><td>"This is the bar you should care about"</td></tr>
+          <tr><td>Actual vs. target, before vs. after</td><td><code>#000075</code> for actual, <code>#ADADD4</code> or a thin blue line for the target</td><td>Forecast vs. actual. Orange only when the gap is what the title says.</td></tr>
+          <tr><td>2–4 series, no semantic difference</td><td>Blue tints in order</td><td>Revenue by region</td></tr>
+          <tr><td>The one item the title is about</td><td>All bars <code>#000075</code> + that one in <code>#d5693a</code></td><td>"Gent grew fastest": Gent in orange, the rest blue</td></tr>
         </tbody>
       </table>
     </section>
@@ -86,11 +84,13 @@
       </div>
 
       <ul class="rules">
-        <li><b>Title in Titillium Web, body in Inter.</b> Same hierarchy as everywhere else.</li>
+        <li><b>Title in Inter bold, labels and body in Inter regular.</b> Same hierarchy as everywhere else.</li>
         <li><b>Axes in Blue 55%.</b> Gridlines in Blue 18%. The data is the point — axes should recede.</li>
-        <li><b>No 3-D, no pie charts of more than 4 slices, no rainbows.</b></li>
+        <li><b>The title states the conclusion.</b> "Gent grew fastest in Q3", not "Revenue by office". The orange point is the one that title is about.</li>
+        <li><b>No 3-D, no pie charts of more than 3 slices, no donut KPIs, no gauges, no rainbows.</b></li>
         <li><b>Sort bar charts by value</b> unless they're time-ordered. Alphabetical bar charts hide the story.</li>
-        <li><b>Direct-label where you can.</b> A label on the line is better than a legend two inches away.</li>
+        <li><b>Direct-label where you can.</b> A label on the line is better than a legend two inches away. Drop the legend when the labels fit.</li>
+        <li><b>A source line under every chart</b>, bottom left, in a small uppercase label.</li>
         <li><b>Round numbers on axes.</b> Forty-two thousand euros is "€42K", not "€42 137.50".</li>
       </ul>
     </section>
@@ -98,19 +98,25 @@
     <section>
       <div class="section-head">
         <h2>Power BI theme</h2>
-        <p>Download the JSON file and import it via View → Themes → Browse for themes.</p>
+        <p>Download the JSON file and import it via View → Themes → Browse for themes. Every series starts blue. Orange is the last theme colour: set it by hand on the one bar or line the page title is about. Status colours use words first; the theme maps "bad" to orange so it stands out, never red.</p>
       </div>
 
       <pre><span class="c">// plainsight-powerbi-theme.json</span>
 {
   <span class="k">"name"</span>: <span class="s">"Plainsight"</span>,
   <span class="k">"dataColors"</span>: [
-    <span class="s">"#000075"</span>, <span class="s">"#d5693a"</span>, <span class="s">"#3939A0"</span>,
-    <span class="s">"#7373AA"</span>, <span class="s">"#ADADD4"</span>, <span class="s">"#A04A20"</span>
+    <span class="s">"#000075"</span>, <span class="s">"#3939A0"</span>, <span class="s">"#7373AA"</span>,
+    <span class="s">"#ADADD4"</span>, <span class="s">"#d5693a"</span>
   ],
   <span class="k">"background"</span>: <span class="s">"#ffffff"</span>,
   <span class="k">"foreground"</span>: <span class="s">"#000075"</span>,
-  <span class="k">"tableAccent"</span>: <span class="s">"#d5693a"</span>
+  <span class="k">"tableAccent"</span>: <span class="s">"#000075"</span>,
+  <span class="k">"good"</span>: <span class="s">"#000075"</span>,
+  <span class="k">"neutral"</span>: <span class="s">"#7373AA"</span>,
+  <span class="k">"bad"</span>: <span class="s">"#d5693a"</span>,
+  <span class="k">"maximum"</span>: <span class="s">"#000075"</span>,
+  <span class="k">"center"</span>: <span class="s">"#7373AA"</span>,
+  <span class="k">"minimum"</span>: <span class="s">"#ADADD4"</span>
 }</pre>
 
       <div class="download-row">
@@ -128,8 +134,8 @@
 
 PS_BLUE   = <span class="s">"#000075"</span>
 PS_ORANGE = <span class="s">"#d5693a"</span>
-PS_CYCLE  = [<span class="s">"#000075"</span>, <span class="s">"#d5693a"</span>, <span class="s">"#3939A0"</span>,
-             <span class="s">"#7373AA"</span>, <span class="s">"#ADADD4"</span>, <span class="s">"#A04A20"</span>]
+<span class="c"># Blue tints only. Colour the one bar the title is about with PS_ORANGE by hand.</span>
+PS_CYCLE  = [<span class="s">"#000075"</span>, <span class="s">"#3939A0"</span>, <span class="s">"#7373AA"</span>, <span class="s">"#ADADD4"</span>]
 
 mpl.rcParams.update({
     <span class="s">"font.family"</span>:        <span class="s">"Inter"</span>,

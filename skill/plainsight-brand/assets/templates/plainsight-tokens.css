@@ -7,8 +7,8 @@
   --ps-blue-55: rgba(0, 0, 117, 0.55);
   --ps-blue-18: rgba(0, 0, 117, 0.18);
   --ps-blue-08: rgba(0, 0, 117, 0.08);
-  --font-head:  "Titillium Web", "Segoe UI", Arial, sans-serif;
-  --font-body:  "Inter", "Segoe UI", Arial, sans-serif;
+  --font-head:  "Inter", "Segoe UI", Calibri, Arial, sans-serif;
+  --font-body:  "Inter", "Segoe UI", Calibri, Arial, sans-serif;
 }
 
 body {
@@ -17,10 +17,11 @@ body {
   background: var(--ps-white);
 }
 
-h1, h2, h3, h4, h5, h6 { font-family: var(--font-head); color: var(--ps-blue); }
+h1, h2, h3, h4, h5, h6 { font-family: var(--font-head); font-weight: 700; color: var(--ps-blue); }
 
+/* Text on an orange fill is blue (4.70:1); white on orange fails AA at button size. */
 .cta {
-  background: var(--ps-orange); color: #fff;
+  background: var(--ps-orange); color: var(--ps-blue);
   padding: 12px 28px; border: 0; border-radius: 4px;
-  font-family: var(--font-head); font-weight: 600;
+  font-family: var(--font-head); font-weight: 700;
 }

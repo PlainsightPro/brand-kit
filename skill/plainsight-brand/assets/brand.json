@@ -1,8 +1,8 @@
 {
   "meta": {
     "name": "Plainsight Brand Manifest",
-    "version": "1.4.0",
-    "updated": "2026-10-24",
+    "version": "1.5.0",
+    "updated": "2026-11-16",
     "source_of_truth": "https://github.com/PlainsightPro/brand-kit",
     "purpose": "Single machine-readable brand spec for humans, tools, and AI agents. When any other document disagrees with this file, this file wins. Agents: read this file whole; never rely on fragments of it."
   },
@@ -21,26 +21,32 @@
     "cream": { "hex": "#fcf8f3", "role": "Default page and slide background." },
     "white": { "hex": "#ffffff", "role": "Cards and content containers." },
     "mist": { "hex": "#f6f6fa", "role": "Light background variant." },
-    "muted_cream": { "hex": "#F3ECE4", "role": "Alternating section backgrounds (web)." },
+    "muted_cream": { "hex": "#F3ECE4", "role": "Alternating section backgrounds (web). Quiet panels, table headers and the one highlighted row or column." },
     "dark_text": { "hex": "#1a1a3e", "role": "Body text on light backgrounds (softer navy)." },
     "muted_blue": { "hex": "#8888bb", "role": "Secondary metadata, labels, counters." },
     "light_navy": { "hex": "#b0b0d0", "role": "Subtitle text on dark backgrounds." },
-    "light_gray": { "hex": "#e8e8e8", "role": "Subtle card borders." },
+    "light_gray": { "hex": "#e8e8e8", "role": "Subtle card borders. Decorative only." },
     "rules": [
       "Blue and cream alternate as backgrounds; white is for cards.",
       "Orange is always an accent, never a background fill for a section or slide.",
+      "One accent per slide or section: one numeral, one call to action, or one highlighted bar or row in orange.",
       "Text on blue = white or light navy. Text on cream = blue or dark text.",
+      "Text on an orange fill is blue (4.70:1). White on orange (3.55:1) only at large sizes, from 18.66 px bold or 24 px regular.",
+      "Light gray borders are decorative only (1.16:1). A border that carries meaning, like a table header line, an input border or a chart baseline, is blue.",
       "All pairings must meet WCAG AA contrast."
     ]
   },
   "typography": {
-    "headings": { "family": "Titillium Web", "fallback": "Segoe UI, Arial, sans-serif", "style": "Bold, uppercase for section headings, wider tracking." },
-    "body": { "family": "Inter", "fallback": "Segoe UI, Arial, sans-serif" },
-    "never_use": ["Quicksand", "Quicksand Light", "Bahnschrift", "Tw Cen MT", "Calibri", "Calibri Light", "Epilogue"],
-    "override_note": "A file may specify one of these anyway. The deck master's own layouts and theme do (Bahnschrift, Tw Cen MT, Calibri). Override it: this manifest wins over any template, layout, text box or inherited theme. Only the families above are Plainsight typography, with the listed fallbacks when they are not installed.",
+    "headings": { "family": "Inter", "fallback": "Segoe UI, Calibri, Arial, sans-serif", "style": "Bold. Uppercase with wider tracking for section headings, labels and buttons. Action titles, the full-sentence titles that state a conclusion, in sentence case." },
+    "body": { "family": "Inter", "fallback": "Segoe UI, Calibri, Arial, sans-serif" },
+    "never_use": ["Titillium Web", "Quicksand", "Quicksand Light", "Bahnschrift", "Tw Cen MT", "Epilogue"],
+    "override_note": "A file may specify one of these anyway. The deck master's own layouts and theme do (Bahnschrift, Tw Cen MT). Override it: this manifest wins over any template, layout, text box or inherited theme. Inter is the Plainsight typeface; Segoe UI and Calibri are the fallbacks where Inter is not installed, as in most Office files.",
+    "change_note": "Titillium Web was dropped as the heading face on 2026-11-16 (Bo): too exotic for everyday files. Older material set in it does not have to be redone, but new work never uses it. Calibri and Segoe UI are allowed.",
     "rules": [
+      "One family: Inter 700 for headings, labels and numerals; Inter 400 for everything you read. Where Inter is not installed, Segoe UI or Calibri at the same weights.",
       "Maximum 2 font weights per slide or section.",
-      "No italics in carousels or slides.",
+      "No italics anywhere. A quote is set apart by size and colour, not by slant.",
+      "Emphasis comes from colour (blue) or a small uppercase label, never bold body text.",
       "Short blocks: 1-2 sentences per paragraph on slides."
     ]
   },
@@ -50,11 +56,13 @@
     "placement": {
       "linkedin": "Bottom-right, 150 px wide, 36 px from bottom edge. Blue version.",
       "website": "Header 160x28 px. Blue on light, white on navy footer.",
-      "presentations": "Title and closing slides only, bottom-right, matched to slide background."
+      "presentations": "Title and closing slides only, bottom-right, matched to slide background.",
+      "documents": "On the cover. A running header or footer may carry it small; never a second large logo inside the document."
     }
   },
   "triangles": {
     "rule": "The Plainsight triangle is a WIREFRAME OUTLINE with rounded corners. It is never a solid filled triangle. Always place the canonical SVG/PNG files below; never redraw the shape. The SVG paths use a fill attribute internally to paint the outline strokes; that is an implementation detail, not permission to fill the triangle.",
+    "signature": "The triangle is what makes a piece recognisably Plainsight before anyone reads a word. Generic output is fixed with format rules (never_look_like_ai), never by removing the triangles.",
     "assets": {
       "blue": { "svg": "assets/graphics/triangle-blue.svg", "png": "assets/graphics/triangle-blue.png", "use_on": "light / cream backgrounds" },
       "orange": { "svg": "assets/graphics/triangle-orange.svg", "png": "assets/graphics/triangle-orange.png", "use_on": "blue or cream backgrounds (hero accents)" },
@@ -83,14 +91,15 @@
         "hero": "One pair, top-right."
       },
       "documents": {
-        "principle": "Proposals, offers and other long-form documents follow the pair principle: one asymmetric top-right pair on the opening screen, cropped by the page edges, and no triangle anywhere else in the document.",
+        "principle": "Proposals, offers and other long-form documents carry the triangles where the reader turns to a new part of the story: one asymmetric top-right pair on the opening screen, cropped by the page edges, one pair on every chapter opener or section divider that starts on its own page or band, and one pair on the closing page. Pages that carry the argument (running text, tables, charts) stay free of triangles so the content reads clean.",
         "opacity": "Blue at 10-15% on cream, white at 5-10% on blue.",
         "top_right_pair": {
           "back": "Aligned to the top-right page corner, about 40% of the triangle cropped away by the top and right edges.",
           "front": "The same triangle shifted 90 px left and 60 px down from the back one, so the two overlap."
-        }
+        },
+        "chapter_openers": "Top-right pair as on the opening screen, or the bottom-left pair when the chapter title sits top-right. Same opacity. Never on a page that also holds a table or chart."
       },
-      "presentations": "Corner decoration only, subtle, never obscuring content."
+      "presentations": "Title, section divider and closing slides carry a corner pair. Content slides may carry a subtle pair in a free corner, as long as it never touches text, a chart or a table."
     },
     "hard_rules": [
       "Never fill the triangle with a solid color.",
@@ -98,7 +107,8 @@
       "Only three colors exist: blue, orange, white.",
       "One motif per piece: triangles or rocket, not both.",
       "No triangle larger than one third of the page. Accents, not heroes.",
-      "Decorative only: never obscure text or interactive content (pointer-events: none, aria-hidden)."
+      "Decorative only: never obscure text or interactive content (pointer-events: none, aria-hidden).",
+      "Never use the triangle as a bullet, an icon or a ▲ glyph."
     ]
   },
   "motion": {
@@ -106,7 +116,58 @@
     "min_cycle_seconds": 8,
     "animated_properties": ["transform", "opacity"],
     "min_opacity": 0.4,
-    "applies_to": "The SVG twins listed under motion in assets/visuals/visuals.json, next to their still PNG. The page shows the twin; the still is what prints. scripts/check_motion.py enforces this section."
+    "applies_to": "The SVG twins listed under motion in assets/visuals/visuals.json, next to their still PNG. The page shows the twin; the still is what prints. scripts/check_motion.py enforces this section.",
+    "slides": "No slide transitions and no build animations. A deck shows the still PNG of a visual; its moving twin is for web pages, offers and artifacts."
+  },
+  "layout": {
+    "applies_to": "Decks, proposals, offers, documents, reports, dashboards and pages generated for a client or prospect. The website component library and the LinkedIn carousel templates keep their own documented layouts (templates.html).",
+    "slide_canvas": "1280x720 px with 64 px margins. Scale the canvas, never re-flow it.",
+    "rules": [
+      "Prefer asymmetric splits: 5/7 for a claim and its evidence, 2/10 for a quote and its label. Equal columns only when the content is equal, like options compared on the same criteria.",
+      "One idea per slide. If a slide needs a second chart, it becomes two slides.",
+      "Left-aligned by default. Centre only a single short statement on its own slide.",
+      "Every slide or page that shows data has a source line, bottom left, in a small uppercase label.",
+      "Corners are square in decks and print. A 2 px radius on buttons, inputs and badges is the only rounding there. Pages on the web follow the website: 8 to 12 px on cards and photos."
+    ]
+  },
+  "charts": {
+    "palette": ["#000075", "#3939A0", "#7373AA", "#ADADD4"],
+    "accent": "#d5693a",
+    "rules": [
+      "Bars and lines in blue. The series or bar the title is about in orange. Nothing else is coloured.",
+      "Several series with no semantic difference take the blue tints of the palette in order. Never a new hue.",
+      "Label data directly and drop the legend when labels fit. Axis titles and notes in small labels or captions.",
+      "Sort bars by value unless the axis is time.",
+      "No 3D, no pie charts with more than three slices, no donut KPIs, no gauges.",
+      "Power BI: templates.power_bi_theme carries this palette, with the accent last so it is set by hand on the point that matters."
+    ]
+  },
+  "iconography": {
+    "set": "Tabler Icons, outline variant (https://tabler.io/icons). MIT-licensed.",
+    "rules": [
+      "Use an icon where it helps recognition (a UI control, a process step with a distinct object), not as decoration. A label often does the job better.",
+      "Outline only, 1.5 px stroke at 24 px, one size per layout.",
+      "Blue on light, white on blue. Orange only next to an orange call to action or highlight.",
+      "Never inside a tinted circle or square, and never one above every heading or bullet."
+    ]
+  },
+  "photos": {
+    "rule": "Only real Plainsight people, our own office and our own events, placed from the files in the catalogue. Never stock photos of people, never AI-generated people or offices.",
+    "catalogue": "assets/visuals/visuals.json",
+    "catalogue_note": "Every catalogue entry whose file sits in assets/photos/ is a photo, with alt text that says who and what. Pick by that alt text. Offers place one by slug; anything else uses the file under base_url.",
+    "base_url": "https://plainsightpro.github.io/brand-kit/",
+    "use": {
+      "proposals_and_documents": "One photo, two at most, where the reader meets the people: the 'who we are' or team section, or the closing page. Never on a page that carries the argument.",
+      "decks": "A photo gets its own slide or the 5 column of a 5/7 split, bled to the slide edge: the about-us slide, the team slide or the closing slide.",
+      "headshots": "Portraits of a proposed team come from the website's meet-the-team pages, not from this catalogue."
+    },
+    "treatment": [
+      "Never tint, duotone or overlay a photo. The colour comes from the layout around it.",
+      "No text on top of a photo. A title or caption sits next to it.",
+      "Square corners in decks and print; 8 to 12 px radius on the web. No circles, blobs or decorative borders.",
+      "A triangle pair may sit near a photo, never on it.",
+      "Every placed photo carries its alt text from the catalogue."
+    ]
   },
   "rockets": {
     "assets": { "vertical": "assets/graphics/rocket-vertical.png", "diagonal": "assets/graphics/rocket-diagonal.png" },
@@ -117,7 +178,12 @@
       "name": "2026 PowerPoint template (rebranding)",
       "file": "assets/templates/plainsight-deck-master-2026.potx",
       "live_version": "SharePoint > Plainsight > General > Digital Templates > Office Templates > 2026_PWP Sjabloon Plainsight rebranding.potx",
-      "rule": "All Plainsight decks start from this template. Do not rebuild slide layouts from scratch. SharePoint holds the live version; the bundled file is a snapshot."
+      "rule": "All Plainsight PowerPoint files start from this template. Do not rebuild its slide layouts from scratch. Decks generated in Claude Slides or as HTML cannot start from a .potx: they follow layout, never_look_like_ai and agency_principles in this manifest on the same 1280x720 canvas. SharePoint holds the live version; the bundled file is a snapshot."
+    },
+    "claude_design_system": {
+      "name": "Plainsight design system (Claude)",
+      "status": "Proposed, not yet published. Until it is, Claude Slides decks and artifacts are built from this manifest directly.",
+      "rule": "A design system in Claude (slide layouts, components, tokens) is generated from this manifest and owned with this repository, never kept as a separate source. When the two disagree, this manifest wins and the design system is regenerated."
     },
     "power_bi_theme": "assets/templates/plainsight-powerbi-theme.json",
     "css_tokens": "assets/templates/plainsight-tokens.css",
@@ -128,7 +194,7 @@
       "id": "deck-master-fonts",
       "file": "assets/templates/plainsight-deck-master-2026.potx",
       "also_affects": "the live SharePoint version of the same template",
-      "problem": "The layouts and text boxes carry fonts that are not Plainsight typography. The bundled snapshot's four themes use Bahnschrift, Tw Cen MT, Calibri Light and Calibri; the live SharePoint file additionally has Quicksand Light on layout text boxes and resists being changed there.",
+      "problem": "The layouts and text boxes carry fonts that are not Plainsight typography. The bundled snapshot's four themes use Bahnschrift and Tw Cen MT (their Calibri and Calibri Light are acceptable fallbacks); the live SharePoint file additionally has Quicksand Light on layout text boxes and resists being changed there.",
       "rule": "Start from the template for the layouts and the geometry, then set type from typography above. Never keep the inherited font because the template offered it.",
       "status": "open",
       "reported": "2026-08-16"
@@ -151,15 +217,20 @@
       { "name": "Confident, not loud", "detail": "No caps-shouting, no stacked exclamation marks. The work speaks; we describe it." },
       { "name": "Expert, not jargon", "detail": "For output leaving Plainsight, keep technical language light. Show expertise through concrete examples and honest observations, not through vocabulary." }
     ],
+    "conventions": [
+      "Action titles: every content slide or chapter title is a full sentence that states the conclusion. Someone who reads only the titles gets the argument.",
+      "Person: 'we' for Plainsight, 'you' for the client. Never 'the client' in a document the client reads.",
+      "No emoji in client work: proposals, offers, decks, documents, reports and dashboards. LinkedIn follows voice.linkedin."
+    ],
     "never_sound_like_ai": {
       "hard_rules": [
-        "No em dashes or en dashes as separators. Use commas, periods, or restructure.",
+        "No em dashes or en dashes as separators. Use commas, periods, or restructure. A dash in a range (2027–2029, Jan–Feb) is fine.",
         "No AI-style anecdote openers ('This was my Tuesday morning', 'I'm thrilled to announce').",
         "No dramatic rule-of-three ('innovation, inspiration, and impact'). Use the natural number of items.",
         "No numbered lists of obvious advice, no generic conclusions ('The future looks bright'), no signposting.",
         "If a sentence could appear on any consultancy's feed, rewrite it or cut it."
       ],
-      "banned_words": ["genuinely", "straightforward", "it's worth noting", "let's dive in", "in today's landscape", "leverage", "game-changer", "cutting-edge", "pivotal", "ecosystem", "foster", "elevate", "moreover", "furthermore", "showcase", "delve", "key takeaway", "utilize", "synergy", "tapestry", "navigate (metaphorical)"]
+      "banned_words": ["genuinely", "straightforward", "it's worth noting", "let's dive in", "in today's landscape", "leverage", "game-changer", "cutting-edge", "pivotal", "ecosystem", "foster", "elevate", "moreover", "furthermore", "showcase", "delve", "key takeaway", "utilize", "synergy", "tapestry", "navigate (metaphorical)", "unlock", "empower", "seamless", "robust", "journey (for a project)"]
     },
     "culture": [
       "Transparent by default: we say what we do, why, and what comes next.",
@@ -170,15 +241,123 @@
     "avoid": ["Generic consultancy speak", "Inflated claims and hype language", "Buzzwords without substance", "Anything that reads as AI-generated"],
     "linkedin": "Knowledge-sharing first: every post should teach something, from a practitioner's perspective. One point per post, made well, under 150 words. Concrete examples from real situations. Never sound like all the others."
   },
+  "never_look_like_ai": {
+    "applies_to": "Everything generated for a client or prospect: proposals, offers, decks, documents, reports, dashboards, spreadsheets, artifacts and one-off pages. The website component library and the LinkedIn carousel templates are designed systems with their own documented shapes (templates.html) and keep them.",
+    "principle": "Nothing we send should look AI-generated. What gives AI output away is a default used without a reason: the same shape repeated to fill space, decoration that carries no information, numbers without context. Formats are allowed when they help the client understand something; what changes is how we draw them.",
+    "test": [
+      "The element carries information specific to this client: a real number, a named role, a date, a choice.",
+      "It is drawn the Plainsight way, not with a generic default."
+    ],
+    "never": [
+      "Gradients of any kind, including gradient text and buttons.",
+      "Drop shadows, glow, glassmorphism, blurred or frosted panels, noise textures. Separation comes from a muted cream panel, a hairline or space.",
+      "Emoji.",
+      "Decorative icons, such as an icon in a tinted circle above every heading or bullet.",
+      "Rows of identical boxes: three or four cards, tiles or columns of the same shape, each with a title and a vague line.",
+      "Cards with a coloured left border as the accent.",
+      "Check and cross marks or traffic-light dots standing in for words.",
+      "Stock 3D illustrations, abstract blobs, isometric people, AI-generated images.",
+      "Dark slate or charcoal 'tech' themes. The dark ground is blue.",
+      "Rainbow charts.",
+      "Pill shapes and large rounded corners."
+    ],
+    "formats": [
+      {
+        "format": "KPI tiles",
+        "looks_ai_when": "Numbers with a label and nothing else, an arrow icon, tiles added to fill a row.",
+        "plainsight_version": "A row of at most four figures under a blue rule, each with a comparison, the period and a status word; the one that needs attention marked in orange. When one figure carries the point, show it alone, large, with its comparison and source."
+      },
+      {
+        "format": "Cards side by side",
+        "looks_ai_when": "Identical boxes with an icon, a title and two vague lines.",
+        "plainsight_version": "A comparison table: options as columns, criteria as rows, the advised option highlighted. Recommendations as a numbered list of decisions, each with an owner and a date."
+      },
+      {
+        "format": "Timeline",
+        "looks_ai_when": "Evenly spaced dots on a line, activities without outcomes.",
+        "plainsight_version": "Phases as bands sized by their real duration, each with the outcome it delivers, and a marker for today."
+      },
+      {
+        "format": "Agenda",
+        "looks_ai_when": "Numbered circles.",
+        "plainsight_version": "A short list with small numbers, or a section divider slide per chapter."
+      },
+      {
+        "format": "Checkmarks, before and after",
+        "looks_ai_when": "Check and cross marks as decoration, red against green.",
+        "plainsight_version": "A table with words ('Yes', 'Partly', 'From Q3'). Colour only backs up the word."
+      },
+      {
+        "format": "Status indicators",
+        "looks_ai_when": "A traffic-light dot alone.",
+        "plainsight_version": "The status as a word ('On track', 'Behind'), with orange marking the one that needs attention."
+      },
+      {
+        "format": "Summary or takeaway",
+        "looks_ai_when": "A generic box at the bottom repeating the slide.",
+        "plainsight_version": "The conclusion goes in the action title. A deck summary is a numbered list of decisions."
+      },
+      {
+        "format": "Icons",
+        "looks_ai_when": "One above every heading.",
+        "plainsight_version": "Tabler outline icons per iconography, only where they help recognition."
+      },
+      {
+        "format": "Photos",
+        "looks_ai_when": "Stock people pointing at screens, AI-generated offices, a photo used as a background behind text.",
+        "plainsight_version": "Our own people from the photos catalogue, next to the text, never under it."
+      },
+      {
+        "format": "Centred text",
+        "looks_ai_when": "The default for everything.",
+        "plainsight_version": "Left-aligned by default. Centre only a single short statement on its own slide."
+      },
+      {
+        "format": "Title, subtitle and three bullets",
+        "looks_ai_when": "Every slide has this shape.",
+        "plainsight_version": "Vary the slide by what the content needs: claim and evidence, one big number, a quote, a table, a photo of the team. Bullets are fine for a real list."
+      }
+    ]
+  },
+  "agency_principles": {
+    "scope": "Everything made for Plainsight or its clients: decks, documents, web pages, dashboards, spreadsheets and visual designs. The aim is work that looks curated by a design agency for this one client: editing first, then a few custom moments, then precise finishing. Decoration does not get it there.",
+    "principles": [
+      "Summary first. The first screen, slide or paragraph holds the whole story: the decision in one sentence, the advice in numbers, the key figure with its comparison, and the ask.",
+      "Argument, then appendix. The main body keeps only what builds the argument: five or six chapters at most, each with an action title. Detail tables, full comparisons, assumptions and sources go to an appendix marked A, B, C, and each chapter points to the appendix that backs it.",
+      "One grid, one left edge. Every page, slide and section sits on a strict grid with all text starting on one edge. Long documents and pages put the chapter number and label in a left margin column; slides use the 5/7 and 2/10 splits.",
+      "One signature graphic per argument. Look in the visuals catalogue (assets/visuals/visuals.json) first: a catalogued visual that fits beats a new one. Otherwise find the picture only this client's situation has and draw it to scale, such as one dot per employee to show who a choice reaches, or cost against reach to compare options of different size. A new graphic that works goes back into the catalogue.",
+      "Precise finishing. Numbers and their units never break across lines ('€ 107', '± 600'). Product names stay on one line. Tables, charts and key numbers use figures of equal width. Sources are numbered footnotes linking to a numbered source list. One number format per piece (Dutch: 15.000 and 4,0; English: 15,000 and 4.0)."
+    ],
+    "per_format": {
+      "decks": "Title slide, summary slide, then per chapter a section divider followed by the content slides the story needs, then roadmap, decisions, closing slide and appendix slides. One signature graphic on its own slide, at least 760 px wide on the 1280x720 canvas, labels 14 px or larger. A team photo on the about-us, team or closing slide, per photos.use.",
+      "documents": "A summary block first, then numbered chapters with action-title headings, then appendices. Headings Inter 700, body Inter 400 at 11 pt in print, Segoe UI or Calibri where Inter is not installed. Tables with an uppercase header over a blue rule and hairlines between rows, no shading except one highlighted row. Logo and a triangle pair on the cover, a pair on each chapter opener and the closing page (triangles.placement.documents). A team photo where the reader meets the people (photos.use). Sources as numbered footnotes or a numbered list at the end.",
+      "web_pages_and_artifacts": "The summary on the first screen, chapters on the margin grid, the appendix at the end. One look in every viewer setting: no dark mode unless the brief asks for one.",
+      "dashboards": "One line that says what changed and what needs attention, then at most four key figures, each with a comparison, period and status word. Detail charts below in blue, the point that needs attention in orange. Every number shows its source and refresh date.",
+      "spreadsheets": "Header row in uppercase on muted cream with a blue bottom rule, no fill colours in the body. Numbers right-aligned with consistent decimals and thousands separators. One highlight colour (muted cream) for the row or column that matters. Inputs and assumptions on their own labelled tab.",
+      "visual_designs": "One message, one figure or image, one accent."
+    },
+    "final_check": [
+      "The first screen or slide tells the whole story.",
+      "Detail sits in the appendix, not in the argument.",
+      "There is one signature graphic, drawn to scale.",
+      "Nothing from never_look_like_ai.never appears; other formats are in their Plainsight version.",
+      "Orange appears once per slide or section, as an accent.",
+      "Every number has a source. Numbers and units don't break across lines.",
+      "Photos come from the photos catalogue, or there are none.",
+      "The agent_checklist passes."
+    ]
+  },
   "agent_checklist": [
     "Background is cream #fcf8f3 or blue #000075, never orange.",
-    "Triangles placed from asset files, wireframe, rounded, in asymmetric corner pairs, 60% visible.",
-    "Orange used only as accent.",
-    "Max 2 font weights; headings Titillium Web bold uppercase, body Inter.",
+    "Triangles placed from asset files, wireframe, rounded, in asymmetric corner pairs, 60% visible: on the cover or title slide, on chapter openers and on the closing page.",
+    "Orange used only as accent, once per slide or section.",
+    "Inter only, max 2 weights: headings bold, uppercase for section headings and labels, sentence case for action titles; body regular. Segoe UI or Calibri where Inter is not installed.",
     "If a template, layout or text box specifies another font, override it to the typography above: the deck master does this and it is a known defect.",
     "Logo from asset files, correct variant for the background.",
-    "Decks start from the official .potx template.",
+    "PowerPoint decks start from the official .potx template. Claude Slides and HTML decks follow layout and agency_principles.",
+    "Photos only from the photos catalogue: real Plainsight people, untinted, never under text.",
     "Copy passes the voice test: clear, concrete, confident; no buzzwords, no banned words, no em dashes.",
+    "Output passes the never_look_like_ai test and the agency_principles final check.",
     "One motif (triangles or rocket), decorations never obscure content."
   ]
 }
