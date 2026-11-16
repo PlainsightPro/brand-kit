@@ -14,17 +14,18 @@ That's it. No server needed — every page works as a local file.
 
 ```
 plainsight-brand-kit/
-├── index.html              # Overview / landing page
-├── guidelines.html         # 01 The six rules + checklist
-├── templates.html          # 02 Templates + downloads
-├── logos.html              # 03 Logo variants + rules
-├── colors.html             # 04 Color swatches (click hex to copy)
-├── fonts.html              # 05 Typography specimens
-├── voice.html              # 06 How we sound (do/don't)
-├── photos.html             # 07 Photography rules
-├── graphics.html           # 08 Triangles & rockets
-├── icons.html              # 09 Iconography (Tabler outline)
-├── charts.html             # 10 Chart palette + Power BI theme
+├── index.html              # 00 Overview / landing page
+├── positioning.html        # 01 Positioning
+├── guidelines.html         # 02 The six rules, never look like AI, checklist
+├── templates.html          # 03 Templates, presentation and document rules, downloads
+├── logos.html              # 04 Logo variants + rules
+├── colors.html             # 05 Color swatches (click hex to copy)
+├── fonts.html              # 06 Typography specimens
+├── voice.html              # 07 How we sound (do/don't)
+├── photos.html             # 08 Photo library + where photos go
+├── graphics.html           # 09 Triangles & rockets
+├── icons.html              # 10 Iconography (Tabler outline)
+├── charts.html             # 11 Chart palette + Power BI theme
 │
 ├── css/
 │   └── style.css           # Shared stylesheet
@@ -44,6 +45,9 @@ plainsight-brand-kit/
     │   ├── triangle-white.png
     │   ├── rocket-vertical.png
     │   └── rocket-diagonal.png
+    ├── photos/
+    │   └── <slug>.jpg           # real Plainsight people only, at most 400 KB, no EXIF;
+    │                            # catalogued in visuals/visuals.json, served on GitHub Pages
     ├── visuals/
     │   ├── visuals.json         # catalogue of approved reusable visuals (slug, title, alt,
     │   │                        # description, source, added); the Brain mirrors it into offers
@@ -60,16 +64,16 @@ plainsight-brand-kit/
 
 ## For tools and AI agents
 
-`assets/templates/brand.json` is the machine-readable version of this kit: colors, typography, logo and triangle rules (including exact placement geometry), voice principles, and a final checklist. It is the single source of truth for automated brand output. Agents should read it whole and place the triangle/logo asset files directly instead of redrawing them. The triangle SVGs draw their wireframe outline as a filled path internally; that is an SVG implementation detail — the triangle itself is never rendered as a solid filled shape.
+`assets/templates/brand.json` is the machine-readable version of this kit: colors, typography, layout, charts, icons, photos, logo and triangle rules (including exact placement geometry), voice principles, the `never_look_like_ai` and `agency_principles` rules for client work, and a final checklist. It is the single source of truth for automated brand output. Agents should read it whole and place the triangle/logo asset files directly instead of redrawing them. The triangle SVGs draw their wireframe outline as a filled path internally; that is an SVG implementation detail — the triangle itself is never rendered as a solid filled shape.
 
-`assets/visuals/visuals.json` lists approved reusable visuals (diagrams such as the maturity scan) by slug. The Plainsight Brain mirrors this folder into its offer renderer, so an offer places a visual with `{"kind": "figure", "visual": "<slug>"}` and never pastes image bytes. This repository is public: only generic visuals belong here, never a client name or client data. To add one: export the approved artwork as PNG (about 1600 px wide), add the file and a catalogue entry (`slug`, `file`, `title`, `alt`, `description`, `source`, `added`), open a PR; CI checks both. The website photos under `assets/photos/` are catalogued the same way, with the alt text from `photos.html`, so an offer can place one by its file stem.
+`assets/visuals/visuals.json` lists approved reusable visuals (diagrams such as the maturity scan) by slug. The Plainsight Brain mirrors this folder into its offer renderer, so an offer places a visual with `{"kind": "figure", "visual": "<slug>"}` and never pastes image bytes. This repository is public: only generic visuals belong here, never a client name or client data. To add one: export the approved artwork as PNG (about 1600 px wide), add the file and a catalogue entry (`slug`, `file`, `title`, `alt`, `description`, `source`, `added`), open a PR; CI checks both. The photos under `assets/photos/` are catalogued the same way, with the alt text from `photos.html`, so an offer can place one by its file stem. Anything else (a deck, a document, an artifact) uses the public URL `https://plainsightpro.github.io/brand-kit/assets/photos/<slug>.jpg`; `brand.json` → `photos` says where a photo goes and how it is treated. Only add a photo of people who are still at Plainsight and agree to it: this repository and its Pages site are public.
 
 A visual may also carry a moving twin for the offer page: `assets/visuals/<slug>.svg`, listed under `motion` in its catalogue entry. Draw it as SVG with every text outlined (the page shows it as an image, which loads no font), animate it with CSS inside the file, and keep it calm: `brand.json` → `motion` carries the rule (a cycle of at least 8 seconds, transform and opacity only, nothing flashes). CI runs `scripts/check_motion.py`. The PNG stays required: it is what the PDF prints, and it must be the twin at rest.
 
 ## Updating
 
-This kit is a static site — to change anything, edit the HTML directly. The shared layout (sidebar, header, footer) is duplicated in each page; if you change the navigation, update all 11 files. The shared CSS is in `css/style.css`.
+This kit is a static site — to change anything, edit the HTML directly. The shared layout (sidebar, header, footer) is duplicated in each page; if you change the navigation, update all 12 files. The shared CSS is in `css/style.css`.
 
 ## Version
 
-v1.0 — maintained by the Plainsight team. Canonical reference: [plainsight.pro](https://www.plainsight.pro).
+Pages v1.0, manifest v1.5.0 (`brand.json` → `meta.version`) — maintained by the Plainsight team. Canonical reference: [plainsight.pro](https://www.plainsight.pro).

@@ -71,7 +71,7 @@
     <section>
       <div class="section-head">
         <h2>Inter — body &amp; quote</h2>
-        <p>The reading typeface. Regular for body, italic for pull-quotes, regular at 14 for captions.</p>
+        <p>The reading typeface. Regular for body, regular at 14 for captions. A quote is set apart by size and colour, never by italics.</p>
       </div>
 
       <div class="type-spec body-sample">
@@ -79,8 +79,8 @@
         <div class="sample" style="font-size: 16px; line-height: 1.6;">Body — we accelerate analytics and AI roadmaps with strategy, projects and experts that deliver real ROI.</div>
       </div>
       <div class="type-spec body-sample">
-        <div class="label-row"><div><b>Quote</b>Inter · 16 · Italic</div></div>
-        <div class="sample italic" style="font-size: 16px; line-height: 1.6;">"Plainsight turned our scattered data sources into a single, trustworthy platform in less than four months."</div>
+        <div class="label-row"><div><b>Quote</b>Inter · 22 · Regular · Plainsight Blue</div></div>
+        <div class="sample" style="font-size: 22px; line-height: 1.45; color: var(--ps-blue);">"Plainsight turned our scattered data sources into a single, trustworthy platform in less than four months."</div>
       </div>
       <div class="type-spec body-sample">
         <div class="label-row"><div><b>Caption</b>Inter · 14 · Regular</div></div>
@@ -99,17 +99,19 @@
         <tbody>
           <tr><td><b>LinkedIn visuals</b></td><td>Titillium Web (Regular, SemiBold, Bold, Light)</td><td>Helvetica</td></tr>
           <tr><td><b>Website</b></td><td>Inter (400, 500, 600, 700) via next/font</td><td>system sans-serif</td></tr>
-          <tr><td><b>Presentations</b></td><td>Inter or Titillium Web depending on context</td><td>Calibri</td></tr>
+          <tr><td><b>Presentations</b></td><td>Titillium Web 700 (titles, labels, numerals) + Inter 400 (body). Override any font the template brings.</td><td>Segoe UI, Arial</td></tr>
           <tr><td><b>Documents</b></td><td>Titillium Web (headings) + Inter (body)</td><td>Arial</td></tr>
         </tbody>
       </table>
 
       <h3 style="margin: 24px 0 12px; font-size: 18px;">Common rules across all media</h3>
       <ul class="rules">
-        <li><b>Maximum 2 font weights per slide or section</b> — regular + bold. Don't mix three or more.</li>
-        <li><b>No italic usage</b> in carousels or slides. Reserve italic for pull-quotes in documents only.</li>
+        <li><b>Maximum 2 font weights per slide or section.</b> In client work: Titillium Web 700 for headings, labels and numerals; Inter 400 for everything you read.</li>
+        <li><b>No italics anywhere.</b> A quote is set apart by size and colour.</li>
+        <li><b>Emphasis by colour or a label, never bold body text.</b> Use Plainsight Blue or a small uppercase label.</li>
         <li><b>Short text blocks.</b> 1-2 sentences per paragraph on slides, sentence fragments preferred.</li>
-        <li><b>Headings are bold and uppercase</b> with wider tracking. On web, set via CSS base layer.</li>
+        <li><b>Section headings, labels and buttons are bold and uppercase</b> with wider tracking. On web, set via CSS base layer.</li>
+        <li><b>Action titles are sentence case.</b> A title that states the conclusion of a slide or chapter is a full sentence: "Three reports answer the same question", not "REPORTING LANDSCAPE".</li>
       </ul>
     </section>
 

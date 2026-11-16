@@ -147,7 +147,7 @@
     <section>
       <div class="section-head">
         <h2>Website components</h2>
-        <p>Layout rules and component patterns for the Plainsight website (Next.js / Tailwind).</p>
+        <p>Layout rules and component patterns for the Plainsight website (Next.js / Tailwind). These belong to the website. Proposals, decks, reports and artifacts generated for a client follow the presentation and document rules below instead: no pills, no shadows, no blur.</p>
       </div>
 
       <h3 style="margin: 0 0 12px; font-size: 18px;">Layout rules</h3>
@@ -171,17 +171,39 @@
     <section>
       <div class="section-head">
         <h2>Presentation rules</h2>
-        <p>Slide design rules when creating PowerPoint decks for Plainsight.</p>
+        <p>For PowerPoint decks, and for decks made in Claude Slides or as HTML. PowerPoint starts from the official .potx; Claude Slides and HTML decks cannot, so they follow these rules on the same 16:9 canvas.</p>
       </div>
 
       <ul class="rules">
-        <li><b>Background:</b> Off-white (#fcf8f3) for content slides, navy (#000075) for section dividers and closing.</li>
-        <li><b>Font:</b> Inter or Titillium Web, bold uppercase for headings.</li>
-        <li><b>Orange accent lines and bullets,</b> never orange backgrounds.</li>
-        <li><b>Triangle decorations</b> at corners — subtle, low opacity.</li>
+        <li><b>Canvas:</b> 1280 × 720 px with 64 px margins. Asymmetric splits: 5/7 for a claim and its evidence, 2/10 for a quote and its label.</li>
+        <li><b>Order:</b> title, summary, then per chapter a section divider and its content slides, then roadmap, decisions, closing and appendix.</li>
+        <li><b>Background:</b> Off-white (#fcf8f3) for content slides, navy (#000075) for the title, section dividers and closing.</li>
+        <li><b>Font:</b> Titillium Web 700 for titles, labels and numerals, Inter 400 for body. Override whatever the template brings.</li>
+        <li><b>Action titles:</b> every content slide title is one sentence in sentence case that states the conclusion.</li>
+        <li><b>Orange once per slide:</b> one numeral, one highlighted bar or one call to action. Never orange backgrounds.</li>
+        <li><b>Triangle pairs</b> on the title, every section divider and the closing slide. A content slide may carry a subtle pair in a free corner, never touching content.</li>
         <li><b>Logo</b> on title and closing slides.</li>
-        <li><b>Maximum 2 font weights</b> per slide.</li>
+        <li><b>A team photo</b> from the <a href="photos.html">photo library</a> on the about-us, team or closing slide: its own slide or the 5 column, bled to the edge.</li>
+        <li><b>Square corners,</b> left-aligned text, a source line bottom left on every data slide.</li>
+        <li><b>No transitions or builds.</b> Moving visuals are for web pages and offers; a deck shows the still.</li>
         <li><b>One idea per slide,</b> generous whitespace.</li>
+      </ul>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <h2>Proposals and documents</h2>
+        <p>Offers, proposals and reports generated for a client, as a page or in print.</p>
+      </div>
+
+      <ul class="rules">
+        <li><b>Summary first.</b> The opening holds the whole story: the decision, the advice in numbers, the key figure with its comparison, and the ask.</li>
+        <li><b>Numbered chapters</b> with action-title headings, five or six at most, then appendices marked A, B, C for detail tables, assumptions and sources.</li>
+        <li><b>Triangles</b> as a top-right pair on the cover, on every chapter opener and on the closing page. Pages with tables or charts stay clean.</li>
+        <li><b>One team photo,</b> two at most, in the "who we are" or team section or on the closing page.</li>
+        <li><b>Tables</b> with an uppercase header over a navy rule and hairlines between rows. No shading except one highlighted row on muted cream.</li>
+        <li><b>Body</b> Inter 400 at 11 pt in print. Headings Titillium Web 700.</li>
+        <li><b>Sources</b> as numbered footnotes or a numbered list at the end. One number format per document.</li>
       </ul>
     </section>
 

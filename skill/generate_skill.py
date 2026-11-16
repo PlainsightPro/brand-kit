@@ -28,6 +28,8 @@ from typing import Any
 
 ROOT = Path(__file__).resolve().parents[1]
 MANIFEST = ROOT / "assets" / "templates" / "brand.json"
+VISUALS = ROOT / "assets" / "visuals" / "visuals.json"
+PHOTOS_DIR = "assets/photos"
 TEMPLATE = ROOT / "skill" / "template.md"
 SKILL_DIR = ROOT / "skill" / "plainsight-brand"
 SKILL_FILE = SKILL_DIR / "SKILL.md"
@@ -197,6 +199,8 @@ def render_known_issues(manifest: dict[str, Any]) -> str:
 def render_triangle_rule(manifest: dict[str, Any]) -> str:
     triangles = manifest.get("triangles", {})
     parts = [triangles.get("rule", ""), ""]
+    if signature := triangles.get("signature"):
+        parts.extend([str(signature), ""])
     if hard_rules := _bullets(triangles.get("hard_rules")):
         parts.extend(["**Hard rules.**", "", hard_rules, ""])
     assets = triangles.get("assets", {})
@@ -245,6 +249,17 @@ def render_triangle_placement(manifest: dict[str, Any]) -> str:
         parts.append("")
         parts.extend(f"- {key.replace('_', ' ')}: {value}" for key, value in website.items())
         parts.append("")
+    documents = placement.get("documents")
+    if isinstance(documents, dict):
+        parts.append("**Documents.**")
+        parts.append("")
+        for key, value in documents.items():
+            if isinstance(value, dict):
+                parts.append(f"- {key.replace('_', ' ')}:")
+                parts.extend(f"  - {inner.replace('_', ' ')}: {text}" for inner, text in value.items())
+            else:
+                parts.append(f"- {key.replace('_', ' ')}: {value}")
+        parts.append("")
     if presentations := placement.get("presentations"):
         parts.extend([f"**Presentations.** {presentations}", ""])
     return "\n".join(parts).rstrip()
@@ -276,6 +291,12 @@ def render_template_files(manifest: dict[str, Any]) -> str:
         if live := master.get("live_version"):
             parts.append(f"- Live version: {live}")
         parts.append("")
+    design_system = templates.get("claude_design_system")
+    if isinstance(design_system, dict):
+        parts.append(f"**{design_system.get('name', 'Design system in Claude')}.** {design_system.get('rule', '')}")
+        if status := design_system.get("status"):
+            parts.extend(["", f"- Status: {status}"])
+        parts.append("")
 
     bundled_sources = {source: local for local, source in BUNDLED_ASSETS.items()}
     rows = [(key, value) for key, value in templates.items() if isinstance(value, str)]
@@ -301,6 +322,9 @@ def render_voice(manifest: dict[str, Any]) -> str:
                 parts.append(f"- **{principle.get('name', '')}.** {principle.get('detail', '')}")
         parts.append("")
 
+    if conventions := _bullets(voice.get("conventions")):
+        parts.extend(["**Conventions.**", "", conventions, ""])
+
     never = voice.get("never_sound_like_ai")
     if isinstance(never, dict):
         parts.extend(["### Never sound like AI wrote it", ""])
@@ -316,6 +340,144 @@ def render_voice(manifest: dict[str, Any]) -> str:
             parts.extend([f"**{heading}.**", "", bullets, ""])
     if linkedin := voice.get("linkedin"):
         parts.extend([f"**LinkedIn.** {linkedin}", ""])
+    return "\n".join(parts).rstrip()
+
+
+def render_layout(manifest: dict[str, Any]) -> str:
+    layout = manifest.get("layout", {})
+    if not isinstance(layout, dict) or not layout:
+        return "No layout rules recorded."
+    parts: list[str] = []
+    if applies := layout.get("applies_to"):
+        parts.extend([f"Applies to: {applies}", ""])
+    if canvas := layout.get("slide_canvas"):
+        parts.extend([f"**Slide canvas.** {canvas}", ""])
+    if rules := _bullets(layout.get("rules")):
+        parts.extend([rules, ""])
+    if slides := manifest.get("motion", {}).get("slides"):
+        parts.extend([f"**Motion on slides.** {slides}", ""])
+    return "\n".join(parts).rstrip()
+
+
+def render_charts(manifest: dict[str, Any]) -> str:
+    charts = manifest.get("charts", {})
+    if not isinstance(charts, dict) or not charts:
+        return "No chart rules recorded."
+    parts: list[str] = []
+    palette = charts.get("palette")
+    if isinstance(palette, list) and palette:
+        parts.append("Palette in order: " + ", ".join(f"`{value}`" for value in palette if isinstance(value, str)) + ".")
+    if accent := charts.get("accent"):
+        parts.append(f"Accent, for the one point the title is about: `{accent}`.")
+    if parts:
+        parts.append("")
+    if rules := _bullets(charts.get("rules")):
+        parts.append(rules)
+    return "\n".join(parts).rstrip()
+
+
+def render_iconography(manifest: dict[str, Any]) -> str:
+    icons = manifest.get("iconography", {})
+    if not isinstance(icons, dict) or not icons:
+        return "No icon rules recorded."
+    parts: list[str] = []
+    if icon_set := icons.get("set"):
+        parts.extend([f"**Set.** {icon_set}", ""])
+    if rules := _bullets(icons.get("rules")):
+        parts.append(rules)
+    return "\n".join(parts).rstrip()
+
+
+def load_photo_catalogue() -> list[dict[str, Any]]:
+    """Return the catalogue entries that are photos, in catalogue order.
+
+    Only entries under assets/photos/ are rendered, so a new diagram added to
+    the visuals catalogue never makes the committed skill stale.
+    """
+    try:
+        catalogue = json.loads(VISUALS.read_text(encoding="utf-8"))
+    except FileNotFoundError as exc:
+        raise GeneratorError(f"{VISUALS} is missing") from exc
+    except json.JSONDecodeError as exc:
+        raise GeneratorError(f"{VISUALS} is not valid JSON: {exc}") from exc
+    if not isinstance(catalogue, list):
+        raise GeneratorError(f"{VISUALS} must hold a list")
+    return [
+        entry
+        for entry in catalogue
+        if isinstance(entry, dict) and str(entry.get("file", "")).startswith(PHOTOS_DIR + "/")
+    ]
+
+
+def render_photos(manifest: dict[str, Any]) -> str:
+    photos = manifest.get("photos", {})
+    if not isinstance(photos, dict) or not photos:
+        return "No photo rules recorded."
+    parts: list[str] = []
+    if rule := photos.get("rule"):
+        parts.extend([str(rule), ""])
+    use = photos.get("use")
+    if isinstance(use, dict):
+        parts.extend(f"- **{key.replace('_', ' ').capitalize()}.** {value}" for key, value in use.items())
+        parts.append("")
+    if treatment := _bullets(photos.get("treatment")):
+        parts.extend(["**Treatment.**", "", treatment, ""])
+    if note := photos.get("catalogue_note"):
+        parts.extend([str(note), ""])
+    base_url = str(photos.get("base_url", "")).rstrip("/")
+    entries = load_photo_catalogue()
+    if entries:
+        # Prefixed, not bundled: the photos stay in brand-kit and are served
+        # from its public site, so nobody looks for them inside this skill.
+        parts.extend(["| Slug | URL | Shows |", "|---|---|---|"])
+        for entry in entries:
+            url = f"{base_url}/{entry.get('file', '')}" if base_url else f"{UPSTREAM_ONLY_PREFIX}{entry.get('file', '')}"
+            parts.append(f"| `{entry.get('slug', '')}` | {url} | {entry.get('alt', '')} |")
+    return "\n".join(parts).rstrip()
+
+
+def render_never_look_like_ai(manifest: dict[str, Any]) -> str:
+    never = manifest.get("never_look_like_ai", {})
+    if not isinstance(never, dict) or not never:
+        return "No rules recorded."
+    parts: list[str] = []
+    if principle := never.get("principle"):
+        parts.extend([str(principle), ""])
+    if applies := never.get("applies_to"):
+        parts.extend([f"Applies to: {applies}", ""])
+    if test := _bullets(never.get("test")):
+        parts.extend(["**Before you use any element, check both:**", "", test, ""])
+    if forbidden := _bullets(never.get("never")):
+        parts.extend(["**Never.**", "", forbidden, ""])
+    formats = never.get("formats")
+    if isinstance(formats, list) and formats:
+        parts.extend(["| Format | Looks AI-generated when | Plainsight version |", "|---|---|---|"])
+        for item in formats:
+            if isinstance(item, dict):
+                parts.append(
+                    f"| {item.get('format', '')} | {item.get('looks_ai_when', '')} | {item.get('plainsight_version', '')} |"
+                )
+    return "\n".join(parts).rstrip()
+
+
+def render_agency_principles(manifest: dict[str, Any]) -> str:
+    agency = manifest.get("agency_principles", {})
+    if not isinstance(agency, dict) or not agency:
+        return "No principles recorded."
+    parts: list[str] = []
+    if scope := agency.get("scope"):
+        parts.extend([str(scope), ""])
+    principles = agency.get("principles")
+    if isinstance(principles, list):
+        parts.extend(f"{index}. {text}" for index, text in enumerate(principles, start=1) if isinstance(text, str))
+        parts.append("")
+    per_format = agency.get("per_format")
+    if isinstance(per_format, dict):
+        parts.extend(["### Per format", ""])
+        parts.extend(f"- **{key.replace('_', ' ').capitalize()}.** {value}" for key, value in per_format.items())
+        parts.append("")
+    if final := _bullets(agency.get("final_check")):
+        parts.extend(["### Final check before anything leaves Plainsight", "", final, ""])
     return "\n".join(parts).rstrip()
 
 
@@ -336,6 +498,12 @@ RENDERERS = {
     "LOGO_PLACEMENT": render_logo_placement,
     "TEMPLATE_FILES": render_template_files,
     "KNOWN_ISSUES": render_known_issues,
+    "LAYOUT": render_layout,
+    "CHARTS": render_charts,
+    "ICONOGRAPHY": render_iconography,
+    "PHOTOS": render_photos,
+    "NEVER_LOOK_LIKE_AI": render_never_look_like_ai,
+    "AGENCY_PRINCIPLES": render_agency_principles,
     "VOICE": render_voice,
     "CHECKLIST": render_checklist,
 }

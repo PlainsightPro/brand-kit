@@ -2,13 +2,18 @@
   "name": "Plainsight",
   "dataColors": [
     "#000075",
-    "#d5693a",
     "#3939A0",
     "#7373AA",
     "#ADADD4",
-    "#A04A20"
+    "#d5693a"
   ],
   "background": "#ffffff",
   "foreground": "#000075",
-  "tableAccent": "#d5693a"
+  "tableAccent": "#000075",
+  "good": "#000075",
+  "neutral": "#7373AA",
+  "bad": "#d5693a",
+  "maximum": "#000075",
+  "center": "#7373AA",
+  "minimum": "#ADADD4"
 }
