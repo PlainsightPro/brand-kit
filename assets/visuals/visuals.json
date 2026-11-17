@@ -337,5 +337,14 @@
     "description": "The federated operating model for AI: a central AI Lab holds the expertise, standards and tooling, and every department has its own embedded AI expert who knows the business. Use it in an offer that proposes an AI Lab or an AI operating model (the AI Lab and operating framework building block) where the drafted alternative would be prose about roles and coordination; name the client's own departments in the text, the picture keeps generic ones. Redrawn from the Embedding AI in your organisation slide of the AI strategy deck; the deck's chosen option badge and pros and cons are left out on purpose.",
     "source": "Plainsight AI strategy deck, Embedding AI in your organisation, federated option; redrawn in the brand fonts with the text outlined, 2026-10-26",
     "added": "2026-10-26"
+  },
+  {
+    "slug": "generic-knowledge-answer-flow-credential-check",
+    "file": "assets/visuals/generic-knowledge-answer-flow-credential-check.png",
+    "title": "Generic knowledge answer flow (credential check)",
+    "alt": "Three rounded boxes on a navy background, connected left to right by arrows: Question, Search, Cited answer.",
+    "description": "A simple three-step flow for explaining how an AI assistant answers from company knowledge: the question, the search, and an answer with sources. Proposed as an end-to-end credential check of the Brain brand-kit proposal path.",
+    "source": "Plainsight's own work: a generic diagram drawn for this check, no client data.",
+    "added": "2026-11-17"
   }
 ]
