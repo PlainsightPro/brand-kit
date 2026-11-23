@@ -208,10 +208,11 @@ jobs:
           import json, pathlib, re, struct, sys
 
           # Third-party product marks (Fabric, Power BI, dbt, ...) for proposals
-          # and diagrams. The Brain's offer tool mirrors this folder and re-checks
-          # every SVG at render time, dropping what fails: so the SVG allowlist is
-          # the very check_svg the moving twins pass, with a tighter size cap.
-          # The PNG twin is what the PDF renderer places.
+          # and diagrams. The Brain's offer tool mirrors the catalogue and the
+          # PNGs (scripts/sync_logo_pack.py there) and places only the PNG, on
+          # the page and in the PDF. The SVG is the source the PNG is rendered
+          # from and what a diagram may embed, so it passes the same check_svg
+          # allowlist the moving twins pass, with a tighter size cap.
           sys.dont_write_bytecode = True  # no __pycache__ in scripts/
           sys.path.insert(0, "scripts")
           from check_motion import check_svg
