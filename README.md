@@ -35,7 +35,10 @@ plainsight-brand-kit/
     │   ├── plainsight-logo-blue.svg
     │   ├── plainsight-logo-blue.png
     │   ├── plainsight-logo-white.svg
-    │   └── plainsight-logo-white.png
+    │   ├── plainsight-logo-white.png
+    │   └── tools/
+    │       ├── tools.json       # catalogue of third-party tool logos (Fabric, Power BI, dbt, ...)
+    │       └── <slug>.svg | .png  # the vendor's mark, unchanged; PNG rendered from the SVG, 320 px
     ├── graphics/
     │   ├── triangle-blue.svg    # canonical triangle shapes — always place these,
     │   ├── triangle-orange.svg  # never redraw them
@@ -69,6 +72,8 @@ plainsight-brand-kit/
 `assets/visuals/visuals.json` lists approved reusable visuals (diagrams such as the maturity scan) by slug. The Plainsight Brain mirrors this folder into its offer renderer, so an offer places a visual with `{"kind": "figure", "visual": "<slug>"}` and never pastes image bytes. This repository is public: only generic visuals belong here, never a client name or client data. To add one: export the approved artwork as PNG (about 1600 px wide), add the file and a catalogue entry (`slug`, `file`, `title`, `alt`, `description`, `source`, `added`), open a PR; CI checks both. The photos under `assets/photos/` are catalogued the same way, with the alt text from `photos.html`, so an offer can place one by its file stem. Anything else (a deck, a document, an artifact) uses the public URL `https://plainsightpro.github.io/brand-kit/assets/photos/<slug>.jpg`; `brand.json` → `photos` says where a photo goes and how it is treated. Only add a photo of people who are still at Plainsight and agree to it: this repository and its Pages site are public.
 
 A visual may also carry a moving twin for the offer page: `assets/visuals/<slug>.svg`, listed under `motion` in its catalogue entry. Draw it as SVG with every text outlined (the page shows it as an image, which loads no font), animate it with CSS inside the file, and keep it calm: `brand.json` → `motion` carries the rule (a cycle of at least 8 seconds, transform and opacity only, nothing flashes). CI runs `scripts/check_motion.py`. The PNG stays required: it is what the PDF prints, and it must be the twin at rest.
+
+`assets/logos/tools/` holds third-party logos, the marks of the products we work with (Microsoft Fabric, Power BI, Databricks, dbt, SAP, ...), so the Brain's offer tool can name a tool in a proposal or a diagram. They are for referential use next to the product name, never as Plainsight branding, and they stay as the vendor ships them: no recolouring, cropping or redrawing. Each logo is `<slug>.svg` (the product mark, no text) plus `<slug>.png` rendered from it, with an entry in `tools.json`. To add one: take the SVG from the vendor's official icon set first (Microsoft publishes Fabric, Azure, Power Platform and Dynamics 365 sets), else from an Iconify collection such as `@iconify-json/logos`; strip editor metadata and filters; render the PNG with `npx -y @resvg/resvg-js-cli --fit-width 320 <slug>.svg <slug>.png` (`--fit-height` for a tall mark); add the entry with a `source` precise enough to fetch the file again; run `python scripts/render_tool_logos.py` to refresh `logos.html`. CI checks the catalogue, the SVG allowlist (at most 48 KB) and the PNG (320 px on its longest side, at most 64 KB).
 
 ## Updating
 
