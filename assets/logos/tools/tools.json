@@ -1,0 +1,591 @@
+[
+  {
+    "slug": "microsoft-fabric",
+    "file": "assets/logos/tools/microsoft-fabric.svg",
+    "png": "assets/logos/tools/microsoft-fabric.png",
+    "name": "Microsoft Fabric",
+    "group": "Microsoft Fabric",
+    "alt": "Microsoft Fabric logo",
+    "aliases": [
+      "fabric",
+      "ms fabric"
+    ],
+    "source": "@fabric-msft/svg-icons@12.0.0 svg/fabric_48_color.svg",
+    "license": "MIT (@fabric-msft/svg-icons); Microsoft Fabric icon terms: referential use permitted",
+    "added": "2026-11-23"
+  },
+  {
+    "slug": "fabric-data-factory",
+    "file": "assets/logos/tools/fabric-data-factory.svg",
+    "png": "assets/logos/tools/fabric-data-factory.png",
+    "name": "Fabric Data Factory",
+    "group": "Microsoft Fabric",
+    "alt": "Fabric Data Factory logo",
+    "aliases": [
+      "data factory in fabric",
+      "fabric pipelines"
+    ],
+    "source": "@fabric-msft/svg-icons@12.0.0 svg/data_factory_48_color.svg",
+    "license": "MIT (@fabric-msft/svg-icons); Microsoft Fabric icon terms: referential use permitted",
+    "added": "2026-11-23"
+  },
+  {
+    "slug": "fabric-data-warehouse",
+    "file": "assets/logos/tools/fabric-data-warehouse.svg",
+    "png": "assets/logos/tools/fabric-data-warehouse.png",
+    "name": "Fabric Data Warehouse",
+    "group": "Microsoft Fabric",
+    "alt": "Fabric Data Warehouse logo",
+    "aliases": [
+      "fabric warehouse",
+      "warehouse in fabric"
+    ],
+    "source": "@fabric-msft/svg-icons@12.0.0 svg/data_warehouse_48_color.svg",
+    "license": "MIT (@fabric-msft/svg-icons); Microsoft Fabric icon terms: referential use permitted",
+    "added": "2026-11-23"
+  },
+  {
+    "slug": "fabric-lakehouse",
+    "file": "assets/logos/tools/fabric-lakehouse.svg",
+    "png": "assets/logos/tools/fabric-lakehouse.png",
+    "name": "Fabric Lakehouse",
+    "group": "Microsoft Fabric",
+    "alt": "Fabric Lakehouse logo",
+    "aliases": [
+      "lakehouse"
+    ],
+    "source": "@fabric-msft/svg-icons@12.0.0 svg/lakehouse_64_item.svg",
+    "license": "MIT (@fabric-msft/svg-icons); Microsoft Fabric icon terms: referential use permitted",
+    "added": "2026-11-23"
+  },
+  {
+    "slug": "onelake",
+    "file": "assets/logos/tools/onelake.svg",
+    "png": "assets/logos/tools/onelake.png",
+    "name": "OneLake",
+    "group": "Microsoft Fabric",
+    "alt": "OneLake logo",
+    "aliases": [
+      "one lake"
+    ],
+    "source": "@fabric-msft/svg-icons@12.0.0 svg/one_lake_48_color.svg",
+    "license": "MIT (@fabric-msft/svg-icons); Microsoft Fabric icon terms: referential use permitted",
+    "added": "2026-11-23"
+  },
+  {
+    "slug": "fabric-data-engineering",
+    "file": "assets/logos/tools/fabric-data-engineering.svg",
+    "png": "assets/logos/tools/fabric-data-engineering.png",
+    "name": "Fabric Data Engineering",
+    "group": "Microsoft Fabric",
+    "alt": "Fabric Data Engineering logo",
+    "aliases": [
+      "fabric spark",
+      "fabric notebooks"
+    ],
+    "source": "@fabric-msft/svg-icons@12.0.0 svg/data_engineering_48_color.svg",
+    "license": "MIT (@fabric-msft/svg-icons); Microsoft Fabric icon terms: referential use permitted",
+    "added": "2026-11-23"
+  },
+  {
+    "slug": "fabric-real-time-intelligence",
+    "file": "assets/logos/tools/fabric-real-time-intelligence.svg",
+    "png": "assets/logos/tools/fabric-real-time-intelligence.png",
+    "name": "Fabric Real-Time Intelligence",
+    "group": "Microsoft Fabric",
+    "alt": "Fabric Real-Time Intelligence logo",
+    "aliases": [
+      "rti",
+      "real-time intelligence",
+      "real time intelligence",
+      "eventhouse"
+    ],
+    "source": "@fabric-msft/svg-icons@12.0.0 svg/real_time_intelligence_48_color.svg",
+    "license": "MIT (@fabric-msft/svg-icons); Microsoft Fabric icon terms: referential use permitted",
+    "added": "2026-11-23"
+  },
+  {
+    "slug": "fabric-data-science",
+    "file": "assets/logos/tools/fabric-data-science.svg",
+    "png": "assets/logos/tools/fabric-data-science.png",
+    "name": "Fabric Data Science",
+    "group": "Microsoft Fabric",
+    "alt": "Fabric Data Science logo",
+    "aliases": [
+      "data science in fabric"
+    ],
+    "source": "@fabric-msft/svg-icons@12.0.0 svg/data_science_48_color.svg",
+    "license": "MIT (@fabric-msft/svg-icons); Microsoft Fabric icon terms: referential use permitted",
+    "added": "2026-11-23"
+  },
+  {
+    "slug": "power-bi",
+    "file": "assets/logos/tools/power-bi.svg",
+    "png": "assets/logos/tools/power-bi.png",
+    "name": "Power BI",
+    "group": "Microsoft Fabric",
+    "alt": "Power BI logo",
+    "aliases": [
+      "powerbi",
+      "pbi"
+    ],
+    "source": "@fabric-msft/svg-icons@12.0.0 svg/power_bi_48_color.svg",
+    "license": "MIT (@fabric-msft/svg-icons); Microsoft Fabric icon terms: referential use permitted",
+    "added": "2026-11-23"
+  },
+  {
+    "slug": "microsoft-purview",
+    "file": "assets/logos/tools/microsoft-purview.svg",
+    "png": "assets/logos/tools/microsoft-purview.png",
+    "name": "Microsoft Purview",
+    "group": "Microsoft Fabric",
+    "alt": "Microsoft Purview logo",
+    "aliases": [
+      "purview",
+      "azure purview"
+    ],
+    "source": "@fabric-msft/svg-icons@12.0.0 svg/purview_48_color.svg",
+    "license": "MIT (@fabric-msft/svg-icons); Microsoft Fabric icon terms: referential use permitted",
+    "added": "2026-11-23"
+  },
+  {
+    "slug": "azure",
+    "file": "assets/logos/tools/azure.svg",
+    "png": "assets/logos/tools/azure.png",
+    "name": "Microsoft Azure",
+    "group": "Azure",
+    "alt": "Microsoft Azure logo",
+    "aliases": [
+      "azure",
+      "ms azure"
+    ],
+    "source": "https://learn.microsoft.com/en-us/azure/architecture/icons/ (Azure_Public_Service_Icons_V25.zip) Icons/other/10018-icon-service-Azure-A.svg",
+    "license": "Microsoft architecture icons, referential use permitted (diagrams, training, documentation)",
+    "added": "2026-11-23"
+  },
+  {
+    "slug": "azure-data-factory",
+    "file": "assets/logos/tools/azure-data-factory.svg",
+    "png": "assets/logos/tools/azure-data-factory.png",
+    "name": "Azure Data Factory",
+    "group": "Azure",
+    "alt": "Azure Data Factory logo",
+    "aliases": [
+      "adf"
+    ],
+    "source": "https://learn.microsoft.com/en-us/azure/architecture/icons/ (Azure_Public_Service_Icons_V25.zip) Icons/integration/10126-icon-service-Data-Factories.svg",
+    "license": "Microsoft architecture icons, referential use permitted (diagrams, training, documentation)",
+    "added": "2026-11-23"
+  },
+  {
+    "slug": "azure-sql-database",
+    "file": "assets/logos/tools/azure-sql-database.svg",
+    "png": "assets/logos/tools/azure-sql-database.png",
+    "name": "Azure SQL Database",
+    "group": "Azure",
+    "alt": "Azure SQL Database logo",
+    "aliases": [
+      "azure sql",
+      "azure sql db",
+      "sql database"
+    ],
+    "source": "https://learn.microsoft.com/en-us/azure/architecture/icons/ (Azure_Public_Service_Icons_V25.zip) Icons/databases/10130-icon-service-SQL-Database.svg",
+    "license": "Microsoft architecture icons, referential use permitted (diagrams, training, documentation)",
+    "added": "2026-11-23"
+  },
+  {
+    "slug": "azure-synapse-analytics",
+    "file": "assets/logos/tools/azure-synapse-analytics.svg",
+    "png": "assets/logos/tools/azure-synapse-analytics.png",
+    "name": "Azure Synapse Analytics",
+    "group": "Azure",
+    "alt": "Azure Synapse Analytics logo",
+    "aliases": [
+      "synapse",
+      "azure synapse"
+    ],
+    "source": "https://learn.microsoft.com/en-us/azure/architecture/icons/ (Azure_Public_Service_Icons_V25.zip) Icons/analytics/00606-icon-service-Azure-Synapse-Analytics.svg",
+    "license": "Microsoft architecture icons, referential use permitted (diagrams, training, documentation)",
+    "added": "2026-11-23"
+  },
+  {
+    "slug": "power-apps",
+    "file": "assets/logos/tools/power-apps.svg",
+    "png": "assets/logos/tools/power-apps.png",
+    "name": "Power Apps",
+    "group": "Microsoft 365 & Power Platform",
+    "alt": "Power Apps logo",
+    "aliases": [
+      "powerapps"
+    ],
+    "source": "https://learn.microsoft.com/en-us/power-platform/guidance/icons (Power-Platform-icons-scalable.zip) Power Platform/PowerApps_scalable.svg",
+    "license": "Microsoft architecture icons, referential use permitted (diagrams, training, documentation)",
+    "added": "2026-11-23"
+  },
+  {
+    "slug": "power-automate",
+    "file": "assets/logos/tools/power-automate.svg",
+    "png": "assets/logos/tools/power-automate.png",
+    "name": "Power Automate",
+    "group": "Microsoft 365 & Power Platform",
+    "alt": "Power Automate logo",
+    "aliases": [
+      "powerautomate",
+      "microsoft flow"
+    ],
+    "source": "https://learn.microsoft.com/en-us/power-platform/guidance/icons (Power-Platform-icons-scalable.zip) Power Platform/PowerAutomate_scalable.svg",
+    "license": "Microsoft architecture icons, referential use permitted (diagrams, training, documentation)",
+    "added": "2026-11-23"
+  },
+  {
+    "slug": "microsoft-excel",
+    "file": "assets/logos/tools/microsoft-excel.svg",
+    "png": "assets/logos/tools/microsoft-excel.png",
+    "name": "Microsoft Excel",
+    "group": "Microsoft 365 & Power Platform",
+    "alt": "Microsoft Excel logo",
+    "aliases": [
+      "excel"
+    ],
+    "source": "@iconify-json/thesvg-color@1.2.30 thesvg-color:microsoft-excel",
+    "license": "MIT (theSVG)",
+    "added": "2026-11-23"
+  },
+  {
+    "slug": "sharepoint",
+    "file": "assets/logos/tools/sharepoint.svg",
+    "png": "assets/logos/tools/sharepoint.png",
+    "name": "SharePoint",
+    "group": "Microsoft 365 & Power Platform",
+    "alt": "SharePoint logo",
+    "aliases": [
+      "microsoft sharepoint",
+      "sharepoint online",
+      "spo"
+    ],
+    "source": "@iconify-json/thesvg-color@1.2.30 thesvg-color:microsoft-sharepoint",
+    "license": "MIT (theSVG)",
+    "added": "2026-11-23"
+  },
+  {
+    "slug": "microsoft-teams",
+    "file": "assets/logos/tools/microsoft-teams.svg",
+    "png": "assets/logos/tools/microsoft-teams.png",
+    "name": "Microsoft Teams",
+    "group": "Microsoft 365 & Power Platform",
+    "alt": "Microsoft Teams logo",
+    "aliases": [
+      "teams",
+      "ms teams"
+    ],
+    "source": "@iconify-json/thesvg-color@1.2.30 thesvg-color:microsoft-teams",
+    "license": "MIT (theSVG)",
+    "added": "2026-11-23"
+  },
+  {
+    "slug": "dynamics-365",
+    "file": "assets/logos/tools/dynamics-365.svg",
+    "png": "assets/logos/tools/dynamics-365.png",
+    "name": "Dynamics 365",
+    "group": "Dynamics 365",
+    "alt": "Dynamics 365 logo",
+    "aliases": [
+      "d365",
+      "dynamics",
+      "microsoft dynamics 365"
+    ],
+    "source": "https://learn.microsoft.com/en-us/dynamics365/get-started/icons (Dynamics-365-icons-scalable.zip) Dynamics 365 Product Family Icons/Dynamics365_scalable.svg",
+    "license": "Microsoft architecture icons, referential use permitted (diagrams, training, documentation)",
+    "added": "2026-11-23"
+  },
+  {
+    "slug": "dynamics-365-finance-operations",
+    "file": "assets/logos/tools/dynamics-365-finance-operations.svg",
+    "png": "assets/logos/tools/dynamics-365-finance-operations.png",
+    "name": "Dynamics 365 Finance & Operations",
+    "group": "Dynamics 365",
+    "alt": "Dynamics 365 Finance & Operations logo",
+    "aliases": [
+      "d365 f&o",
+      "f&o",
+      "fno",
+      "dynamics f&o",
+      "d365 finance",
+      "dynamics 365 finance",
+      "finance and operations"
+    ],
+    "source": "https://learn.microsoft.com/en-us/dynamics365/get-started/icons (Dynamics-365-icons-scalable.zip) Dynamics 365 App Icons/Finance_scalable.svg",
+    "license": "Microsoft architecture icons, referential use permitted (diagrams, training, documentation)",
+    "added": "2026-11-23"
+  },
+  {
+    "slug": "dynamics-365-business-central",
+    "file": "assets/logos/tools/dynamics-365-business-central.svg",
+    "png": "assets/logos/tools/dynamics-365-business-central.png",
+    "name": "Dynamics 365 Business Central",
+    "group": "Dynamics 365",
+    "alt": "Dynamics 365 Business Central logo",
+    "aliases": [
+      "business central",
+      "d365 bc",
+      "navision"
+    ],
+    "source": "https://learn.microsoft.com/en-us/dynamics365/get-started/icons (Dynamics-365-icons-scalable.zip) Dynamics 365 App Icons/BusinessCentral_scalable.svg",
+    "license": "Microsoft architecture icons, referential use permitted (diagrams, training, documentation)",
+    "added": "2026-11-23"
+  },
+  {
+    "slug": "sql-server",
+    "file": "assets/logos/tools/sql-server.svg",
+    "png": "assets/logos/tools/sql-server.png",
+    "name": "SQL Server",
+    "group": "Data platforms",
+    "alt": "SQL Server logo",
+    "aliases": [
+      "mssql",
+      "ms sql",
+      "microsoft sql server"
+    ],
+    "source": "https://learn.microsoft.com/en-us/azure/architecture/icons/ (Azure_Public_Service_Icons_V25.zip) Icons/databases/10132-icon-service-SQL-Server.svg",
+    "license": "Microsoft architecture icons, referential use permitted (diagrams, training, documentation)",
+    "added": "2026-11-23"
+  },
+  {
+    "slug": "databricks",
+    "file": "assets/logos/tools/databricks.svg",
+    "png": "assets/logos/tools/databricks.png",
+    "name": "Databricks",
+    "group": "Data platforms",
+    "alt": "Databricks logo",
+    "aliases": [
+      "azure databricks",
+      "dbx"
+    ],
+    "source": "@iconify-json/logos@1.2.20 logos:databricks-icon",
+    "license": "CC0-1.0 (SVG Logos)",
+    "added": "2026-11-23"
+  },
+  {
+    "slug": "dbt",
+    "file": "assets/logos/tools/dbt.svg",
+    "png": "assets/logos/tools/dbt.png",
+    "name": "dbt",
+    "group": "Data platforms",
+    "alt": "dbt logo",
+    "aliases": [
+      "dbt core",
+      "dbt cloud",
+      "data build tool"
+    ],
+    "source": "@iconify-json/logos@1.2.20 logos:dbt-icon",
+    "license": "CC0-1.0 (SVG Logos)",
+    "added": "2026-11-23"
+  },
+  {
+    "slug": "snowflake",
+    "file": "assets/logos/tools/snowflake.svg",
+    "png": "assets/logos/tools/snowflake.png",
+    "name": "Snowflake",
+    "group": "Data platforms",
+    "alt": "Snowflake logo",
+    "aliases": [],
+    "source": "@iconify-json/logos@1.2.20 logos:snowflake-icon",
+    "license": "CC0-1.0 (SVG Logos)",
+    "added": "2026-11-23"
+  },
+  {
+    "slug": "sap",
+    "file": "assets/logos/tools/sap.svg",
+    "png": "assets/logos/tools/sap.png",
+    "name": "SAP",
+    "group": "Business apps",
+    "alt": "SAP logo",
+    "aliases": [
+      "sap s/4hana",
+      "s/4hana",
+      "sap erp"
+    ],
+    "source": "@iconify-json/logos@1.2.20 logos:sap",
+    "license": "CC0-1.0 (SVG Logos)",
+    "added": "2026-11-23"
+  },
+  {
+    "slug": "salesforce",
+    "file": "assets/logos/tools/salesforce.svg",
+    "png": "assets/logos/tools/salesforce.png",
+    "name": "Salesforce",
+    "group": "Business apps",
+    "alt": "Salesforce logo",
+    "aliases": [
+      "sfdc"
+    ],
+    "source": "@iconify-json/logos@1.2.20 logos:salesforce",
+    "license": "CC0-1.0 (SVG Logos)",
+    "added": "2026-11-23"
+  },
+  {
+    "slug": "hubspot",
+    "file": "assets/logos/tools/hubspot.svg",
+    "png": "assets/logos/tools/hubspot.png",
+    "name": "HubSpot",
+    "group": "Business apps",
+    "alt": "HubSpot logo",
+    "aliases": [],
+    "source": "@iconify-json/thesvg-color@1.2.30 thesvg-color:hubspot",
+    "license": "MIT (theSVG)",
+    "added": "2026-11-23"
+  },
+  {
+    "slug": "odoo",
+    "file": "assets/logos/tools/odoo.svg",
+    "png": "assets/logos/tools/odoo.png",
+    "name": "Odoo",
+    "group": "Business apps",
+    "alt": "Odoo logo",
+    "aliases": [],
+    "source": "@iconify-json/thesvg-color@1.2.30 thesvg-color:odoo",
+    "license": "MIT (theSVG)",
+    "added": "2026-11-23"
+  },
+  {
+    "slug": "shopify",
+    "file": "assets/logos/tools/shopify.svg",
+    "png": "assets/logos/tools/shopify.png",
+    "name": "Shopify",
+    "group": "Business apps",
+    "alt": "Shopify logo",
+    "aliases": [],
+    "source": "@iconify-json/logos@1.2.20 logos:shopify",
+    "license": "CC0-1.0 (SVG Logos)",
+    "added": "2026-11-23"
+  },
+  {
+    "slug": "microsoft-copilot",
+    "file": "assets/logos/tools/microsoft-copilot.svg",
+    "png": "assets/logos/tools/microsoft-copilot.png",
+    "name": "Microsoft Copilot",
+    "group": "AI",
+    "alt": "Microsoft Copilot logo",
+    "aliases": [
+      "copilot"
+    ],
+    "source": "@fabric-msft/svg-icons@12.0.0 svg/copilot_48_color.svg",
+    "license": "MIT (@fabric-msft/svg-icons); Microsoft Fabric icon terms: referential use permitted",
+    "added": "2026-11-23"
+  },
+  {
+    "slug": "microsoft-foundry",
+    "file": "assets/logos/tools/microsoft-foundry.svg",
+    "png": "assets/logos/tools/microsoft-foundry.png",
+    "name": "Microsoft Foundry",
+    "group": "AI",
+    "alt": "Microsoft Foundry logo",
+    "aliases": [
+      "azure ai foundry",
+      "ai foundry",
+      "foundry",
+      "azure ai studio"
+    ],
+    "source": "https://learn.microsoft.com/en-us/azure/architecture/icons/ (Azure_Public_Service_Icons_V25.zip) Icons/ai + machine learning/035746832-icon-service-AI-Foundry.svg",
+    "license": "Microsoft architecture icons, referential use permitted (diagrams, training, documentation)",
+    "added": "2026-11-23"
+  },
+  {
+    "slug": "azure-openai",
+    "file": "assets/logos/tools/azure-openai.svg",
+    "png": "assets/logos/tools/azure-openai.png",
+    "name": "Azure OpenAI",
+    "group": "AI",
+    "alt": "Azure OpenAI logo",
+    "aliases": [
+      "aoai",
+      "azure openai service"
+    ],
+    "source": "https://learn.microsoft.com/en-us/azure/architecture/icons/ (Azure_Public_Service_Icons_V25.zip) Icons/ai + machine learning/03438-icon-service-Azure-OpenAI.svg",
+    "license": "Microsoft architecture icons, referential use permitted (diagrams, training, documentation)",
+    "added": "2026-11-23"
+  },
+  {
+    "slug": "azure-machine-learning",
+    "file": "assets/logos/tools/azure-machine-learning.svg",
+    "png": "assets/logos/tools/azure-machine-learning.png",
+    "name": "Azure Machine Learning",
+    "group": "AI",
+    "alt": "Azure Machine Learning logo",
+    "aliases": [
+      "azure ml",
+      "aml"
+    ],
+    "source": "https://learn.microsoft.com/en-us/azure/architecture/icons/ (Azure_Public_Service_Icons_V25.zip) Icons/ai + machine learning/038470510-icon-service-Azure-Machine-Learning.svg",
+    "license": "Microsoft architecture icons, referential use permitted (diagrams, training, documentation)",
+    "added": "2026-11-23"
+  },
+  {
+    "slug": "claude",
+    "file": "assets/logos/tools/claude.svg",
+    "png": "assets/logos/tools/claude.png",
+    "name": "Claude",
+    "group": "AI",
+    "alt": "Claude logo",
+    "aliases": [
+      "anthropic",
+      "claude ai"
+    ],
+    "source": "@iconify-json/logos@1.2.20 logos:claude-icon",
+    "license": "CC0-1.0 (SVG Logos)",
+    "added": "2026-11-23"
+  },
+  {
+    "slug": "openai",
+    "file": "assets/logos/tools/openai.svg",
+    "png": "assets/logos/tools/openai.png",
+    "name": "OpenAI",
+    "group": "AI",
+    "alt": "OpenAI logo",
+    "aliases": [
+      "chatgpt"
+    ],
+    "source": "@iconify-json/logos@1.2.20 logos:openai-icon",
+    "license": "CC0-1.0 (SVG Logos)",
+    "added": "2026-11-23"
+  },
+  {
+    "slug": "azure-devops",
+    "file": "assets/logos/tools/azure-devops.svg",
+    "png": "assets/logos/tools/azure-devops.png",
+    "name": "Azure DevOps",
+    "group": "Engineering",
+    "alt": "Azure DevOps logo",
+    "aliases": [
+      "ado",
+      "vsts"
+    ],
+    "source": "https://learn.microsoft.com/en-us/azure/architecture/icons/ (Azure_Public_Service_Icons_V25.zip) Icons/devops/10261-icon-service-Azure-DevOps.svg",
+    "license": "Microsoft architecture icons, referential use permitted (diagrams, training, documentation)",
+    "added": "2026-11-23"
+  },
+  {
+    "slug": "github",
+    "file": "assets/logos/tools/github.svg",
+    "png": "assets/logos/tools/github.png",
+    "name": "GitHub",
+    "group": "Engineering",
+    "alt": "GitHub logo",
+    "aliases": [],
+    "source": "@iconify-json/logos@1.2.20 logos:github-icon",
+    "license": "CC0-1.0 (SVG Logos)",
+    "added": "2026-11-23"
+  },
+  {
+    "slug": "python",
+    "file": "assets/logos/tools/python.svg",
+    "png": "assets/logos/tools/python.png",
+    "name": "Python",
+    "group": "Engineering",
+    "alt": "Python logo",
+    "aliases": [],
+    "source": "@iconify-json/logos@1.2.20 logos:python",
+    "license": "CC0-1.0 (SVG Logos)",
+    "added": "2026-11-23"
+  }
+]

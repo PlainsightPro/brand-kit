@@ -201,3 +201,96 @@ jobs:
       # there, never in the script.
       - name: Verify the moving twins against the motion rule
         run: python scripts/check_motion.py
+
+      - name: Verify the tool logos catalogue and its files
+        run: |
+          python - <<'EOF'
+          import json, pathlib, re, struct, sys
+
+          # Third-party product marks (Fabric, Power BI, dbt, ...) for proposals
+          # and diagrams. The Brain's offer tool mirrors the catalogue and the
+          # PNGs (scripts/sync_logo_pack.py there) and places only the PNG, on
+          # the page and in the PDF. The SVG is the source the PNG is rendered
+          # from and what a diagram may embed, so it passes the same check_svg
+          # allowlist the moving twins pass, with a tighter size cap.
+          sys.dont_write_bytecode = True  # no __pycache__ in scripts/
+          sys.path.insert(0, "scripts")
+          from check_motion import check_svg
+
+          folder = pathlib.Path("assets/logos/tools")
+          catalogue = json.loads((folder / "tools.json").read_text(encoding="utf-8"))
+          if not isinstance(catalogue, list):
+              print("tools.json must hold a list"); sys.exit(1)
+
+          slug_re = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
+          groups = {
+              "Microsoft Fabric", "Azure", "Microsoft 365 & Power Platform", "Dynamics 365",
+              "Data platforms", "Business apps", "AI", "Engineering",
+          }
+          keys = {"slug", "file", "png", "name", "group", "alt", "aliases", "source", "license", "added"}
+          svg_cap, png_cap, png_side = 48 * 1024, 64 * 1024, 320
+          problems, seen, listed = [], set(), set()
+          for entry in catalogue:
+              if not isinstance(entry, dict):
+                  problems.append(f"entry is not an object: {entry!r}"); continue
+              slug = str(entry.get("slug") or "")
+              if not slug_re.match(slug):
+                  problems.append(f"bad slug: {slug!r}"); continue
+              if slug in seen:
+                  problems.append(f"duplicate slug: {slug}")
+              seen.add(slug)
+              if set(entry) != keys:
+                  problems.append(f"{slug}: keys must be exactly {sorted(keys)}, got {sorted(entry)}")
+              for key in ("name", "alt", "source", "license", "added"):
+                  if not isinstance(entry.get(key), str) or not entry[key].strip():
+                      problems.append(f"{slug}: missing {key}")
+              if entry.get("group") not in groups:
+                  problems.append(f"{slug}: group {entry.get('group')!r} is not one of {sorted(groups)}")
+              aliases = entry.get("aliases")
+              if not isinstance(aliases, list) or not all(isinstance(a, str) and a.strip() for a in aliases):
+                  problems.append(f"{slug}: aliases must be a list of non-empty strings")
+              elif any(a != a.lower() for a in aliases):
+                  problems.append(f"{slug}: aliases must be lowercase")
+
+              svg = f"assets/logos/tools/{slug}.svg"
+              if entry.get("file") != svg:
+                  problems.append(f"{slug}: file must be {svg}, got {entry.get('file')!r}")
+              elif not pathlib.Path(svg).is_file():
+                  problems.append(f"{slug}: missing file {svg}")
+              else:
+                  listed.add(svg)
+                  for problem in check_svg(pathlib.Path(svg).read_bytes(), cap=svg_cap):
+                      problems.append(f"{slug}: {svg}: {problem}")
+
+              png = f"assets/logos/tools/{slug}.png"
+              if entry.get("png") != png:
+                  problems.append(f"{slug}: png must be {png}, got {entry.get('png')!r}")
+              elif not pathlib.Path(png).is_file():
+                  problems.append(f"{slug}: missing file {png}")
+              else:
+                  listed.add(png)
+                  data = pathlib.Path(png).read_bytes()
+                  if not data.startswith(bytes([0x89]) + b"PNG\r\n\x1a\n") or data[12:16] != b"IHDR":
+                      problems.append(f"{slug}: {png} is not a PNG image")
+                  else:
+                      width, height = struct.unpack(">II", data[16:24])
+                      if max(width, height) != png_side:
+                          problems.append(f"{slug}: {png} is {width}x{height}, its longest side must be {png_side} px")
+                  if len(data) > png_cap:
+                      problems.append(f"{slug}: {png} is {len(data)} bytes, cap is {png_cap}")
+
+          for path in sorted(folder.iterdir()):
+              if path.name != "tools.json" and path.as_posix() not in listed:
+                  problems.append(f"file without a catalogue entry: {path.as_posix()}")
+          if problems:
+              print("tool logos check FAILED:")
+              for problem in problems:
+                  print(f"  - {problem}")
+              sys.exit(1)
+          print(f"tool logos catalogue is sound: {len(catalogue)} logos, every SVG within the allowlist, every PNG 320 px.")
+          EOF
+
+      # The grid on logos.html is generated from tools.json, so a logo added
+      # to the catalogue shows up in the kit too.
+      - name: Verify the tool logo grid on logos.html is current
+        run: python scripts/render_tool_logos.py --check
