@@ -10,7 +10,7 @@ description: "Plainsight visual design system and brand guidelines. Use this ski
 
 # Plainsight Brand Visual Skill
 
-Generated from `brand.json` v1.5.0 (updated 2026-11-16). Source of truth: https://github.com/PlainsightPro/brand-kit. When any other document disagrees with the manifest, the manifest wins.
+Generated from `brand.json` v1.6.0 (updated 2026-11-26). Source of truth: https://github.com/PlainsightPro/brand-kit. When any other document disagrees with the manifest, the manifest wins.
 
 ## The one rule that matters most
 
@@ -320,6 +320,16 @@ Everything made for Plainsight or its clients: decks, documents, web pages, dash
 - In brand-kit: `brand-kit:assets/templates/plainsight-deck-master-2026.potx`
 - Live version: SharePoint > Plainsight > General > Digital Templates > Office Templates > 2026_PWP Sjabloon Plainsight rebranding.potx
 
+**Word template: long-form offer.** For an answer to a formal request: a client who sends their own numbered request and expects a document with a table of contents, numbered chapters, appendices and a version history. Start from this template and fill it from the Brain's offer context, so pricing rules, team and references match the offer tool. An offer after a first conversation is made in the offer tool, which is never stretched into a document like this one. Dutch; delete the guidance blocks before sending. SharePoint holds the live version; the bundled file is a snapshot.
+
+- In brand-kit: `brand-kit:assets/templates/plainsight-offer-longform.dotx`
+- Live version: SharePoint > Plainsight > General > Digital Templates > Office Templates > Word Templates > Plainsight_Offerte_Uitgebreid.dotx
+
+**Word template: blueprint.** For the blueprint that comes after the yes: requirements, the current landscape, the solution design, work breakdown and as-built documentation, in two parts (assessment, solution). Technical depth belongs here, never in an offer. English; delete the guidance blocks before sharing. SharePoint holds the live version; the bundled file is a snapshot.
+
+- In brand-kit: `brand-kit:assets/templates/plainsight-blueprint.dotx`
+- Live version: SharePoint > Plainsight > General > Digital Templates > Office Templates > Word Templates > Plainsight_Blueprint.dotx
+
 **Plainsight design system (Claude).** A design system in Claude (slide layouts, components, tokens) is generated from this manifest and owned with this repository, never kept as a separate source. When the two disagree, this manifest wins and the design system is regenerated.
 
 - Status: Proposed, not yet published. Until it is, Claude Slides decks and artifacts are built from this manifest directly.
@@ -492,6 +502,7 @@ Senior practitioners who respect the reader's time. Knowledge first, in clear hu
 - [ ] If a template, layout or text box specifies another font, override it to the typography above: the deck master does this and it is a known defect.
 - [ ] Logo from asset files, correct variant for the background.
 - [ ] PowerPoint decks start from the official .potx template. Claude Slides and HTML decks follow layout and agency_principles.
+- [ ] Word documents start from the official .dotx templates (templates.word_offer_longform, templates.word_blueprint): a long-form offer or a blueprint is never rebuilt from a blank document or inside the offer tool.
 - [ ] Photos only from the photos catalogue: real Plainsight people, untinted, never under text.
 - [ ] Copy passes the voice test: clear, concrete, confident; no buzzwords, no banned words, no em dashes.
 - [ ] Output passes the never_look_like_ai test and the agency_principles final check.

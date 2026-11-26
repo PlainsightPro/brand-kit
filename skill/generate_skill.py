@@ -293,6 +293,15 @@ def render_template_files(manifest: dict[str, Any]) -> str:
         if live := master.get("live_version"):
             parts.append(f"- Live version: {live}")
         parts.append("")
+    for key, word_template in templates.items():
+        if not (key.startswith("word_") and isinstance(word_template, dict)):
+            continue
+        parts.append(f"**{word_template.get('name', key)}.** {word_template.get('rule', '')}")
+        parts.append("")
+        parts.append(f"- In brand-kit: `{UPSTREAM_ONLY_PREFIX}{word_template.get('file', '')}`")
+        if live := word_template.get("live_version"):
+            parts.append(f"- Live version: {live}")
+        parts.append("")
     design_system = templates.get("claude_design_system")
     if isinstance(design_system, dict):
         parts.append(f"**{design_system.get('name', 'Design system in Claude')}.** {design_system.get('rule', '')}")
