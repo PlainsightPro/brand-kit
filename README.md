@@ -60,6 +60,8 @@ plainsight-brand-kit/
         ├── brand.json           # machine-readable brand manifest (for tools & AI agents)
         ├── plainsight-deck-master-2026.potx   # canonical PowerPoint template (snapshot;
         │                                      # live version on SharePoint)
+        ├── plainsight-offer-longform.dotx     # Word template: answer to a formal, numbered request
+        ├── plainsight-blueprint.dotx          # Word template: blueprint after the yes
         ├── plainsight-tokens.css
         ├── tailwind.config.js
         └── plainsight-powerbi-theme.json
@@ -81,4 +83,4 @@ This kit is a static site — to change anything, edit the HTML directly. The sh
 
 ## Version
 
-Pages v1.0, manifest v1.5.0 (`brand.json` → `meta.version`) — maintained by the Plainsight team. Canonical reference: [plainsight.pro](https://www.plainsight.pro).
+Pages v1.0, manifest v1.6.0 (`brand.json` → `meta.version`) — maintained by the Plainsight team. Canonical reference: [plainsight.pro](https://www.plainsight.pro).

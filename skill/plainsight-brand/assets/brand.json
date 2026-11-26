@@ -1,8 +1,8 @@
 {
   "meta": {
     "name": "Plainsight Brand Manifest",
-    "version": "1.5.0",
-    "updated": "2026-11-16",
+    "version": "1.6.0",
+    "updated": "2026-11-26",
     "source_of_truth": "https://github.com/PlainsightPro/brand-kit",
     "purpose": "Single machine-readable brand spec for humans, tools, and AI agents. When any other document disagrees with this file, this file wins. Agents: read this file whole; never rely on fragments of it."
   },
@@ -180,6 +180,18 @@
       "live_version": "SharePoint > Plainsight > General > Digital Templates > Office Templates > 2026_PWP Sjabloon Plainsight rebranding.potx",
       "rule": "All Plainsight PowerPoint files start from this template. Do not rebuild its slide layouts from scratch. Decks generated in Claude Slides or as HTML cannot start from a .potx: they follow layout, never_look_like_ai and agency_principles in this manifest on the same 1280x720 canvas. SharePoint holds the live version; the bundled file is a snapshot."
     },
+    "word_offer_longform": {
+      "name": "Word template: long-form offer",
+      "file": "assets/templates/plainsight-offer-longform.dotx",
+      "live_version": "SharePoint > Plainsight > General > Digital Templates > Office Templates > Word Templates > Plainsight_Offerte_Uitgebreid.dotx",
+      "rule": "For an answer to a formal request: a client who sends their own numbered request and expects a document with a table of contents, numbered chapters, appendices and a version history. Start from this template and fill it from the Brain's offer context, so pricing rules, team and references match the offer tool. An offer after a first conversation is made in the offer tool, which is never stretched into a document like this one. Dutch; delete the guidance blocks before sending. SharePoint holds the live version; the bundled file is a snapshot."
+    },
+    "word_blueprint": {
+      "name": "Word template: blueprint",
+      "file": "assets/templates/plainsight-blueprint.dotx",
+      "live_version": "SharePoint > Plainsight > General > Digital Templates > Office Templates > Word Templates > Plainsight_Blueprint.dotx",
+      "rule": "For the blueprint that comes after the yes: requirements, the current landscape, the solution design, work breakdown and as-built documentation, in two parts (assessment, solution). Technical depth belongs here, never in an offer. English; delete the guidance blocks before sharing. SharePoint holds the live version; the bundled file is a snapshot."
+    },
     "claude_design_system": {
       "name": "Plainsight design system (Claude)",
       "status": "Proposed, not yet published. Until it is, Claude Slides decks and artifacts are built from this manifest directly.",
@@ -355,6 +367,7 @@
     "If a template, layout or text box specifies another font, override it to the typography above: the deck master does this and it is a known defect.",
     "Logo from asset files, correct variant for the background.",
     "PowerPoint decks start from the official .potx template. Claude Slides and HTML decks follow layout and agency_principles.",
+    "Word documents start from the official .dotx templates (templates.word_offer_longform, templates.word_blueprint): a long-form offer or a blueprint is never rebuilt from a blank document or inside the offer tool.",
     "Photos only from the photos catalogue: real Plainsight people, untinted, never under text.",
     "Copy passes the voice test: clear, concrete, confident; no buzzwords, no banned words, no em dashes.",
     "Output passes the never_look_like_ai test and the agency_principles final check.",
